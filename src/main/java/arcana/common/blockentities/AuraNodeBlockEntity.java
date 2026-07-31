@@ -62,6 +62,8 @@ public class AuraNodeBlockEntity extends BlockEntity {
 
     private static final String[] PRIMAL_TAGS = {"aer", "terra", "ignis", "aqua", "ordo", "perditio"};
     private static final int REGEN_INTERVAL = 80;
+    /** Player sensor + silverwood scans run every Nth regen (batch; not every tick). */
+    private static final int SCAN_EVERY_N_REGEN = 2;
     private static final float SILVERWOOD_BONUS = 0.25f;
     private static final int SILVERWOOD_RANGE = 6;
     public static final int RECHARGE_RADIUS = 8;
@@ -71,6 +73,9 @@ public class AuraNodeBlockEntity extends BlockEntity {
     private String aspect = Aspect.AIR.getTag();
     private NodeType nodeType = NodeType.NORMAL;
     private float visBuffer;
+    private int regenCount;
+    private boolean cachedSilverwood;
+    private boolean cachedSensorNearby;
 
     public AuraNodeBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.AURA_NODE.get(), pos, state);
@@ -133,8 +138,18 @@ public class AuraNodeBlockEntity extends BlockEntity {
         if (level.getGameTime() % REGEN_INTERVAL != 0) {
             return;
         }
+        be.regenCount++;
+        boolean doScan = be.regenCount % SCAN_EVERY_N_REGEN == 0;
+        if (doScan) {
+            be.cachedSilverwood = be.hasNearbySilverwood(level, pos);
+            if (level instanceof ServerLevel server) {
+                be.cachedSensorNearby = !server.getEntitiesOfClass(Player.class,
+                        new AABB(pos).inflate(RECHARGE_RADIUS),
+                        p -> p.isAlive() && holdsSensor(p)).isEmpty();
+            }
+        }
         float amount = be.nodeType.regen;
-        if (be.hasNearbySilverwood(level, pos)) {
+        if (be.cachedSilverwood) {
             amount += SILVERWOOD_BONUS;
         }
         amount *= (float) ArcanaConfig.COMMON.auraNodeRegenMultiplier.get().doubleValue();
@@ -153,10 +168,7 @@ public class AuraNodeBlockEntity extends BlockEntity {
         if (!(level instanceof ServerLevel server)) {
             return;
         }
-        boolean sensorNearby = !server.getEntitiesOfClass(Player.class,
-                new AABB(pos).inflate(RECHARGE_RADIUS),
-                p -> p.isAlive() && holdsSensor(p)).isEmpty();
-        if (sensorNearby) {
+        if (be.cachedSensorNearby) {
             server.sendParticles(ParticleTypes.END_ROD,
                     pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5,
                     8, 0.25, 0.25, 0.25, 0.02);

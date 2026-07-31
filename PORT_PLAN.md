@@ -189,8 +189,8 @@ Ship milestones:
 - **0.6.0** — Phase I Systems — **shipped**
 - **0.7.0** — Phase J Content pack — **shipped**
 - **0.8.0** — Phase K World & threats — **shipped**
-- **0.9.0** — Phase L Polish / soft-deps
-- **1.0.0** — Phase M Release candidate
+- **0.9.0** — Phase L Polish / soft-deps — **shipped**
+- **1.0.0** — Phase M Release candidate — **shipped**
 
 ### Phase I — Systems depth (→ 0.6.0) — **shipped**
 
@@ -234,18 +234,20 @@ Ship milestones:
 | L5 | Configs: aura rates, warp intensity, worldgen rarity | done |
 | L6 | Localization RU + EN; advancements | done |
 
-### Phase M — 1.0.0 RC
+### Phase M — 1.0.0 RC — **shipped**
 
-| ID | Модуль |
-|----|--------|
-| M1 | Full smoke suite + regression checklist |
-| M2 | Performance pass (aura chunks, tube ticks) |
-| M3 | License/credits vs TC6 source disclosure |
-| M4 | Modrinth/Curse publish artifacts + changelog |
+| ID | Модуль | Статус |
+|----|--------|--------|
+| M1 | Full smoke suite + regression checklist | done |
+| M2 | Performance pass (aura chunks, tube ticks) | done |
+| M3 | License/credits vs TC6 source disclosure | done |
+| M4 | Modrinth/Curse publish artifacts + changelog | done |
+
+Roadmap complete through **1.0.0**. Smoke: `/arcana smoke` + `SMOKE_CHECKLIST.md`. Artifact: `build/libs/arcana-1.0.0.jar`.
 
 ### Рекомендуемый порядок работы
 
-`I5 → I6 → I2 → I3 → I4 → I1` затем `J1–J2` (контент на живых системах), потом `K`, `L`, `M`.
+`I5 → I6 → I2 → I3 → I4 → I1` затем `J1–J2` (контент на живых системах), потом `K`, `L`, `M` — **выполнен**.
 
 Правило без изменений: модуль не «done», пока не прошёл `runClient` smoke.
 

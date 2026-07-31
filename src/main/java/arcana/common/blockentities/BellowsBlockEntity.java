@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.state.BlockState;
 /**
  * G20: Every 40 ticks, take 1 essentia from the block behind and push to the block in front
  * (or an adjacent transport on either side of the facing axis).
+ * No entity AABB — neighbor BlockEntity lookups only.
  */
 public class BellowsBlockEntity extends BlockEntity {
     private int tickCounter;

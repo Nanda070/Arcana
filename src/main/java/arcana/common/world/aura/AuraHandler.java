@@ -180,7 +180,10 @@ public final class AuraHandler {
         addAuraChunk(dimKey(level), chunk, base, base, 0.0f);
     }
 
-    /** Light regen toward base each second — full neighbour equalization comes later. */
+    /**
+     * Light regen toward base each second — full neighbour equalization comes later.
+     * Chunk-map iteration once/sec is fine at current scale; skip micro-opts unless profiling shows heat.
+     */
     public static void tickRegen(ServerLevel level) {
         AuraWorld world = AURAS.get(dimKey(level));
         if (world == null) {

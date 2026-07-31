@@ -26,7 +26,8 @@ public class HungryChestBlockEntity extends BaseContainerBlockEntity {
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, HungryChestBlockEntity be) {
-        if (level.getGameTime() % 20 != 0) {
+        // Throttled vacuum: small AABB, not every tick
+        if (level.getGameTime() % 40 != 0) {
             return;
         }
         AABB box = new AABB(pos).inflate(2.0);

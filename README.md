@@ -2,7 +2,7 @@
 
 Dev port of **Thaumcraft 6** to **Minecraft 1.20.1 Forge** (`modid=arcana`).
 
-Version **0.9.0** — Phase L polish & soft-deps (see `arcana_changelog.txt`).
+Version **1.0.0** — Phase M release candidate (see `arcana_changelog.txt`, `SMOKE_CHECKLIST.md`).
 
 ## Requirements
 
@@ -15,8 +15,19 @@ Version **0.9.0** — Phase L polish & soft-deps (see `arcana_changelog.txt`).
 ```powershell
 $env:JAVA_HOME = "C:\Program Files\Eclipse Adoptium\jdk-17.0.20.8-hotspot"
 .\gradlew.bat compileJava
+.\gradlew.bat jar
 .\gradlew.bat runClient
 ```
+
+Artifact: `build/libs/arcana-1.0.0.jar`
+
+## Publish (manual)
+
+No automated Modrinth/CurseForge pipeline. After `.\gradlew.bat jar --offline`:
+
+1. Upload `build/libs/arcana-1.0.0.jar` to [Modrinth](https://modrinth.com) and/or [CurseForge](https://www.curseforge.com)
+2. Set game version **1.20.1**, loader **Forge**, optional deps JEI / Curios
+3. Paste summary from `arcana_changelog.txt` (1.0.0 section) and link `NOTICE.md` / Credits & Legal below
 
 ## Curios
 
@@ -51,8 +62,17 @@ Soft dependency: **compileOnly** Curios API is always on the classpath.
 
 - `/arcana` or `/arcana help` — summary
 - `/arcana aspects`
+- `/arcana smoke` — registry smoke assertions (op, or anyone in FG userdev)
 - Op: `research`, `knowledge`, `warp` (PERMANENT|NORMAL/STICKY|TEMPORARY, incl. `event`), `aura`, `essentia`, `crucible`, `cast`, `focus give`
 
-## Deferred / next
+## Credits & Legal
 
-See **Phase M** roadmap in `PORT_PLAN.md` (1.0.0 RC).
+Arcana is an **unofficial** port inspired by **Thaumcraft 6** by **Azanor**. It is **not affiliated with** Mojang Studios, Microsoft, or Azanor.
+
+Original TC6 sources may be used as reference in sibling repo paths. Arcana code is **All Rights Reserved** (see `gradle.properties` / `mods.toml`). Forge MDK licensing remains in `LICENSE.txt`.
+
+Authors: **Nanda070** / Arcana Dev. Full disclosure: `NOTICE.md`, `CREDITS.md`.
+
+## Roadmap
+
+**1.0.0 shipped** (Phases M0–M through L + Phase M RC). See `PORT_PLAN.md` and `SMOKE_CHECKLIST.md`.

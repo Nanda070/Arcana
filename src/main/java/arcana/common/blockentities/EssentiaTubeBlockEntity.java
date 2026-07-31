@@ -38,7 +38,9 @@ public class EssentiaTubeBlockEntity extends BlockEntity implements IEssentiaTra
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, EssentiaTubeBlockEntity tube) {
-        if (++tube.tickCounter % 5 != 0) {
+        // Active tubes (holding essentia): every 5t; idle empty tubes: every 10t
+        int interval = tube.essentiaAmount > 0 ? 5 : 10;
+        if (++tube.tickCounter % interval != 0) {
             return;
         }
         tube.calculateSuction();

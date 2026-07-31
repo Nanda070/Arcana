@@ -32,17 +32,20 @@ public final class WarpEvents {
             return;
         }
         IPlayerWarp wc = ArcanaCapabilities.getWarp(player);
-
+        // Cache counter + type amounts once per check (avoid repeated capability lookups)
+        int warpCounter = wc.getCounter();
+        if (warpCounter <= 0) {
+            return;
+        }
         int tw = wc.get(IPlayerWarp.EnumWarpType.TEMPORARY);
         int nw = wc.get(IPlayerWarp.EnumWarpType.NORMAL);
         int pw = wc.get(IPlayerWarp.EnumWarpType.PERMANENT);
         int actualWarp = pw + nw;
         int gearWarp = WarpHelper.getGearWarp(player);
         int warp = tw + nw + pw + gearWarp;
-        int warpCounter = wc.getCounter();
         RandomSource random = player.getRandom();
 
-        if (warpCounter <= 0 || warp <= 0) {
+        if (warp <= 0) {
             return;
         }
         double chance = Math.sqrt(warpCounter) / 100.0D * ArcanaConfig.COMMON.warpEventChanceMultiplier.get();

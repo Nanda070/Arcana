@@ -3,12 +3,17 @@ package arcana.common.lib.events;
 import arcana.api.capabilities.ArcanaCapabilities;
 import arcana.api.capabilities.IPlayerWarp;
 import arcana.api.items.IWarpingGear;
+import java.util.UUID;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 
 public final class WarpHelper {
     public static final String NBT_WARP = "Arcana.WARP";
+
+    private static UUID gearCachePlayer;
+    private static int gearCacheTick = Integer.MIN_VALUE;
+    private static int gearCacheValue;
 
     private WarpHelper() {
     }
@@ -27,7 +32,13 @@ public final class WarpHelper {
         return warp;
     }
 
+    /** Gear warp cached for the same player tick (armor/hand scan is the hot path). */
     public static int getGearWarp(Player player) {
+        UUID id = player.getUUID();
+        int tick = player.tickCount;
+        if (tick == gearCacheTick && id.equals(gearCachePlayer)) {
+            return gearCacheValue;
+        }
         int total = 0;
         total += getFinalWarp(player.getMainHandItem(), player);
         total += getFinalWarp(player.getOffhandItem(), player);
@@ -37,6 +48,9 @@ public final class WarpHelper {
             }
             total += getFinalWarp(player.getItemBySlot(slot), player);
         }
+        gearCachePlayer = id;
+        gearCacheTick = tick;
+        gearCacheValue = total;
         return total;
     }
 

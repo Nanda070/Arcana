@@ -14,6 +14,7 @@ import arcana.common.lib.events.WarpEvents;
 import arcana.common.lib.events.WarpHelper;
 import arcana.common.lib.research.ResearchManager;
 import arcana.common.network.PacketHandler;
+import arcana.common.tests.SmokeAssertions;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.FloatArgumentType;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
@@ -30,6 +31,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
+import net.minecraftforge.fml.loading.FMLLoader;
 
 public final class ArcanaCommands {
     private static final SimpleCommandExceptionType BAD_KNOWLEDGE_TYPE =
@@ -52,6 +54,9 @@ public final class ArcanaCommands {
                         .executes(ArcanaCommands::help))
                 .then(Commands.literal("aspects")
                         .executes(ArcanaCommands::listAspects))
+                .then(Commands.literal("smoke")
+                        .requires(src -> src.hasPermission(2) || !FMLLoader.isProduction())
+                        .executes(ArcanaCommands::runSmoke))
                 .then(Commands.literal("research")
                         .requires(src -> src.hasPermission(2))
                         .then(Commands.literal("list")
@@ -140,11 +145,19 @@ public final class ArcanaCommands {
         CommandSourceStack source = ctx.getSource();
         source.sendSuccess(() -> Component.literal("Arcana commands:"), false);
         source.sendSuccess(() -> Component.literal(" /arcana aspects"), false);
+        source.sendSuccess(() -> Component.literal(" /arcana smoke  (op, or anyone in dev)"), false);
         source.sendSuccess(() -> Component.literal(" /arcana research|knowledge|warp|aura|essentia|crucible|cast|focus  (op)"), false);
         source.sendSuccess(() -> Component.literal(" Warp: get|set|add|clear|event"), false);
         source.sendSuccess(() -> Component.literal(" Focus: give <touch_fire|projectile_fire|touch_frost|projectile_frost>"), false);
         source.sendSuccess(() -> Component.literal(" Cast: /arcana cast [preset]"), false);
         return 1;
+    }
+
+    private static int runSmoke(CommandContext<CommandSourceStack> ctx) {
+        CommandSourceStack source = ctx.getSource();
+        int fail = SmokeAssertions.runAndReport(line ->
+                source.sendSuccess(() -> Component.literal(line), false));
+        return fail == 0 ? 1 : 0;
     }
 
     private static int listAspects(CommandContext<CommandSourceStack> ctx) {

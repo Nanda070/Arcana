@@ -1,6 +1,20 @@
 Arcana Changelog
 ================
 
+1.0.0 — Phase M release candidate
+---------------------------------
+Ship of Phases M0–M through L as playable 1.0.0 RC.
+
+- M1: `SMOKE_CHECKLIST.md` full loop; `SmokeAssertions` + `/arcana smoke` (op / all in userdev)
+- M2: Aura node regen 80t + batched player/silverwood scans; idle tubes 10t / active 5t;
+  HungryChest vacuum 40t; WarpHelper gear-warp tick cache; AuraHandler regen note
+- M3: `NOTICE.md` / `CREDITS.md`; README Credits & Legal; authors Nanda070 / Arcana Dev
+- M4: `mod_version=1.0.0`; jar `build/libs/arcana-1.0.0.jar`; Modrinth/Curse manual upload notes
+
+Prior milestones (summary): aspects/research/aura (M0–M5), crafting/essentia/devices (M6–M8),
+gear/casters/worldgen/golems (M9–M13), client polish (M14), D1–D8 discovery, E1–E8 infusion/Curios,
+F1–F6 silverwood/nodes, G–L depth through textures, JEI, RU locale, advancements, warp threats.
+
 0.9.0 — Phase L polish & soft-deps
 ---------------------------------
 - L1: Dedicated block/item textures (research table, devices, filter tube, infusion/pedestal/focal);
