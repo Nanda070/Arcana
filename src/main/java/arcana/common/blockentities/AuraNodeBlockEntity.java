@@ -4,6 +4,7 @@ import arcana.api.aspects.Aspect;
 import arcana.api.aura.AuraHelper;
 import arcana.common.items.casters.ItemCaster;
 import arcana.common.lib.ArcanaSounds;
+import arcana.config.ArcanaConfig;
 import arcana.registry.ModBlockEntities;
 import arcana.registry.ModBlocks;
 import arcana.registry.ModItems;
@@ -136,6 +137,7 @@ public class AuraNodeBlockEntity extends BlockEntity {
         if (be.hasNearbySilverwood(level, pos)) {
             amount += SILVERWOOD_BONUS;
         }
+        amount *= (float) ArcanaConfig.COMMON.auraNodeRegenMultiplier.get().doubleValue();
         float room = BUFFER_MAX - be.visBuffer;
         float toBuffer = Math.min(room, amount);
         be.visBuffer += toBuffer;

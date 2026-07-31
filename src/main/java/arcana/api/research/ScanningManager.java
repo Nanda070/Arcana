@@ -2,6 +2,7 @@ package arcana.api.research;
 
 import arcana.api.capabilities.ArcanaCapabilities;
 import arcana.api.capabilities.IPlayerKnowledge;
+import arcana.common.lib.ArcanaSounds;
 import arcana.common.lib.research.ResearchManager;
 import arcana.common.network.PacketHandler;
 import java.util.ArrayList;
@@ -69,6 +70,7 @@ public final class ScanningManager {
         }
         if (player instanceof ServerPlayer serverPlayer) {
             if (unlocked) {
+                ArcanaSounds.scanSuccess(player.level(), player.blockPosition());
                 PacketHandler.syncKnowledge(serverPlayer);
                 player.displayClientMessage(Component.translatable("arcana.scan.success"), true);
             } else if (any) {

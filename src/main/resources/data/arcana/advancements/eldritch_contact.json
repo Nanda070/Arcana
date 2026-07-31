@@ -1,0 +1,20 @@
+{
+  "parent": "arcana:root",
+  "display": {
+    "icon": { "item": "arcana:eldritch_stone" },
+    "title": { "translate": "advancements.arcana.eldritch_contact.title" },
+    "description": { "translate": "advancements.arcana.eldritch_contact.description" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_stone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [{ "items": ["arcana:eldritch_stone"] }]
+      }
+    }
+  }
+}

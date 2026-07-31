@@ -9,7 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 public class ResearchTableScreen extends AbstractContainerScreen<ResearchTableMenu> {
-    private static final ResourceLocation BG = new ResourceLocation("arcana", "textures/gui/arcane_workbench.png");
+    private static final ResourceLocation BG = new ResourceLocation("arcana", "textures/gui/research_table.png");
 
     public ResearchTableScreen(ResearchTableMenu menu, Inventory inv, Component title) {
         super(menu, inv, title);

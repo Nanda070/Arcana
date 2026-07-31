@@ -7,7 +7,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
 /**
- * Central vanilla-backed sound cues (G27).
+ * Central vanilla-backed sound cues (G27 / L2).
  */
 public final class ArcanaSounds {
     private ArcanaSounds() {
@@ -39,5 +39,33 @@ public final class ArcanaSounds {
             return;
         }
         level.playSound(null, pos, SoundEvents.GHAST_AMBIENT, SoundSource.AMBIENT, 0.35f, 0.45f);
+    }
+
+    public static void researchStudy(Level level, BlockPos pos) {
+        if (level.isClientSide) {
+            return;
+        }
+        level.playSound(null, pos, SoundEvents.BOOK_PAGE_TURN, SoundSource.PLAYERS, 0.8f, 1.05f);
+    }
+
+    public static void scanSuccess(Level level, BlockPos pos) {
+        if (level.isClientSide) {
+            return;
+        }
+        level.playSound(null, pos, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.PLAYERS, 0.6f, 1.35f);
+    }
+
+    public static void portalTease(Level level, BlockPos pos) {
+        if (level.isClientSide) {
+            return;
+        }
+        level.playSound(null, pos, SoundEvents.PORTAL_AMBIENT, SoundSource.BLOCKS, 0.45f, 0.7f);
+    }
+
+    public static void cultistAmbient(Level level, BlockPos pos) {
+        if (level.isClientSide) {
+            return;
+        }
+        level.playSound(null, pos, SoundEvents.ILLUSIONER_AMBIENT, SoundSource.HOSTILE, 0.55f, 0.85f);
     }
 }

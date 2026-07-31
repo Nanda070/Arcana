@@ -1,0 +1,20 @@
+{
+  "parent": "arcana:root",
+  "display": {
+    "icon": { "item": "arcana:infusion_matrix" },
+    "title": { "translate": "advancements.arcana.first_infusion.title" },
+    "description": { "translate": "advancements.arcana.first_infusion.description" },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_matrix": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [{ "items": ["arcana:infusion_matrix"] }]
+      }
+    }
+  }
+}

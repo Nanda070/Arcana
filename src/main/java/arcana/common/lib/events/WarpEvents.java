@@ -4,6 +4,7 @@ import arcana.api.aura.AuraHelper;
 import arcana.api.capabilities.ArcanaCapabilities;
 import arcana.api.capabilities.IPlayerWarp;
 import arcana.common.lib.ArcanaSounds;
+import arcana.config.ArcanaConfig;
 import arcana.registry.ModEntities;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -44,7 +45,8 @@ public final class WarpEvents {
         if (warpCounter <= 0 || warp <= 0) {
             return;
         }
-        if (random.nextInt(100) > Math.sqrt(warpCounter)) {
+        double chance = Math.sqrt(warpCounter) / 100.0D * ArcanaConfig.COMMON.warpEventChanceMultiplier.get();
+        if (random.nextDouble() > chance) {
             return;
         }
 

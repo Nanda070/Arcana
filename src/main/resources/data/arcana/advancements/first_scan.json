@@ -1,0 +1,20 @@
+{
+  "parent": "arcana:root",
+  "display": {
+    "icon": { "item": "arcana:thaumometer" },
+    "title": { "translate": "advancements.arcana.first_scan.title" },
+    "description": { "translate": "advancements.arcana.first_scan.description" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_meter": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [{ "items": ["arcana:thaumometer"] }]
+      }
+    }
+  }
+}

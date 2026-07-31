@@ -3,6 +3,7 @@ package arcana.common.lib.events;
 import arcana.Arcana;
 import arcana.api.capabilities.ArcanaCapabilities;
 import arcana.api.capabilities.IPlayerWarp;
+import arcana.config.ArcanaConfig;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -11,10 +12,6 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid = Arcana.MODID)
 public final class PlayerWarpTickEvents {
     private static final int WARP_CHECK_INTERVAL = 2000;
-    /** Temporary warp: −1 / 30s. */
-    private static final int TEMP_DECAY_INTERVAL = 600;
-    /** Sticky (NORMAL) warp: −1 / 5 min. */
-    private static final int STICKY_DECAY_INTERVAL = 6000;
 
     private PlayerWarpTickEvents() {
     }
@@ -30,12 +27,14 @@ public final class PlayerWarpTickEvents {
         arcana.compat.curios.CuriosCompat.tryRecharge(player);
 
         IPlayerWarp warp = ArcanaCapabilities.getWarp(player);
-        if (player.tickCount % TEMP_DECAY_INTERVAL == 0) {
+        int tempInterval = Math.max(1, ArcanaConfig.COMMON.tempWarpDecayTicks.get());
+        int stickyInterval = Math.max(1, ArcanaConfig.COMMON.stickyWarpDecayTicks.get());
+        if (player.tickCount % tempInterval == 0) {
             if (warp.get(IPlayerWarp.EnumWarpType.TEMPORARY) > 0) {
                 warp.reduce(IPlayerWarp.EnumWarpType.TEMPORARY, 1);
             }
         }
-        if (player.tickCount % STICKY_DECAY_INTERVAL == 0) {
+        if (player.tickCount % stickyInterval == 0) {
             if (warp.get(IPlayerWarp.EnumWarpType.NORMAL) > 0) {
                 warp.reduce(IPlayerWarp.EnumWarpType.NORMAL, 1);
             }

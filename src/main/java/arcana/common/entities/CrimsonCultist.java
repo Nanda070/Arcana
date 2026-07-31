@@ -1,6 +1,7 @@
 package arcana.common.entities;
 
 import arcana.registry.ModItems;
+import arcana.common.lib.ArcanaSounds;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvent;
@@ -98,6 +99,16 @@ public class CrimsonCultist extends Monster {
     @Override
     protected SoundEvent getAmbientSound() {
         return SoundEvents.PILLAGER_AMBIENT;
+    }
+
+    @Override
+    public void playAmbientSound() {
+        // L2: rare cultist whisper cue (server); otherwise vanilla ambient
+        if (!this.level().isClientSide && this.random.nextInt(8) == 0) {
+            ArcanaSounds.cultistAmbient(this.level(), this.blockPosition());
+            return;
+        }
+        super.playAmbientSound();
     }
 
     @Override

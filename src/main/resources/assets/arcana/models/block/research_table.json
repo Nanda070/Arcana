@@ -1,6 +1,7 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/cube_column",
   "textures": {
-    "all": "arcana:block/greatwood_planks"
+    "end": "arcana:block/research_table",
+    "side": "arcana:block/research_table_side"
   }
 }

@@ -223,16 +223,16 @@ Ship milestones:
 | K4 | Warp ladder final: permanent/temp/sticky, sanities, nightmares | done |
 | K5 | Biomes/plants: ethereal bloom, flux patches | done |
 
-### Phase L — Polish & soft-deps (→ 0.9.0)
+### Phase L — Polish & soft-deps (→ 0.9.0) — **shipped**
 
-| ID | Модуль |
-|----|--------|
-| L1 | Dedicated textures/models pass (no magenta, unique GUIs) |
-| L2 | Sounds pack + particles consistency |
-| L3 | JEI/REI full coverage; patchouli or in-book pages |
-| L4 | Curios real-client profile + optional runtime flag docs |
-| L5 | Configs: aura rates, warp intensity, worldgen rarity |
-| L6 | Localization RU + EN; advancements |
+| ID | Модуль | Статус |
+|----|--------|--------|
+| L1 | Dedicated textures/models pass (no magenta, unique GUIs) | done |
+| L2 | Sounds pack + particles consistency | done |
+| L3 | JEI/REI full coverage; patchouli or in-book pages | done |
+| L4 | Curios real-client profile + optional runtime flag docs | done |
+| L5 | Configs: aura rates, warp intensity, worldgen rarity | done |
+| L6 | Localization RU + EN; advancements | done |
 
 ### Phase M — 1.0.0 RC
 

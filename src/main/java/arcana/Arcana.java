@@ -4,6 +4,7 @@ import arcana.api.aspects.Aspect;
 import arcana.command.ArcanaCommands;
 import arcana.common.lib.research.ResearchManager;
 import arcana.common.network.PacketHandler;
+import arcana.config.ArcanaConfig;
 import arcana.registry.ModBlockEntities;
 import arcana.registry.ModBlocks;
 import arcana.registry.ModCreativeTabs;
@@ -16,7 +17,9 @@ import com.mojang.logging.LogUtils;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
@@ -28,6 +31,8 @@ public class Arcana {
 
     public Arcana(FMLJavaModLoadingContext context) {
         IEventBus modBus = context.getModEventBus();
+
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ArcanaConfig.COMMON_SPEC);
 
         ModBlocks.BLOCKS.register(modBus);
         ModItems.ITEMS.register(modBus);

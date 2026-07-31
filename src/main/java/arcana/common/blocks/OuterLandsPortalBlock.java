@@ -2,6 +2,7 @@ package arcana.common.blocks;
 
 import arcana.api.capabilities.ArcanaCapabilities;
 import arcana.api.capabilities.IPlayerWarp;
+import arcana.common.lib.ArcanaSounds;
 import arcana.common.lib.events.WarpHelper;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -41,6 +42,7 @@ public class OuterLandsPortalBlock extends Block {
         if (player.tickCount % 40 != 0) {
             return;
         }
+        ArcanaSounds.portalTease(level, pos);
         player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 160, 0, false, true));
         WarpHelper.addWarpToPlayer(player, 1, IPlayerWarp.EnumWarpType.NORMAL);
         WarpHelper.addWarpToPlayer(player, 1, IPlayerWarp.EnumWarpType.TEMPORARY);

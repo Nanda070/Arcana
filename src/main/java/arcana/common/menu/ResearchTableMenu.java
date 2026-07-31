@@ -5,6 +5,7 @@ import arcana.api.capabilities.IPlayerKnowledge;
 import arcana.api.research.ResearchCategories;
 import arcana.api.research.ResearchCategory;
 import arcana.common.blockentities.ResearchTableBlockEntity;
+import arcana.common.lib.ArcanaSounds;
 import arcana.common.lib.research.ResearchManager;
 import arcana.common.network.PacketHandler;
 import arcana.registry.ModBlocks;
@@ -97,6 +98,7 @@ public class ResearchTableMenu extends AbstractContainerMenu {
             if (!knowledge.addKnowledge(IPlayerKnowledge.EnumKnowledgeType.OBSERVATION, cat, -16)) {
                 return true;
             }
+            ArcanaSounds.researchStudy(player.level(), table.getBlockPos());
             if (!knowledge.isResearchComplete("THEORYRESEARCH")) {
                 ResearchManager.progressResearch(player, "THEORYRESEARCH", true);
                 player.displayClientMessage(Component.translatable("arcana.research_table.theory_progress"), true);

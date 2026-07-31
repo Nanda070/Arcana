@@ -1,0 +1,20 @@
+{
+  "parent": "arcana:root",
+  "display": {
+    "icon": { "item": "arcana:seal_blank" },
+    "title": { "translate": "advancements.arcana.golemancy.title" },
+    "description": { "translate": "advancements.arcana.golemancy.description" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_seal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [{ "items": ["arcana:seal_blank"] }]
+      }
+    }
+  }
+}

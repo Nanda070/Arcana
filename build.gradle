@@ -137,13 +137,13 @@ dependencies {
 
     // Soft-dep Curios — API compile-only by default.
     // Full Curios jar breaks FG userdev (official mappings vs Curios mixins) — do NOT enable runtimeOnly for runClient.
-    // For a real Forge client (outside userdev), set -Parcana.enable_curios_runtime=true to pull Curios at runtime,
-    // or install Curios in the mods folder. Keep compileOnly for CI / Gradle runs.
+    // For a real Forge client (outside userdev), set arcana.enable_curios_runtime=true in gradle.properties
+    // (or -Parcana.enable_curios_runtime=true) to pull Curios at runtime, or install Curios in the mods folder.
     compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}:api")
-    // Optional: only for packaging / real-client smoke outside FG userdev.
-    // if (findProperty('arcana.enable_curios_runtime')?.toString()?.toBoolean()) {
-    //     runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}")
-    // }
+    def enableCuriosRuntime = project.findProperty('arcana.enable_curios_runtime')?.toString()?.toBoolean() ?: false
+    if (enableCuriosRuntime) {
+        runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}")
+    }
 
     // Example mod dependency using a mod jar from ./libs with a flat dir repository
     // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar

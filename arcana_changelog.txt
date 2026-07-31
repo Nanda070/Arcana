@@ -1,6 +1,18 @@
 Arcana Changelog
 ================
 
+0.9.0 — Phase L polish & soft-deps
+---------------------------------
+- L1: Dedicated block/item textures (research table, devices, filter tube, infusion/pedestal/focal);
+  research_table GUI; crimson_rite / focus_3 models
+- L2: ArcanaSounds — research_study, scan_success, portal_tease, cultist_ambient; Flux goo smoke;
+  EtherealBloom END_ROD; portal PORTAL particles
+- L3: JEI Infusion+Crucible+Arcane verified; research_table / infusion_matrix info pages;
+  longer ARTIFICE/ALCHEMY/ELDRITCH intro lore
+- L4: Curios runtimeOnly when `arcana.enable_curios_runtime=true`; README Curios section
+- L5: ArcanaConfig COMMON — aura regen, warp chance, worldgen rarity, sticky/temp decay ticks
+- L6: `ru_ru.json`; advancements root / first_scan / first_infusion / eldritch_contact / golemancy
+
 0.8.0 — Phase K world & threats
 -------------------------------
 - K1: Structures — Eldritch Ring, Hilltop Stones, Cultist Camp (loot + cultists)

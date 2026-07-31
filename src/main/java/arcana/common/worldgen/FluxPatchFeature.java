@@ -23,6 +23,10 @@ public class FluxPatchFeature extends Feature<NoneFeatureConfiguration> {
         WorldGenLevel level = context.level();
         BlockPos origin = context.origin();
         RandomSource random = context.random();
+        // L5: config rarity multiplier (higher = rarer). JSON rarity_filter still applies.
+        if (!WorldgenRarity.allow(random)) {
+            return false;
+        }
         BlockState below = level.getBlockState(origin.below());
         if (!below.canOcclude()) {
             return false;

@@ -1,0 +1,20 @@
+{
+  "textures": {
+    "particle": "arcana:block/essentia_filter_tube",
+    "tube": "arcana:block/essentia_filter_tube"
+  },
+  "elements": [
+    {
+      "from": [5, 5, 5],
+      "to": [11, 11, 11],
+      "faces": {
+        "down": {"uv": [5, 5, 11, 11], "texture": "#tube"},
+        "up": {"uv": [5, 5, 11, 11], "texture": "#tube"},
+        "north": {"uv": [5, 5, 11, 11], "texture": "#tube"},
+        "south": {"uv": [5, 5, 11, 11], "texture": "#tube"},
+        "west": {"uv": [5, 5, 11, 11], "texture": "#tube"},
+        "east": {"uv": [5, 5, 11, 11], "texture": "#tube"}
+      }
+    }
+  ]
+}

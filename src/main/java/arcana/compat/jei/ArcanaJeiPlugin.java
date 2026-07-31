@@ -8,12 +8,14 @@ import arcana.registry.ModItems;
 import arcana.registry.ModRecipes;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
+import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 import net.minecraft.client.Minecraft;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeManager;
@@ -51,6 +53,11 @@ public class ArcanaJeiPlugin implements IModPlugin {
         registration.addRecipes(ARCANE_SHAPED, recipes.getAllRecipesFor(ModRecipes.ARCANE_SHAPED_TYPE.get()));
         registration.addRecipes(CRUCIBLE, recipes.getAllRecipesFor(ModRecipes.CRUCIBLE_TYPE.get()));
         registration.addRecipes(INFUSION, recipes.getAllRecipesFor(ModRecipes.INFUSION_TYPE.get()));
+
+        registration.addIngredientInfo(new ItemStack(ModItems.RESEARCH_TABLE.get()), VanillaTypes.ITEM_STACK,
+                Component.translatable("jei.arcana.info.research_table"));
+        registration.addIngredientInfo(new ItemStack(ModItems.INFUSION_MATRIX.get()), VanillaTypes.ITEM_STACK,
+                Component.translatable("jei.arcana.info.infusion_matrix"));
     }
 
     @Override
