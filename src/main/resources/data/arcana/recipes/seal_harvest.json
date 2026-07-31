@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [" S ", "SCS", " S "],
+  "key": {
+    "S": { "item": "arcana:seal_blank" },
+    "C": { "item": "minecraft:wheat" }
+  },
+  "result": { "item": "arcana:seal_harvest" }
+}

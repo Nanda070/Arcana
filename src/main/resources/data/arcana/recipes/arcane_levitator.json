@@ -1,0 +1,13 @@
+{
+  "type": "arcana:arcane_shaped",
+  "research": "INFUSION",
+  "vis": 20,
+  "crystals": { "aer": 2, "terra": 1 },
+  "pattern": ["GPG", "PNP", "GPG"],
+  "key": {
+    "G": { "item": "arcana:greatwood_planks" },
+    "P": { "item": "arcana:thaumium_plate" },
+    "N": { "item": "arcana:nitor" }
+  },
+  "result": { "item": "arcana:arcane_levitator" }
+}

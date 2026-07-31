@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [{ "tag": "arcana:greatwood_logs" }],
+  "result": { "item": "arcana:greatwood_planks", "count": 4 }
+}

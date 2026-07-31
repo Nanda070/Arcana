@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [" N ", "GTG", " G "],
+  "key": {
+    "N": { "item": "arcana:nitor" },
+    "G": { "item": "minecraft:gold_ingot" },
+    "T": { "item": "arcana:thaumium_ingot" }
+  },
+  "result": { "item": "arcana:lamp_of_growth" }
+}

@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "powered=false": { "model": "arcana:block/essentia_valve" },
+    "powered=true": { "model": "arcana:block/essentia_valve_closed" }
+  }
+}

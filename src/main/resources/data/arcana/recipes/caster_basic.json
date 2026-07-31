@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": ["PTP", "PLP", " P "],
+  "key": {
+    "P": { "item": "arcana:thaumium_plate" },
+    "T": { "item": "arcana:thaumium_ingot" },
+    "L": { "item": "minecraft:leather" }
+  },
+  "result": { "item": "arcana:caster_basic" }
+}

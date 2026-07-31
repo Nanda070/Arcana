@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "top": "arcana:block/essentia_smelter_top",
+    "front": "arcana:block/essentia_smelter_front",
+    "side": "arcana:block/essentia_smelter_side"
+  }
+}

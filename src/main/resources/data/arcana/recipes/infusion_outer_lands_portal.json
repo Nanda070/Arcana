@@ -1,0 +1,14 @@
+{
+  "type": "arcana:infusion",
+  "research": "OUTERLANDS_TEASE",
+  "vis": 50,
+  "instability": 6,
+  "central": { "item": "minecraft:obsidian" },
+  "components": [
+    { "item": "arcana:void_seed" },
+    { "item": "minecraft:ender_pearl" },
+    { "item": "minecraft:ender_pearl" }
+  ],
+  "aspects": { "alienis": 20, "vacuos": 15, "motus": 10 },
+  "result": { "item": "arcana:outer_lands_portal" }
+}

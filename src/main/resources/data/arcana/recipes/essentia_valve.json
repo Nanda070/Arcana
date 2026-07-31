@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " T ",
+    "TLT",
+    " T "
+  ],
+  "key": {
+    "T": { "item": "arcana:essentia_tube" },
+    "L": { "item": "minecraft:lever" }
+  },
+  "result": { "item": "arcana:essentia_valve", "count": 2 }
+}

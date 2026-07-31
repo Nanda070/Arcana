@@ -1,0 +1,14 @@
+{
+  "type": "arcana:infusion",
+  "research": "INFUSION",
+  "vis": 30,
+  "instability": 4,
+  "central": { "item": "minecraft:leather_boots" },
+  "components": [
+    { "item": "minecraft:feather" },
+    { "item": "minecraft:feather" },
+    { "item": "arcana:quicksilver" }
+  ],
+  "aspects": { "aqua": 20, "motus": 25, "volatus": 10 },
+  "result": { "item": "arcana:traveller_boots" }
+}

@@ -1,0 +1,9 @@
+﻿{
+  "feature": "arcana:flux_patch",
+  "placement": [
+    { "type": "minecraft:rarity_filter", "chance": 60 },
+    { "type": "minecraft:in_square" },
+    { "type": "minecraft:heightmap", "heightmap": "MOTION_BLOCKING_NO_LEAVES" },
+    { "type": "minecraft:biome" }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [" S ", "SAS", " S "],
+  "key": {
+    "S": { "item": "arcana:seal_blank" },
+    "A": { "item": "minecraft:iron_sword" }
+  },
+  "result": { "item": "arcana:seal_butcher" }
+}
