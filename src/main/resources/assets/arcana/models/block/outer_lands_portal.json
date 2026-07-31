@@ -1,4 +1,66 @@
 {
-  "parent": "minecraft:block/cube_all",
-  "textures": { "all": "arcana:block/outer_lands_portal" }
+  "textures": {
+    "particle": "arcana:block/outer_lands_portal",
+    "frame": "arcana:block/eldritch_stone",
+    "portal": "arcana:block/outer_lands_portal"
+  },
+  "elements": [
+    {
+      "name": "frame_bottom",
+      "from": [0, 0, 0],
+      "to": [16, 2, 16],
+      "faces": {
+        "down":  { "uv": [0, 0, 16, 16], "texture": "#frame" },
+        "up":    { "uv": [0, 0, 16, 16], "texture": "#frame" },
+        "north": { "uv": [0, 14, 16, 16], "texture": "#frame" },
+        "south": { "uv": [0, 14, 16, 16], "texture": "#frame" },
+        "west":  { "uv": [0, 14, 16, 16], "texture": "#frame" },
+        "east":  { "uv": [0, 14, 16, 16], "texture": "#frame" }
+      }
+    },
+    {
+      "name": "frame_top",
+      "from": [0, 14, 0],
+      "to": [16, 16, 16],
+      "faces": {
+        "down":  { "uv": [0, 0, 16, 16], "texture": "#frame" },
+        "up":    { "uv": [0, 0, 16, 16], "texture": "#frame" },
+        "north": { "uv": [0, 0, 16, 2], "texture": "#frame" },
+        "south": { "uv": [0, 0, 16, 2], "texture": "#frame" },
+        "west":  { "uv": [0, 0, 16, 2], "texture": "#frame" },
+        "east":  { "uv": [0, 0, 16, 2], "texture": "#frame" }
+      }
+    },
+    {
+      "name": "frame_n",
+      "from": [0, 2, 0],
+      "to": [16, 14, 2],
+      "faces": {
+        "north": { "uv": [0, 2, 16, 14], "texture": "#frame" },
+        "south": { "uv": [0, 2, 16, 14], "texture": "#frame" },
+        "west":  { "uv": [0, 2, 2, 14], "texture": "#frame" },
+        "east":  { "uv": [14, 2, 16, 14], "texture": "#frame" }
+      }
+    },
+    {
+      "name": "frame_s",
+      "from": [0, 2, 14],
+      "to": [16, 14, 16],
+      "faces": {
+        "north": { "uv": [0, 2, 16, 14], "texture": "#frame" },
+        "south": { "uv": [0, 2, 16, 14], "texture": "#frame" },
+        "west":  { "uv": [14, 2, 16, 14], "texture": "#frame" },
+        "east":  { "uv": [0, 2, 2, 14], "texture": "#frame" }
+      }
+    },
+    {
+      "name": "portal_plane",
+      "from": [2, 2, 7.5],
+      "to": [14, 14, 8.5],
+      "faces": {
+        "north": { "uv": [2, 2, 14, 14], "texture": "#portal" },
+        "south": { "uv": [2, 2, 14, 14], "texture": "#portal" }
+      }
+    }
+  ]
 }

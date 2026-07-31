@@ -7,6 +7,7 @@ import arcana.common.worldgen.EldritchObeliskFeature;
 import arcana.common.worldgen.EldritchRingFeature;
 import arcana.common.worldgen.FluxPatchFeature;
 import arcana.common.worldgen.HilltopStonesFeature;
+import arcana.common.worldgen.OuterLandsPocketFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.BlockStateConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
@@ -35,6 +36,9 @@ public final class ModFeatures {
 
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> FLUX_PATCH =
             FEATURES.register("flux_patch", () -> new FluxPatchFeature(NoneFeatureConfiguration.CODEC));
+
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> OUTER_LANDS_POCKET =
+            FEATURES.register("outer_lands_pocket", () -> new OuterLandsPocketFeature(NoneFeatureConfiguration.CODEC));
 
     private ModFeatures() {
     }

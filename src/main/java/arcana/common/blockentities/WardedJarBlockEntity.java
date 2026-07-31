@@ -4,17 +4,24 @@ import arcana.api.aspects.Aspect;
 import arcana.api.aspects.AspectList;
 import arcana.api.aspects.IAspectSource;
 import arcana.api.aspects.IEssentiaTransport;
+import arcana.common.menu.WardedJarMenu;
 import arcana.registry.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
-public class WardedJarBlockEntity extends BlockEntity implements IAspectSource, IEssentiaTransport {
+public class WardedJarBlockEntity extends BlockEntity implements IAspectSource, IEssentiaTransport, MenuProvider {
     public static final int CAPACITY = 250;
 
     private Aspect aspect;
@@ -22,8 +29,35 @@ public class WardedJarBlockEntity extends BlockEntity implements IAspectSource, 
     private int amount;
     private int tickCounter;
 
+    private final ContainerData data = new ContainerData() {
+        @Override
+        public int get(int index) {
+            return switch (index) {
+                case 0 -> amount;
+                case 1 -> CAPACITY;
+                default -> 0;
+            };
+        }
+
+        @Override
+        public void set(int index, int value) {
+            if (index == 0) {
+                amount = value;
+            }
+        }
+
+        @Override
+        public int getCount() {
+            return 2;
+        }
+    };
+
     public WardedJarBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.WARDED_JAR.get(), pos, state);
+    }
+
+    public ContainerData getData() {
+        return data;
     }
 
     public Aspect getAspect() {
@@ -50,7 +84,6 @@ public class WardedJarBlockEntity extends BlockEntity implements IAspectSource, 
         }
         int before = amount;
         crucible.addToContainer(aspect, amount);
-        // crucible accepts all in current impl
         amount = 0;
         aspect = null;
         setChangedAndSync();
@@ -92,6 +125,17 @@ public class WardedJarBlockEntity extends BlockEntity implements IAspectSource, 
                 addToContainer(want, taken);
             }
         }
+    }
+
+    @Override
+    public Component getDisplayName() {
+        return Component.translatable("block.arcana.warded_jar");
+    }
+
+    @Nullable
+    @Override
+    public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) {
+        return new WardedJarMenu(id, inv, this);
     }
 
     @Override

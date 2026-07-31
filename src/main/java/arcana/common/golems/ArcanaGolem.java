@@ -1,6 +1,7 @@
 package arcana.common.golems;
 
 import arcana.registry.ModItems;
+import arcana.config.ArcanaConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -37,6 +38,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ButtonBlock;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.LeverBlock;
@@ -47,7 +49,8 @@ import net.minecraft.world.phys.AABB;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * Owned walker with seal-applied jobs: IDLE / GATHER / GUARD / FILL / EMPTY / HARVEST / USE / BUTCHER.
+ * Owned walker with seal-applied jobs (gather/guard/fill/empty/harvest/use/butcher
+ * plus advanced variants, lumber, provide, stock, breaker).
  */
 public class ArcanaGolem extends TamableAnimal {
     private static final EntityDataAccessor<Boolean> DATA_FOLLOWING =
@@ -96,7 +99,7 @@ public class ArcanaGolem extends TamableAnimal {
         this.targetSelector.addGoal(2, new OwnerHurtTargetGoal(this));
         this.targetSelector.addGoal(3, new HurtByTargetGoal(this));
         this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Monster.class, 10, true, false,
-                target -> getJob() == GolemJob.GUARD));
+                target -> getJob().isGuard()));
         this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, Animal.class, 10, true, false,
                 target -> getJob() == GolemJob.BUTCHER && !(target instanceof ArcanaGolem)));
     }
@@ -117,8 +120,15 @@ public class ArcanaGolem extends TamableAnimal {
     public void setJob(GolemJob job) {
         GolemJob next = job == null ? GolemJob.IDLE : job;
         this.entityData.set(DATA_JOB, (byte) next.ordinal());
-        if (next != GolemJob.GUARD && next != GolemJob.BUTCHER) {
+        if (!next.isGuard() && next != GolemJob.BUTCHER) {
             setTarget(null);
+        }
+        if (next == GolemJob.GUARD_ADVANCED) {
+            setGuardBonus(Math.max(guardBonus, 2));
+            applyMaterialAttributes();
+        }
+        if (next.isGather() && next.gatherRangeBonus() > 0) {
+            setGatherRange(Math.max(gatherRange, 4 + next.gatherRangeBonus()));
         }
     }
 
@@ -180,20 +190,31 @@ public class ArcanaGolem extends TamableAnimal {
             return;
         }
         GolemJob job = getJob();
-        if (tickCount % 20 == 0 && job == GolemJob.GATHER) {
+        int work = Math.max(5, ArcanaConfig.COMMON.golemWorkIntervalTicks.get());
+        if (tickCount % work == 0 && job.isGather()) {
             vacuumItems();
         }
-        if (tickCount % 40 == 0 && job == GolemJob.HARVEST) {
+        if (tickCount % (work * 2) == 0 && job == GolemJob.HARVEST) {
             harvestCrops();
         }
-        if (tickCount % 60 == 0 && job == GolemJob.USE) {
+        if (tickCount % (work * 3) == 0 && job == GolemJob.USE) {
             activateNearby();
         }
-        if (tickCount % 200 == 0) {
-            if (job == GolemJob.FILL) {
+        if (tickCount % (work * 2) == 0 && job == GolemJob.LUMBER) {
+            chopNearbyLogs();
+        }
+        if (tickCount % (work * 2) == 0 && job.isBreaker()) {
+            breakNearbyStone(job == GolemJob.BREAKER_ADVANCED);
+        }
+        int chestInterval = (job == GolemJob.FILL_ADVANCED || job == GolemJob.EMPTY_ADVANCED
+                || job == GolemJob.PROVIDE || job == GolemJob.STOCK) ? work * 5 : work * 10;
+        if (tickCount % Math.max(1, chestInterval) == 0) {
+            if (job.isFill() || job == GolemJob.PROVIDE) {
                 depositIntoChest();
-            } else if (job == GolemJob.EMPTY) {
+            } else if (job.isEmpty()) {
                 pullFromChest();
+            } else if (job == GolemJob.STOCK) {
+                stockChestFromInventory();
             }
         }
     }
@@ -238,6 +259,83 @@ public class ArcanaGolem extends TamableAnimal {
                     return;
                 }
             }
+        }
+    }
+
+    private void chopNearbyLogs() {
+        BlockPos origin = blockPosition();
+        for (BlockPos pos : BlockPos.betweenClosed(origin.offset(-4, -1, -4), origin.offset(4, 4, 4))) {
+            BlockState state = level().getBlockState(pos);
+            if (state.is(net.minecraft.tags.BlockTags.LOGS)) {
+                level().destroyBlock(pos, true, this);
+                return;
+            }
+        }
+    }
+
+    private void breakNearbyStone(boolean advanced) {
+        BlockPos origin = blockPosition();
+        int r = advanced ? 4 : 3;
+        for (BlockPos pos : BlockPos.betweenClosed(origin.offset(-r, -1, -r), origin.offset(r, 2, r))) {
+            if (pos.equals(origin) || pos.equals(origin.below())) {
+                continue;
+            }
+            BlockState state = level().getBlockState(pos);
+            if (state.isAir() || state.getDestroySpeed(level(), pos) < 0) {
+                continue;
+            }
+            float hardness = state.getDestroySpeed(level(), pos);
+            // Soft blocks / stone: dirt, gravel, sand, stone, cobble, deepslate soft enough
+            boolean soft = hardness >= 0 && hardness <= (advanced ? 3.0f : 1.5f);
+            if (soft && (state.is(net.minecraft.tags.BlockTags.BASE_STONE_OVERWORLD)
+                    || state.is(net.minecraft.tags.BlockTags.DIRT)
+                    || state.is(net.minecraft.tags.BlockTags.SAND)
+                    || state.is(Blocks.GRAVEL)
+                    || state.is(Blocks.COBBLESTONE)
+                    || state.is(Blocks.STONE)
+                    || (advanced && state.is(Blocks.DEEPSLATE)))) {
+                level().destroyBlock(pos, true, this);
+                return;
+            }
+        }
+    }
+
+    /** STOCK: keep a nearby chest topped up with whatever the golem is carrying (filtered stub = first stack type). */
+    private void stockChestFromInventory() {
+        Container chest = findNearbyChest();
+        if (chest == null) {
+            return;
+        }
+        ItemStack filter = ItemStack.EMPTY;
+        for (int i = 0; i < inventory.getContainerSize(); i++) {
+            if (!inventory.getItem(i).isEmpty()) {
+                filter = inventory.getItem(i);
+                break;
+            }
+        }
+        if (filter.isEmpty()) {
+            return;
+        }
+        // Count matching in chest; if below a stack, deposit more of that type
+        int inChest = 0;
+        for (int i = 0; i < chest.getContainerSize(); i++) {
+            ItemStack s = chest.getItem(i);
+            if (ItemStack.isSameItemSameTags(s, filter)) {
+                inChest += s.getCount();
+            }
+        }
+        if (inChest >= filter.getMaxStackSize()) {
+            return;
+        }
+        for (int i = 0; i < inventory.getContainerSize(); i++) {
+            ItemStack stack = inventory.getItem(i);
+            if (!ItemStack.isSameItemSameTags(stack, filter)) {
+                continue;
+            }
+            ItemStack move = stack.copy();
+            ItemStack leftover = insertInto(chest, move);
+            inventory.setItem(i, leftover);
+            return;
         }
     }
 
@@ -350,7 +448,7 @@ public class ArcanaGolem extends TamableAnimal {
     @Override
     public boolean wantsToAttack(LivingEntity target, LivingEntity owner) {
         GolemJob job = getJob();
-        if (job != GolemJob.GUARD && job != GolemJob.BUTCHER) {
+        if (!job.isGuard() && job != GolemJob.BUTCHER) {
             return false;
         }
         if (target instanceof ArcanaGolem) {
@@ -365,7 +463,7 @@ public class ArcanaGolem extends TamableAnimal {
     @Override
     public boolean canAttack(LivingEntity target) {
         GolemJob job = getJob();
-        if (job == GolemJob.GUARD) {
+        if (job.isGuard()) {
             return super.canAttack(target);
         }
         if (job == GolemJob.BUTCHER) {

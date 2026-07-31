@@ -1,10 +1,14 @@
 {
   "type": "arcana:crucible",
-  "research": "",
-  "catalyst": { "item": "minecraft:iron_ingot" },
+  "research": "METALLURGY",
+  "catalyst": {
+    "item": "minecraft:iron_ingot"
+  },
   "aspects": {
     "terra": 5,
     "aer": 5
   },
-  "result": { "item": "arcana:thaumium_ingot" }
+  "result": {
+    "item": "arcana:thaumium_ingot"
+  }
 }

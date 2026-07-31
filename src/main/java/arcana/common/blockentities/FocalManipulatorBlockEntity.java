@@ -7,9 +7,15 @@ import arcana.common.items.casters.ItemFocus;
 import arcana.common.menu.FocalManipulatorMenu;
 import arcana.registry.ModBlockEntities;
 import arcana.registry.ModBlocks;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.StringTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
@@ -28,10 +34,12 @@ public class FocalManipulatorBlockEntity extends BlockEntity implements MenuProv
     private final NonNullList<ItemStack> items = NonNullList.withSize(1, ItemStack.EMPTY);
 
     private String selectedMedium = FocusPackage.MEDIUM_TOUCH;
-    private String selectedEffect = FocusPackage.EFFECT_FIRE;
+    private final List<String> selectedEffects = new ArrayList<>();
+    private boolean scatterEnabled = false;
 
     public FocalManipulatorBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.FOCAL_MANIPULATOR.get(), pos, state);
+        selectedEffects.add(FocusPackage.EFFECT_FIRE);
     }
 
     public String getSelectedMedium() {
@@ -39,7 +47,30 @@ public class FocalManipulatorBlockEntity extends BlockEntity implements MenuProv
     }
 
     public String getSelectedEffect() {
-        return selectedEffect;
+        return selectedEffects.isEmpty() ? FocusPackage.EFFECT_FIRE : selectedEffects.get(selectedEffects.size() - 1);
+    }
+
+    public List<String> getSelectedEffects() {
+        return Collections.unmodifiableList(selectedEffects);
+    }
+
+    public boolean isScatterEnabled() {
+        return scatterEnabled;
+    }
+
+    public void setScatterEnabled(boolean scatterEnabled) {
+        this.scatterEnabled = scatterEnabled;
+        setChanged();
+    }
+
+    public void toggleScatter() {
+        this.scatterEnabled = !this.scatterEnabled;
+        setChanged();
+    }
+
+    public FocusPackage pendingPackage() {
+        List<String> mods = scatterEnabled ? List.of(FocusPackage.MOD_SCATTER) : List.of();
+        return FocusPackage.compose(selectedMedium, selectedEffects, mods);
     }
 
     public void setMedium(String medium) {
@@ -47,25 +78,48 @@ public class FocalManipulatorBlockEntity extends BlockEntity implements MenuProv
         setChanged();
     }
 
-    public void setEffect(String effect) {
-        this.selectedEffect = effect == null ? FocusPackage.EFFECT_FIRE : effect;
+    /** Toggle effect in the multi-node list (add if absent, remove if present; keep ≥1). */
+    public void toggleEffect(String effect) {
+        if (effect == null || effect.isEmpty()) {
+            return;
+        }
+        if (selectedEffects.contains(effect)) {
+            if (selectedEffects.size() > 1) {
+                selectedEffects.remove(effect);
+            }
+        } else {
+            selectedEffects.add(effect);
+        }
         setChanged();
     }
 
+    public void setEffect(String effect) {
+        this.selectedEffects.clear();
+        this.selectedEffects.add(effect == null ? FocusPackage.EFFECT_FIRE : effect);
+        setChanged();
+    }
+
+    public void clearEffectsTo(String effect) {
+        setEffect(effect);
+    }
+
     public String selectionLabel() {
-        String medium = FocusPackage.MEDIUM_PROJECTILE.equals(selectedMedium) ? "Projectile" : "Touch";
-        String effect = switch (selectedEffect) {
-            case FocusPackage.EFFECT_FROST -> "Frost";
-            case FocusPackage.EFFECT_SHOCK -> "Shock";
-            case FocusPackage.EFFECT_EARTH -> "Earth";
-            case FocusPackage.EFFECT_HEAL -> "Heal";
-            default -> "Fire";
-        };
-        return medium + " + " + effect;
+        String medium = FocusPackage.shortLabel(selectedMedium);
+        StringBuilder effects = new StringBuilder();
+        for (String e : selectedEffects) {
+            if (effects.length() > 0) {
+                effects.append('+');
+            }
+            effects.append(FocusPackage.shortLabel(e));
+        }
+        if (scatterEnabled) {
+            return medium + " + SCATTER + " + effects;
+        }
+        return medium + " + " + effects;
     }
 
     public boolean applyCompose(Player player) {
-        return applyPackage(player, FocusPackage.of(FocusPackage.ROOT, selectedMedium, selectedEffect));
+        return applyPackage(player, pendingPackage());
     }
 
     public boolean applyPreset(Player player, String preset) {
@@ -181,7 +235,13 @@ public class FocalManipulatorBlockEntity extends BlockEntity implements MenuProv
         super.saveAdditional(tag);
         ContainerHelper.saveAllItems(tag, items);
         tag.putString("SelectedMedium", selectedMedium);
-        tag.putString("SelectedEffect", selectedEffect);
+        tag.putBoolean("Scatter", scatterEnabled);
+        ListTag list = new ListTag();
+        for (String e : selectedEffects) {
+            list.add(StringTag.valueOf(e));
+        }
+        tag.put("SelectedEffects", list);
+        tag.putString("SelectedEffect", getSelectedEffect());
     }
 
     @Override
@@ -192,8 +252,18 @@ public class FocalManipulatorBlockEntity extends BlockEntity implements MenuProv
         if (tag.contains("SelectedMedium")) {
             selectedMedium = tag.getString("SelectedMedium");
         }
-        if (tag.contains("SelectedEffect")) {
-            selectedEffect = tag.getString("SelectedEffect");
+        scatterEnabled = tag.getBoolean("Scatter");
+        selectedEffects.clear();
+        if (tag.contains("SelectedEffects", Tag.TAG_LIST)) {
+            ListTag list = tag.getList("SelectedEffects", Tag.TAG_STRING);
+            for (int i = 0; i < list.size(); i++) {
+                selectedEffects.add(list.getString(i));
+            }
+        } else if (tag.contains("SelectedEffect")) {
+            selectedEffects.add(tag.getString("SelectedEffect"));
+        }
+        if (selectedEffects.isEmpty()) {
+            selectedEffects.add(FocusPackage.EFFECT_FIRE);
         }
     }
 

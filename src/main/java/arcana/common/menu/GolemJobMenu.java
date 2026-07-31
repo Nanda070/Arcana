@@ -12,15 +12,6 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 
 public class GolemJobMenu extends AbstractContainerMenu {
-    public static final int BTN_IDLE = 0;
-    public static final int BTN_GATHER = 1;
-    public static final int BTN_GUARD = 2;
-    public static final int BTN_FILL = 3;
-    public static final int BTN_EMPTY = 4;
-    public static final int BTN_HARVEST = 5;
-    public static final int BTN_USE = 6;
-    public static final int BTN_BUTCHER = 7;
-
     private final int golemId;
 
     public GolemJobMenu(int id, Inventory inv, FriendlyByteBuf buf) {
@@ -48,16 +39,7 @@ public class GolemJobMenu extends AbstractContainerMenu {
                 || !player.getUUID().equals(golem.getOwnerUUID())) {
             return false;
         }
-        GolemJob job = switch (id) {
-            case BTN_GATHER -> GolemJob.GATHER;
-            case BTN_GUARD -> GolemJob.GUARD;
-            case BTN_FILL -> GolemJob.FILL;
-            case BTN_EMPTY -> GolemJob.EMPTY;
-            case BTN_HARVEST -> GolemJob.HARVEST;
-            case BTN_USE -> GolemJob.USE;
-            case BTN_BUTCHER -> GolemJob.BUTCHER;
-            default -> GolemJob.IDLE;
-        };
+        GolemJob job = GolemJob.byId(id);
         golem.setJob(job);
         player.displayClientMessage(Component.translatable("arcana.golem.job." + job.name().toLowerCase()), true);
         return true;

@@ -1,0 +1,11 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "minecraft:dark_forest",
+    "minecraft:swamp",
+    "minecraft:mangrove_swamp",
+    "minecraft:soul_sand_valley"
+  ],
+  "features": "arcana:outer_lands_pocket",
+  "step": "surface_structures"
+}

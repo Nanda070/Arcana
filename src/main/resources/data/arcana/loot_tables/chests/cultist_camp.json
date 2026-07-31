@@ -2,7 +2,7 @@
   "type": "minecraft:chest",
   "pools": [
     {
-      "rolls": { "type": "minecraft:uniform", "min": 2, "max": 4 },
+      "rolls": { "type": "minecraft:uniform", "min": 3, "max": 6 },
       "entries": [
         { "type": "minecraft:item", "name": "arcana:void_seed", "weight": 3 },
         {
@@ -23,7 +23,66 @@
             "count": { "type": "minecraft:uniform", "min": 1, "max": 5 }
           }]
         },
-        { "type": "minecraft:item", "name": "arcana:crimson_rite", "weight": 2 }
+        { "type": "minecraft:item", "name": "arcana:crimson_rite", "weight": 3 },
+        {
+          "type": "minecraft:item",
+          "name": "arcana:thaumium_ingot",
+          "weight": 3,
+          "functions": [{
+            "function": "minecraft:set_count",
+            "count": { "type": "minecraft:uniform", "min": 1, "max": 2 }
+          }]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "arcana:quicksilver",
+          "weight": 4,
+          "functions": [{
+            "function": "minecraft:set_count",
+            "count": { "type": "minecraft:uniform", "min": 1, "max": 4 }
+          }]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "arcana:alumentum",
+          "weight": 4,
+          "functions": [{
+            "function": "minecraft:set_count",
+            "count": { "type": "minecraft:uniform", "min": 1, "max": 3 }
+          }]
+        },
+        { "type": "minecraft:item", "name": "arcana:nitor", "weight": 3 },
+        {
+          "type": "minecraft:item",
+          "name": "arcana:crystal_perditio",
+          "weight": 4,
+          "functions": [{
+            "function": "minecraft:set_count",
+            "count": { "type": "minecraft:uniform", "min": 1, "max": 3 }
+          }]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "arcana:crystal_ordo",
+          "weight": 3,
+          "functions": [{
+            "function": "minecraft:set_count",
+            "count": { "type": "minecraft:uniform", "min": 1, "max": 2 }
+          }]
+        },
+        { "type": "minecraft:item", "name": "arcana:brain", "weight": 2 },
+        { "type": "minecraft:item", "name": "arcana:arcane_note", "weight": 2 },
+        { "type": "minecraft:item", "name": "arcana:focus_1", "weight": 1 },
+        { "type": "minecraft:item", "name": "arcana:void_nugget", "weight": 2 }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        { "type": "minecraft:item", "name": "arcana:seal_blank", "weight": 4 },
+        { "type": "minecraft:item", "name": "arcana:seal_gather", "weight": 2 },
+        { "type": "minecraft:item", "name": "minecraft:red_banner", "weight": 3 },
+        { "type": "minecraft:empty", "weight": 6 }
       ]
     }
   ]

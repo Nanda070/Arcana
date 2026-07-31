@@ -1,1 +1,45 @@
-{ "parent": "minecraft:block/cube_all", "textures": { "all": "arcana:block/pedestal" } }
+{
+  "textures": {
+    "particle": "arcana:block/pedestal",
+    "all": "arcana:block/pedestal"
+  },
+  "elements": [
+    {
+      "name": "foot",
+      "from": [2, 0, 2],
+      "to": [14, 2, 14],
+      "faces": {
+        "down":  { "uv": [2, 2, 14, 14], "texture": "#all" },
+        "up":    { "uv": [2, 2, 14, 14], "texture": "#all" },
+        "north": { "uv": [2, 14, 14, 16], "texture": "#all" },
+        "south": { "uv": [2, 14, 14, 16], "texture": "#all" },
+        "west":  { "uv": [2, 14, 14, 16], "texture": "#all" },
+        "east":  { "uv": [2, 14, 14, 16], "texture": "#all" }
+      }
+    },
+    {
+      "name": "pillar",
+      "from": [5, 2, 5],
+      "to": [11, 12, 11],
+      "faces": {
+        "north": { "uv": [5, 4, 11, 14], "texture": "#all" },
+        "south": { "uv": [5, 4, 11, 14], "texture": "#all" },
+        "west":  { "uv": [5, 4, 11, 14], "texture": "#all" },
+        "east":  { "uv": [5, 4, 11, 14], "texture": "#all" }
+      }
+    },
+    {
+      "name": "top",
+      "from": [1, 12, 1],
+      "to": [15, 14, 15],
+      "faces": {
+        "down":  { "uv": [1, 1, 15, 15], "texture": "#all" },
+        "up":    { "uv": [1, 1, 15, 15], "texture": "#all" },
+        "north": { "uv": [1, 2, 15, 4], "texture": "#all" },
+        "south": { "uv": [1, 2, 15, 4], "texture": "#all" },
+        "west":  { "uv": [1, 2, 15, 4], "texture": "#all" },
+        "east":  { "uv": [1, 2, 15, 4], "texture": "#all" }
+      }
+    }
+  ]
+}

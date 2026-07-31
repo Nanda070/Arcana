@@ -4,6 +4,7 @@ import arcana.registry.ModItems;
 import java.util.List;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -30,7 +31,7 @@ import org.jetbrains.annotations.Nullable;
  * Thin wall-attached seal plate. Job = {@link GolemJob} ordinal.
  */
 public class SealBlock extends HorizontalDirectionalBlock {
-    public static final IntegerProperty JOB = IntegerProperty.create("job", 0, 7);
+    public static final IntegerProperty JOB = IntegerProperty.create("job", 0, GolemJob.MAX_ID);
 
     private static final VoxelShape NORTH = Block.box(2, 2, 14, 14, 14, 16);
     private static final VoxelShape SOUTH = Block.box(2, 2, 0, 14, 14, 2);
@@ -110,15 +111,29 @@ public class SealBlock extends HorizontalDirectionalBlock {
 
     @Override
     public List<ItemStack> getDrops(BlockState state, LootParams.Builder builder) {
-        return List.of(switch (jobOf(state)) {
-            case GATHER -> new ItemStack(ModItems.SEAL_GATHER.get());
-            case GUARD -> new ItemStack(ModItems.SEAL_GUARD.get());
-            case FILL -> new ItemStack(ModItems.SEAL_FILL.get());
-            case EMPTY -> new ItemStack(ModItems.SEAL_EMPTY.get());
-            case HARVEST -> new ItemStack(ModItems.SEAL_HARVEST.get());
-            case USE -> new ItemStack(ModItems.SEAL_USE.get());
-            case BUTCHER -> new ItemStack(ModItems.SEAL_BUTCHER.get());
-            default -> new ItemStack(ModItems.SEAL_BLANK.get());
-        });
+        Item item = sealItemFor(jobOf(state));
+        return List.of(new ItemStack(item));
+    }
+
+    private static Item sealItemFor(GolemJob job) {
+        return switch (job) {
+            case GATHER -> ModItems.SEAL_GATHER.get();
+            case GUARD -> ModItems.SEAL_GUARD.get();
+            case FILL -> ModItems.SEAL_FILL.get();
+            case EMPTY -> ModItems.SEAL_EMPTY.get();
+            case HARVEST -> ModItems.SEAL_HARVEST.get();
+            case USE -> ModItems.SEAL_USE.get();
+            case BUTCHER -> ModItems.SEAL_BUTCHER.get();
+            case GATHER_ADVANCED -> ModItems.SEAL_GATHER_ADVANCED.get();
+            case FILL_ADVANCED -> ModItems.SEAL_FILL_ADVANCED.get();
+            case EMPTY_ADVANCED -> ModItems.SEAL_EMPTY_ADVANCED.get();
+            case GUARD_ADVANCED -> ModItems.SEAL_GUARD_ADVANCED.get();
+            case LUMBER -> ModItems.SEAL_LUMBER.get();
+            case PROVIDE -> ModItems.SEAL_PROVIDE.get();
+            case STOCK -> ModItems.SEAL_STOCK.get();
+            case BREAKER -> ModItems.SEAL_BREAKER.get();
+            case BREAKER_ADVANCED -> ModItems.SEAL_BREAKER_ADVANCED.get();
+            default -> ModItems.SEAL_BLANK.get();
+        };
     }
 }

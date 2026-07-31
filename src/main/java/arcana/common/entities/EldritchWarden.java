@@ -19,16 +19,20 @@ import net.minecraft.world.level.Level;
 import java.util.UUID;
 
 /**
- * Eldritch Warden with phased fight: rage at &lt;50%, summon spiders at &lt;25%.
+ * Eldritch Warden with three fight phases: calm → rage (&lt;50%) → swarm (&lt;25%).
+ * Brief invulnerability frames on each phase transition.
  */
 public class EldritchWarden extends EldritchGuardian {
     private static final UUID RAGE_SPEED_UUID = UUID.fromString("a7c3e1b0-4d2f-4a8e-9c1b-2e5f6a7b8c9d");
     private static final AttributeModifier RAGE_SPEED = new AttributeModifier(
             RAGE_SPEED_UUID, "Warden rage speed", 0.35, AttributeModifier.Operation.MULTIPLY_TOTAL);
+    /** Ticks of invulnerability after a phase change (~2s). */
+    private static final int PHASE_INVULN_TICKS = 40;
 
     /** 0 = calm, 1 = rage (&lt;50%), 2 = swarm (&lt;25%). */
     private int phase;
     private boolean healedOnce;
+    private int phaseInvulnTicks;
 
     public EldritchWarden(EntityType<? extends EldritchGuardian> type, Level level) {
         super(type, level);
@@ -52,6 +56,9 @@ public class EldritchWarden extends EldritchGuardian {
         if (level().isClientSide) {
             return;
         }
+        if (phaseInvulnTicks > 0) {
+            phaseInvulnTicks--;
+        }
         float pct = getHealth() / getMaxHealth();
         if (pct < 0.5f && phase < 1) {
             enterRage();
@@ -61,8 +68,28 @@ public class EldritchWarden extends EldritchGuardian {
         }
     }
 
+    @Override
+    public boolean isInvulnerableTo(DamageSource source) {
+        return phaseInvulnTicks > 0 || super.isInvulnerableTo(source);
+    }
+
+    @Override
+    public boolean hurt(DamageSource source, float amount) {
+        if (phaseInvulnTicks > 0) {
+            return false;
+        }
+        return super.hurt(source, amount);
+    }
+
+    private void beginPhaseInvuln() {
+        phaseInvulnTicks = PHASE_INVULN_TICKS;
+        invulnerableTime = Math.max(invulnerableTime, PHASE_INVULN_TICKS);
+        addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, PHASE_INVULN_TICKS, 4, false, false));
+    }
+
     private void enterRage() {
         phase = 1;
+        beginPhaseInvuln();
         if (!healedOnce) {
             healedOnce = true;
             setHealth(Math.min(getMaxHealth(), getHealth() + getMaxHealth() * 0.25f));
@@ -76,6 +103,7 @@ public class EldritchWarden extends EldritchGuardian {
 
     private void enterSwarm() {
         phase = 2;
+        beginPhaseInvuln();
         if (getTarget() instanceof Player player) {
             MindSpiderSpawnHelper.spawnNear(player, 2);
         } else if (level() instanceof ServerLevel server) {
@@ -106,6 +134,7 @@ public class EldritchWarden extends EldritchGuardian {
         super.addAdditionalSaveData(tag);
         tag.putInt("phase", phase);
         tag.putBoolean("HealedOnce", healedOnce);
+        tag.putInt("PhaseInvuln", phaseInvulnTicks);
     }
 
     @Override
@@ -113,6 +142,7 @@ public class EldritchWarden extends EldritchGuardian {
         super.readAdditionalSaveData(tag);
         phase = tag.getInt("phase");
         healedOnce = tag.getBoolean("HealedOnce");
+        phaseInvulnTicks = tag.getInt("PhaseInvuln");
         if (phase >= 1) {
             AttributeInstance speed = getAttribute(Attributes.MOVEMENT_SPEED);
             if (speed != null && !speed.hasModifier(RAGE_SPEED)) {

@@ -6,6 +6,7 @@ import arcana.common.blockentities.ArcaneLevitatorBlockEntity;
 import arcana.common.blockentities.ArcaneWorkbenchBlockEntity;
 import arcana.common.blockentities.AuraNodeBlockEntity;
 import arcana.common.blockentities.BellowsBlockEntity;
+import arcana.common.blockentities.CentrifugeBlockEntity;
 import arcana.common.blockentities.CrucibleBlockEntity;
 import arcana.common.blockentities.EssentiaSmelterBlockEntity;
 import arcana.common.blockentities.EssentiaTubeBlockEntity;
@@ -13,7 +14,10 @@ import arcana.common.blockentities.EssentiaValveBlockEntity;
 import arcana.common.blockentities.FocalManipulatorBlockEntity;
 import arcana.common.blockentities.HungryChestBlockEntity;
 import arcana.common.blockentities.InfusionMatrixBlockEntity;
+import arcana.common.blockentities.EssentiaBufferTubeBlockEntity;
 import arcana.common.blockentities.EssentiaFilterTubeBlockEntity;
+import arcana.common.blockentities.EssentiaOnewayTubeBlockEntity;
+import arcana.common.blockentities.EssentiaRestrictTubeBlockEntity;
 import arcana.common.blockentities.LampOfGrowthBlockEntity;
 import arcana.common.blockentities.PedestalBlockEntity;
 import arcana.common.blockentities.ResearchTableBlockEntity;
@@ -46,6 +50,22 @@ public final class ModBlockEntities {
     public static final RegistryObject<BlockEntityType<EssentiaFilterTubeBlockEntity>> ESSENTIA_FILTER_TUBE =
             BLOCK_ENTITIES.register("essentia_filter_tube",
                     () -> BlockEntityType.Builder.of(EssentiaFilterTubeBlockEntity::new, ModBlocks.ESSENTIA_FILTER_TUBE.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<EssentiaRestrictTubeBlockEntity>> ESSENTIA_RESTRICT_TUBE =
+            BLOCK_ENTITIES.register("essentia_restrict_tube",
+                    () -> BlockEntityType.Builder.of(EssentiaRestrictTubeBlockEntity::new, ModBlocks.ESSENTIA_RESTRICT_TUBE.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<EssentiaOnewayTubeBlockEntity>> ESSENTIA_ONEWAY_TUBE =
+            BLOCK_ENTITIES.register("essentia_oneway_tube",
+                    () -> BlockEntityType.Builder.of(EssentiaOnewayTubeBlockEntity::new, ModBlocks.ESSENTIA_ONEWAY_TUBE.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<EssentiaBufferTubeBlockEntity>> ESSENTIA_BUFFER_TUBE =
+            BLOCK_ENTITIES.register("essentia_buffer_tube",
+                    () -> BlockEntityType.Builder.of(EssentiaBufferTubeBlockEntity::new, ModBlocks.ESSENTIA_BUFFER_TUBE.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<CentrifugeBlockEntity>> CENTRIFUGE =
+            BLOCK_ENTITIES.register("centrifuge",
+                    () -> BlockEntityType.Builder.of(CentrifugeBlockEntity::new, ModBlocks.CENTRIFUGE.get()).build(null));
 
     public static final RegistryObject<BlockEntityType<EssentiaValveBlockEntity>> ESSENTIA_VALVE =
             BLOCK_ENTITIES.register("essentia_valve",

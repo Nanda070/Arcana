@@ -68,13 +68,17 @@ public class EssentiaTubeBlock extends BaseEntityBlock {
 
     public EssentiaTubeBlock(Properties properties) {
         super(properties);
-        registerDefaultState(stateDefinition.any()
+        registerDefaultState(createDefaultTubeState());
+    }
+
+    protected BlockState createDefaultTubeState() {
+        return stateDefinition.any()
                 .setValue(DOWN, false)
                 .setValue(UP, false)
                 .setValue(NORTH, false)
                 .setValue(SOUTH, false)
                 .setValue(WEST, false)
-                .setValue(EAST, false));
+                .setValue(EAST, false);
     }
 
     @Override

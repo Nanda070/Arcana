@@ -78,12 +78,17 @@ public final class ModCreativeTabs {
                         output.accept(ModItems.WARDED_JAR.get());
                         output.accept(ModItems.ESSENTIA_TUBE.get());
                         output.accept(ModItems.ESSENTIA_FILTER_TUBE.get());
+                        output.accept(ModItems.ESSENTIA_RESTRICT_TUBE.get());
+                        output.accept(ModItems.ESSENTIA_ONEWAY_TUBE.get());
+                        output.accept(ModItems.ESSENTIA_BUFFER_TUBE.get());
                         output.accept(ModItems.ESSENTIA_VALVE.get());
                         output.accept(ModItems.CRUCIBLE.get());
                         output.accept(ModItems.ESSENTIA_SMELTER.get());
                         output.accept(ModItems.ALEMBIC.get());
+                        output.accept(ModItems.CENTRIFUGE.get());
                         output.accept(ModItems.PEDESTAL.get());
                         output.accept(ModItems.INFUSION_MATRIX.get());
+                        output.accept(ModItems.ARCANE_PILLAR.get());
                         output.accept(ModItems.FOCAL_MANIPULATOR.get());
                         output.accept(ModItems.LABEL.get());
                         output.accept(ModItems.BELLOWS.get());
@@ -140,6 +145,15 @@ public final class ModCreativeTabs {
                         output.accept(ModItems.SEAL_HARVEST.get());
                         output.accept(ModItems.SEAL_USE.get());
                         output.accept(ModItems.SEAL_BUTCHER.get());
+                        output.accept(ModItems.SEAL_GATHER_ADVANCED.get());
+                        output.accept(ModItems.SEAL_FILL_ADVANCED.get());
+                        output.accept(ModItems.SEAL_EMPTY_ADVANCED.get());
+                        output.accept(ModItems.SEAL_GUARD_ADVANCED.get());
+                        output.accept(ModItems.SEAL_LUMBER.get());
+                        output.accept(ModItems.SEAL_PROVIDE.get());
+                        output.accept(ModItems.SEAL_STOCK.get());
+                        output.accept(ModItems.SEAL_BREAKER.get());
+                        output.accept(ModItems.SEAL_BREAKER_ADVANCED.get());
                         output.accept(ModItems.GOLEM_CORE_GATHER.get());
                         output.accept(ModItems.GOLEM_CORE_GUARD.get());
                     })

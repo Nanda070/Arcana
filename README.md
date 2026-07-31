@@ -2,7 +2,7 @@
 
 Dev port of **Thaumcraft 6** to **Minecraft 1.20.1 Forge** (`modid=arcana`).
 
-Version **1.0.0** — Phase M release candidate (see `arcana_changelog.txt`, `SMOKE_CHECKLIST.md`).
+Version **1.1.0** — Phase N shipped (see `arcana_changelog.txt`, `PORT_PLAN.md` N1–N10 done).
 
 ## Requirements
 
@@ -19,15 +19,15 @@ $env:JAVA_HOME = "C:\Program Files\Eclipse Adoptium\jdk-17.0.20.8-hotspot"
 .\gradlew.bat runClient
 ```
 
-Artifact: `build/libs/arcana-1.0.0.jar`
+Artifact: `build/libs/arcana-1.1.0.jar`
 
 ## Publish (manual)
 
 No automated Modrinth/CurseForge pipeline. After `.\gradlew.bat jar --offline`:
 
-1. Upload `build/libs/arcana-1.0.0.jar` to [Modrinth](https://modrinth.com) and/or [CurseForge](https://www.curseforge.com)
+1. Upload `build/libs/arcana-1.1.0.jar` to [Modrinth](https://modrinth.com) and/or [CurseForge](https://www.curseforge.com)
 2. Set game version **1.20.1**, loader **Forge**, optional deps JEI / Curios
-3. Paste summary from `arcana_changelog.txt` (1.0.0 section) and link `NOTICE.md` / Credits & Legal below
+3. Paste summary from `arcana_changelog.txt` (1.1.0 section) and link `NOTICE.md` / Credits & Legal below
 
 ## Curios
 
@@ -35,6 +35,14 @@ Soft dependency: **compileOnly** Curios API is always on the classpath.
 
 - **FG userdev / `runClient`:** keep `arcana.enable_curios_runtime=false` in `gradle.properties` (default). Full Curios jars break userdev mixins under official mappings.
 - **Real Forge client:** set `arcana.enable_curios_runtime=true` in `gradle.properties` (or `-Parcana.enable_curios_runtime=true`) so `build.gradle` adds `runtimeOnly` Curios, **or** drop Curios into the `mods` folder. Bauble helpers stay gated via `CuriosVisHelper` / `CuriosCompat` when Curios is absent.
+
+### Curios real-client verified checklist
+
+- [ ] Install Curios on a **real** Forge 1.20.1 client (not FG userdev)
+- [ ] Confirm `arcana.enable_curios_runtime` stays **false** for userdev; enable only for real-client jars / `-P`
+- [ ] Equip `ring_apprentice` → cast cost ~5% cheaper
+- [ ] Equip `amulet_vis` → vis recharge while near aura
+- [ ] Launch without Curios → Arcana still loads (soft-dep)
 
 ## Config (COMMON)
 
@@ -45,13 +53,26 @@ Soft dependency: **compileOnly** Curios API is always on the classpath.
 - `worldgenStructureRarityMultiplier` (default 1.0; higher = rarer Eldritch Ring / Flux Patch)
 - `stickyWarpDecayTicks` (default 6000)
 - `tempWarpDecayTicks` (default 600)
+- `infusionStabilityMultiplier` (default 1.0; lower = more stable infusions)
+- `focusVisCostMultiplier` (default 1.0)
+- `golemWorkIntervalTicks` (default 20)
+- `theorycraftInspirationBase` (default 5)
+
+## Outer Lands (N7)
+
+TC6 treated Outer Lands as a **biome**, not a dimension. Arcana ships:
+
+- Datapack biome `arcana:outer_lands` (dark purple fog/sky/water) — **not injected into the overworld** without TerraBlender
+- `OuterLandsPocketFeature` — rare ~16×16 eldritch/end-stone pockets with flux goo circle + wisp, portal/node, cultists, and Endermen (placed in dark forest / swamp / mangrove swamp / soul sand valley)
+
+Full biome region registration needs **TerraBlender** (not a current dependency). Add it later to map `outer_lands` into the overworld via a Region.
 
 ## Features (shipped)
 
 - Aspects, crystals, thaumium / void gear / void robes, goggles tiers, traveller & cloudstepper boots, undying charm
-- Knowledge + warp events (permanent / sticky / temporary); aura / vis; research book with BASICS / AUROMANCY / ARTIFICE / ALCHEMY / GOLEMANCY / ELDRITCH
-- Research table, arcane workbench, crucible (+ salis / quicksilver / tallow), jars, tubes, filter tubes, smelter, alembic
-- Infusion (foci, void robes, traveller boots, advanced goggles, Outer Lands portal); Focal Manipulator
+- Knowledge + warp events (permanent / sticky / temporary); aura / vis; research book with BASICS / AUROMANCY / ARTIFICE / ALCHEMY / INFUSION / GOLEMANCY / ELDRITCH (~148 TC6-adapted entries)
+- Research table theorycraft (~33 cards); arcane workbench, crucible (+ salis / quicksilver / tallow), jars, tubes (filter/valve/restrict/oneway/buffer), smelter, alembic, centrifuge
+- Infusion (pillars + stability, foci, void robes, traveller boots, advanced goggles, Outer Lands portal); Focal Manipulator (multi-effect + Scatter stub)
 - Devices: levitator, magic mirror, lamp of growth, hungry chest
 - Golems: gather/guard/fill/empty/harvest/use/butcher seals + gather/guard cores
 - Worldgen: cinderpearl, shimmerleaf, ethereal bloom, flux patches, crystal clusters, greatwood, silverwood, eldritch stone / ring / hilltop stones / cultist camp / obelisk

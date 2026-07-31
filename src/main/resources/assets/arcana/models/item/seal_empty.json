@@ -1,1 +1,1 @@
-﻿{ "parent": "minecraft:item/generated", "textures": { "layer0": "arcana:item/seal_empty" } }
+{ "parent": "minecraft:item/generated", "textures": { "layer0": "arcana:item/seal_empty" } }

@@ -17,7 +17,9 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 /**
@@ -79,7 +81,15 @@ public final class WarpEvents {
                     (1.0f + (random.nextFloat() - random.nextFloat()) * 0.2f) * 0.7f);
         } else if (eff <= 12) {
             whisper(player, randomWhisper(random, "warp.text.11", "warp.text.18", "warp.text.19"));
-        } else if (eff <= 20) {
+        } else if (eff <= 15) {
+            // TC6-style: something slips from inventory
+            dropRandomHotbarItem(player);
+            whisper(player, "warp.text.23");
+        } else if (eff <= 18) {
+            // TC6-style fake rain: ambient only — weather is intentionally skipped
+            level.playSound(null, player.blockPosition(), SoundEvents.WEATHER_RAIN, SoundSource.WEATHER, 0.85f, 1.0f);
+            whisper(player, "warp.text.24");
+        } else if (eff <= 24) {
             player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 200 + warp * 10, Math.min(2, warp / 20), true, true));
             whisper(player, "warp.text.1");
         } else if (eff <= 28) {
@@ -130,6 +140,29 @@ public final class WarpEvents {
         } else {
             spawnBrainyZombies(player, Math.min(3, 1 + warp / 40));
             whisper(player, "warp.text.7");
+        }
+    }
+
+    /** Drop one non-empty hotbar stack (TC6 inventory slip); skip if empty. */
+    private static void dropRandomHotbarItem(Player player) {
+        RandomSource random = player.getRandom();
+        int start = random.nextInt(9);
+        for (int i = 0; i < 9; i++) {
+            int slot = (start + i) % 9;
+            ItemStack stack = player.getInventory().getItem(slot);
+            if (stack.isEmpty()) {
+                continue;
+            }
+            ItemStack dropped = stack.split(1);
+            ItemEntity entity = player.drop(dropped, true, false);
+            if (entity != null) {
+                entity.setPickUpDelay(40);
+                entity.setDeltaMovement(entity.getDeltaMovement().add(
+                        (random.nextDouble() - 0.5) * 0.35,
+                        0.15,
+                        (random.nextDouble() - 0.5) * 0.35));
+            }
+            return;
         }
     }
 

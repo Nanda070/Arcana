@@ -1,0 +1,32 @@
+{
+  "temperature": 0.2,
+  "downfall": 0.0,
+  "has_precipitation": false,
+  "effects": {
+    "sky_color": 2105658,
+    "fog_color": 2894892,
+    "water_color": 4206928,
+    "water_fog_color": 2105658,
+    "grass_color": 2894892,
+    "foliage_color": 4206928
+  },
+  "spawners": {
+    "monster": [
+      { "type": "arcana:crimson_cultist", "weight": 80, "minCount": 1, "maxCount": 3 },
+      { "type": "minecraft:enderman", "weight": 40, "minCount": 1, "maxCount": 2 }
+    ],
+    "creature": [],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [],
+    "liquid": []
+  },
+  "features": [[], [], [], [], [], [], [], [], [], [], []]
+}

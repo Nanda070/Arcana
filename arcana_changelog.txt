@@ -1,6 +1,28 @@
 Arcana Changelog
 ================
 
+1.1.0 — Phase N 1:1 fidelity (systems)
+--------------------------------------
+Ship of Phase N systems depth toward TC6 behavioral parity.
+
+- N1: Theorycraft — ResearchTableData + ~33 cards (Study/Analyze/… + Synthesis/Reactions/Calibrate/
+  MindOverMatter/Spellbinding/Sculpting/Scripting/Synergy/Glyphs/Portal/Revelation/Realization/
+  Awareness/Celestial/Beacon/Enchantment + prior specialty cards)
+- N2: Adapted TC6 research trees (~148 entries across BASICS/AUROMANCY/ALCHEMY/ARTIFICE/INFUSION/
+  GOLEMANCY/ELDRITCH + scans); INFUSION category unlock=`INFUSION`; unknown parents soft-fail;
+  all `arcana:*` recipes research-gated
+- N3: FocusEngine effects AIR..RIFT + BOLT/CLOUD; FocalManipulator multi-effect + Scatter mod stub
+  (cast ×3 with yaw offsets); MEDIUM_MINE / MOD_SPLIT constants reserved
+- N4–N8: Arcane pillars + infusion stability; golem LUMBER/PROVIDE/STOCK/BREAKER*; tube
+  restrict/oneway/buffer, jar GUI, centrifuge; Outer Lands pocket (prior wave)
+- N9: cultist camp loot expanded; Eldritch Warden 3 phases + invuln frames; named captain
+  Strength aura; Outer Lands flux goo circle + wisp; warp item-drop + fake-rain branches
+- N10: ArcanaConfig — infusionStabilityMultiplier, focusVisCostMultiplier,
+  golemWorkIntervalTicks, theorycraftInspirationBase (all hooked); Curios real-client
+  checklist (userdev runtime still false); SmokeAssertions cards>=20 + INFUSION category
+
+Artifact: `build/libs/arcana-1.1.0.jar`. Authors: Nanda070 / Arcana Dev.
+
 1.0.0 — Phase M release candidate
 ---------------------------------
 Ship of Phases M0–M through L as playable 1.0.0 RC.

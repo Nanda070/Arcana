@@ -1,1 +1,45 @@
-{ "parent": "minecraft:block/cube_all", "textures": { "all": "arcana:block/arcane_levitator" } }
+{
+  "textures": {
+    "particle": "arcana:block/arcane_levitator",
+    "all": "arcana:block/arcane_levitator"
+  },
+  "elements": [
+    {
+      "name": "base",
+      "from": [1, 0, 1],
+      "to": [15, 4, 15],
+      "faces": {
+        "down":  { "uv": [1, 1, 15, 15], "texture": "#all" },
+        "up":    { "uv": [1, 1, 15, 15], "texture": "#all" },
+        "north": { "uv": [1, 12, 15, 16], "texture": "#all" },
+        "south": { "uv": [1, 12, 15, 16], "texture": "#all" },
+        "west":  { "uv": [1, 12, 15, 16], "texture": "#all" },
+        "east":  { "uv": [1, 12, 15, 16], "texture": "#all" }
+      }
+    },
+    {
+      "name": "column",
+      "from": [4, 4, 4],
+      "to": [12, 12, 12],
+      "faces": {
+        "north": { "uv": [4, 4, 12, 12], "texture": "#all" },
+        "south": { "uv": [4, 4, 12, 12], "texture": "#all" },
+        "west":  { "uv": [4, 4, 12, 12], "texture": "#all" },
+        "east":  { "uv": [4, 4, 12, 12], "texture": "#all" }
+      }
+    },
+    {
+      "name": "rotor",
+      "from": [2, 12, 2],
+      "to": [14, 15, 14],
+      "faces": {
+        "down":  { "uv": [2, 2, 14, 14], "texture": "#all" },
+        "up":    { "uv": [2, 2, 14, 14], "texture": "#all" },
+        "north": { "uv": [2, 1, 14, 4], "texture": "#all" },
+        "south": { "uv": [2, 1, 14, 4], "texture": "#all" },
+        "west":  { "uv": [2, 1, 14, 4], "texture": "#all" },
+        "east":  { "uv": [2, 1, 14, 4], "texture": "#all" }
+      }
+    }
+  ]
+}

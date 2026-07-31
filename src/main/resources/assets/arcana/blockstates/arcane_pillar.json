@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "arcana:block/arcane_pillar" },
+    "facing=south": { "model": "arcana:block/arcane_pillar", "y": 180 },
+    "facing=west": { "model": "arcana:block/arcane_pillar", "y": 270 },
+    "facing=east": { "model": "arcana:block/arcane_pillar", "y": 90 }
+  }
+}

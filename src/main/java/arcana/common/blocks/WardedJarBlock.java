@@ -5,6 +5,7 @@ import arcana.registry.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -20,10 +21,11 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
 public class WardedJarBlock extends BaseEntityBlock {
-    private static final VoxelShape SHAPE = Block.box(3, 0, 3, 13, 12, 13);
+    private static final VoxelShape SHAPE = Block.box(3, 0, 3, 13, 14, 13);
 
     public WardedJarBlock(Properties properties) {
         super(properties);
@@ -64,7 +66,6 @@ public class WardedJarBlock extends BaseEntityBlock {
                     player.displayClientMessage(Component.translatable("arcana.label.cleared"), true);
                     return InteractionResult.SUCCESS;
                 }
-                // Pour into neighboring crucible
                 for (Direction dir : Direction.values()) {
                     BlockEntity be = level.getBlockEntity(pos.relative(dir));
                     if (be instanceof arcana.common.blockentities.CrucibleBlockEntity crucible) {
@@ -76,11 +77,9 @@ public class WardedJarBlock extends BaseEntityBlock {
                     }
                 }
             }
-            String aspect = jar.getAspect() == null ? "-" : jar.getAspect().getTag();
-            String filter = jar.getAspectFilter() == null ? "-" : jar.getAspectFilter().getTag();
-            player.displayClientMessage(Component.literal(
-                    "Jar: " + aspect + " x" + jar.getAmount() + "  filter=" + filter
-                            + "  suction=" + jar.getSuctionAmount(Direction.UP)), true);
+            if (player instanceof ServerPlayer serverPlayer) {
+                NetworkHooks.openScreen(serverPlayer, jar, pos);
+            }
         }
         return InteractionResult.sidedSuccess(level.isClientSide());
     }

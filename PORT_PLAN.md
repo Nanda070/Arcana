@@ -245,6 +245,29 @@ Ship milestones:
 
 Roadmap complete through **1.0.0**. Smoke: `/arcana smoke` + `SMOKE_CHECKLIST.md`. Artifact: `build/libs/arcana-1.0.0.jar`.
 
+## Phase N — 1:1 Fidelity (права на обновление; playtest в конце)
+
+Цель: **поведенческий 1:1** с TC6 1.12.2 (`../src`), API surface `arcana.*` / `modid=arcana`. Не клон каждого legacy имени пакета, а паритет механик.
+
+Ship: **1.1.0** (systems) → **1.2.0** (content/art) → **2.0.0** (parity freeze pre-playtest).
+
+| ID | Модуль | Статус |
+|----|--------|--------|
+| N1 | Theorycraft cards + ResearchTableData/GUI | done |
+| N2 | Research JSON ~148 + gates on all recipes; INFUSION category | done |
+| N3 | FocusEngine 21 elements + free graph FocalManipulator | done |
+| N4 | Infusion pillars + stability events 1:1 | done |
+| N5 | Unique models/GUI (matrix, jar, devices, table) | done |
+| N6 | 16 golem seals + SealHandler | done |
+| N7 | Outer Lands = Eldritch biome (TC6; не dim) + rifts | done |
+| N8 | Essentia: tube variants, jar GUI, centrifuge stub | done |
+| N9 | Structures/bosses/warp depth to TC6 feel | done |
+| N10 | Config breadth, Curios real-client, API polish, ship | done (Curios: FG userdev keep runtime false; real client enable) |
+
+**Phase N shipped 1.1.0.** TC6 research trees adapted (`thaumcraft:`→`arcana:`), ~33 theorycraft cards, focus scatter stub, arcana:* recipes research-gated. N9: cultist camp loot, Warden 3-phase + invuln frames, captain Strength aura, Outer Lands flux circle + wisp, warp item-drop / fake-rain. N10: config multipliers hooked (infusion/focus/golem/theorycraft); Curios real-client checklist (userdev still false).
+
+Sources of truth: `../src/main/java/thaumcraft/**` and `../src/main/resources/assets/thaumcraft/research/**`.
+
 ### Рекомендуемый порядок работы
 
 `I5 → I6 → I2 → I3 → I4 → I1` затем `J1–J2` (контент на живых системах), потом `K`, `L`, `M` — **выполнен**.

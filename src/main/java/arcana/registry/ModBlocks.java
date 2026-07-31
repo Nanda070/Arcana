@@ -7,6 +7,7 @@ import arcana.common.blocks.ArcaneLevitatorBlock;
 import arcana.common.blocks.ArcaneWorkbenchBlock;
 import arcana.common.blocks.AuraNodeBlock;
 import arcana.common.blocks.BellowsBlock;
+import arcana.common.blocks.CentrifugeBlock;
 import arcana.common.blocks.CinderpearlBlock;
 import arcana.common.blocks.CrucibleBlock;
 import arcana.common.blocks.CrystalClusterBlock;
@@ -16,8 +17,12 @@ import arcana.common.blocks.EtherealBloomBlock;
 import arcana.common.blocks.FluxGooBlock;
 import arcana.common.blocks.OuterLandsPortalBlock;
 import arcana.common.blocks.EssentiaTubeBlock;
+import arcana.common.blocks.EssentiaBufferTubeBlock;
 import arcana.common.blocks.EssentiaFilterTubeBlock;
+import arcana.common.blocks.EssentiaOnewayTubeBlock;
+import arcana.common.blocks.EssentiaRestrictTubeBlock;
 import arcana.common.blocks.EssentiaValveBlock;
+import arcana.common.blocks.ArcanePillarBlock;
 import arcana.common.blocks.FocalManipulatorBlock;
 import arcana.common.blocks.HungryChestBlock;
 import arcana.common.blocks.InfusionMatrixBlock;
@@ -66,6 +71,22 @@ public final class ModBlocks {
             () -> new EssentiaTubeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(1.0f)
                     .sound(SoundType.METAL).noOcclusion()));
 
+    public static final RegistryObject<Block> ESSENTIA_RESTRICT_TUBE = BLOCKS.register("essentia_restrict_tube",
+            () -> new EssentiaRestrictTubeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(1.0f)
+                    .sound(SoundType.METAL).noOcclusion()));
+
+    public static final RegistryObject<Block> ESSENTIA_ONEWAY_TUBE = BLOCKS.register("essentia_oneway_tube",
+            () -> new EssentiaOnewayTubeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(1.0f)
+                    .sound(SoundType.METAL).noOcclusion()));
+
+    public static final RegistryObject<Block> ESSENTIA_BUFFER_TUBE = BLOCKS.register("essentia_buffer_tube",
+            () -> new EssentiaBufferTubeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(1.0f)
+                    .sound(SoundType.METAL).noOcclusion()));
+
+    public static final RegistryObject<Block> CENTRIFUGE = BLOCKS.register("centrifuge",
+            () -> new CentrifugeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(3.0f)
+                    .sound(SoundType.METAL).noOcclusion()));
+
     public static final RegistryObject<Block> ESSENTIA_VALVE = BLOCKS.register("essentia_valve",
             () -> new EssentiaValveBlock(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(1.5f)
                     .sound(SoundType.METAL).noOcclusion()));
@@ -102,6 +123,7 @@ public final class ModBlocks {
 
     public static final RegistryObject<Block> PEDESTAL = BLOCKS.register("pedestal", PedestalBlock::new);
     public static final RegistryObject<Block> INFUSION_MATRIX = BLOCKS.register("infusion_matrix", InfusionMatrixBlock::new);
+    public static final RegistryObject<Block> ARCANE_PILLAR = BLOCKS.register("arcane_pillar", ArcanePillarBlock::new);
     public static final RegistryObject<Block> FOCAL_MANIPULATOR = BLOCKS.register("focal_manipulator", FocalManipulatorBlock::new);
     public static final RegistryObject<Block> GOLEM_SEAL = BLOCKS.register("golem_seal", SealBlock::new);
     public static final RegistryObject<Block> BELLOWS = BLOCKS.register("bellows",
@@ -152,13 +174,13 @@ public final class ModBlocks {
     // J3 Devices
     public static final RegistryObject<Block> ARCANE_LEVITATOR = BLOCKS.register("arcane_levitator",
             () -> new ArcaneLevitatorBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(2.5f)
-                    .sound(SoundType.STONE).lightLevel(s -> 4)));
+                    .sound(SoundType.STONE).lightLevel(s -> 4).noOcclusion()));
     public static final RegistryObject<Block> MAGIC_MIRROR = BLOCKS.register("magic_mirror",
             () -> new MagicMirrorBlock(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(2.0f)
                     .sound(SoundType.GLASS).noOcclusion()));
     public static final RegistryObject<Block> LAMP_OF_GROWTH = BLOCKS.register("lamp_of_growth",
             () -> new LampOfGrowthBlock(BlockBehaviour.Properties.of().mapColor(MapColor.GOLD).strength(1.5f)
-                    .sound(SoundType.METAL).lightLevel(s -> 10)));
+                    .sound(SoundType.METAL).lightLevel(s -> 10).noOcclusion()));
     public static final RegistryObject<Block> HUNGRY_CHEST = BLOCKS.register("hungry_chest",
             () -> new HungryChestBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(2.5f)
                     .sound(SoundType.WOOD)));

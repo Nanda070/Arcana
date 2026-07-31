@@ -10,7 +10,42 @@ import arcana.api.research.ResearchCategory;
 import arcana.api.research.ResearchEntry;
 import arcana.api.research.ResearchStage;
 import arcana.api.research.ScanningManager;
+import arcana.api.research.theorycraft.AidBookshelf;
+import arcana.api.research.theorycraft.CardAnalyze;
+import arcana.api.research.theorycraft.CardBalance;
+import arcana.api.research.theorycraft.CardExperimentation;
+import arcana.api.research.theorycraft.CardInspired;
+import arcana.api.research.theorycraft.CardNotation;
+import arcana.api.research.theorycraft.CardPonder;
+import arcana.api.research.theorycraft.CardReject;
+import arcana.api.research.theorycraft.CardRethink;
+import arcana.api.research.theorycraft.CardStudy;
+import arcana.api.research.theorycraft.TheorycraftManager;
 import arcana.common.config.ConfigAspects;
+import arcana.common.lib.research.theorycraft.CardAwareness;
+import arcana.common.lib.research.theorycraft.CardBeacon;
+import arcana.common.lib.research.theorycraft.CardCalibrate;
+import arcana.common.lib.research.theorycraft.CardCelestial;
+import arcana.common.lib.research.theorycraft.CardChannel;
+import arcana.common.lib.research.theorycraft.CardConcentrate;
+import arcana.common.lib.research.theorycraft.CardCurio;
+import arcana.common.lib.research.theorycraft.CardDarkWhispers;
+import arcana.common.lib.research.theorycraft.CardEnchantment;
+import arcana.common.lib.research.theorycraft.CardFocus;
+import arcana.common.lib.research.theorycraft.CardGlyphs;
+import arcana.common.lib.research.theorycraft.CardInfuse;
+import arcana.common.lib.research.theorycraft.CardMeasure;
+import arcana.common.lib.research.theorycraft.CardMindOverMatter;
+import arcana.common.lib.research.theorycraft.CardPortal;
+import arcana.common.lib.research.theorycraft.CardReactions;
+import arcana.common.lib.research.theorycraft.CardRealization;
+import arcana.common.lib.research.theorycraft.CardRevelation;
+import arcana.common.lib.research.theorycraft.CardScripting;
+import arcana.common.lib.research.theorycraft.CardSculpting;
+import arcana.common.lib.research.theorycraft.CardSpellbinding;
+import arcana.common.lib.research.theorycraft.CardSynergy;
+import arcana.common.lib.research.theorycraft.CardSynthesis;
+import arcana.common.lib.research.theorycraft.CardTinker;
 import arcana.common.network.PacketHandler;
 import arcana.common.lib.research.ScanAspect;
 import arcana.common.lib.research.ScanGeneric;
@@ -40,16 +75,19 @@ public final class ResearchManager {
                 .add(Aspect.AIR, 5).add(Aspect.FIRE, 5).add(Aspect.EARTH, 3).add(Aspect.WATER, 5);
         ResearchCategories.registerCategory("BASICS", null, formula, icon, back);
         ResearchCategories.registerCategory("AUROMANCY", "UNLOCKAUROMANCY", formula, icon, back);
-        ResearchCategories.registerCategory("ARTIFICE", "INFUSION", formula, icon, back);
         ResearchCategories.registerCategory("ALCHEMY", "UNLOCKALCHEMY", formula, icon, back);
+        ResearchCategories.registerCategory("ARTIFICE", "UNLOCKARTIFICE", formula, icon, back);
+        ResearchCategories.registerCategory("INFUSION", "INFUSION", formula, icon, back);
         ResearchCategories.registerCategory("GOLEMANCY", "GOLEMBASIC", formula, icon, back);
         ResearchCategories.registerCategory("ELDRITCH", "ELDRITCH", formula, icon, back);
         parseResearchResource("/assets/arcana/research/basics.json");
         parseResearchResource("/assets/arcana/research/auromancy.json");
-        parseResearchResource("/assets/arcana/research/artifice.json");
         parseResearchResource("/assets/arcana/research/alchemy.json");
+        parseResearchResource("/assets/arcana/research/artifice.json");
+        parseResearchResource("/assets/arcana/research/infusion.json");
         parseResearchResource("/assets/arcana/research/golemancy.json");
         parseResearchResource("/assets/arcana/research/eldritch.json");
+        parseResearchResource("/assets/arcana/research/scans.json");
 
         ConfigAspects.register();
         ScanningManager.clear();
@@ -59,8 +97,49 @@ public final class ResearchManager {
             ScanningManager.addScannableThing(new ScanAspect(aspect));
         }
 
-        Arcana.LOGGER.info("Research bootstrap complete — {} categories, aspects tagged, scanners ready",
-                ResearchCategories.researchCategories.size());
+        initTheorycraft();
+
+        Arcana.LOGGER.info("Research bootstrap complete — {} categories, {} theorycraft cards, scanners ready",
+                ResearchCategories.researchCategories.size(), TheorycraftManager.cards.size());
+    }
+
+    private static void initTheorycraft() {
+        TheorycraftManager.aids.clear();
+        TheorycraftManager.cards.clear();
+        TheorycraftManager.registerAid(new AidBookshelf());
+        TheorycraftManager.registerCard(CardStudy.class);
+        TheorycraftManager.registerCard(CardAnalyze.class);
+        TheorycraftManager.registerCard(CardBalance.class);
+        TheorycraftManager.registerCard(CardNotation.class);
+        TheorycraftManager.registerCard(CardPonder.class);
+        TheorycraftManager.registerCard(CardRethink.class);
+        TheorycraftManager.registerCard(CardReject.class);
+        TheorycraftManager.registerCard(CardExperimentation.class);
+        TheorycraftManager.registerCard(CardCurio.class);
+        TheorycraftManager.registerCard(CardInspired.class);
+        TheorycraftManager.registerCard(CardConcentrate.class);
+        TheorycraftManager.registerCard(CardTinker.class);
+        TheorycraftManager.registerCard(CardMeasure.class);
+        TheorycraftManager.registerCard(CardChannel.class);
+        TheorycraftManager.registerCard(CardInfuse.class);
+        TheorycraftManager.registerCard(CardFocus.class);
+        TheorycraftManager.registerCard(CardDarkWhispers.class);
+        TheorycraftManager.registerCard(CardSynthesis.class);
+        TheorycraftManager.registerCard(CardReactions.class);
+        TheorycraftManager.registerCard(CardCalibrate.class);
+        TheorycraftManager.registerCard(CardMindOverMatter.class);
+        TheorycraftManager.registerCard(CardSpellbinding.class);
+        TheorycraftManager.registerCard(CardSculpting.class);
+        TheorycraftManager.registerCard(CardScripting.class);
+        TheorycraftManager.registerCard(CardSynergy.class);
+        TheorycraftManager.registerCard(CardGlyphs.class);
+        TheorycraftManager.registerCard(CardPortal.class);
+        TheorycraftManager.registerCard(CardRevelation.class);
+        TheorycraftManager.registerCard(CardRealization.class);
+        TheorycraftManager.registerCard(CardAwareness.class);
+        TheorycraftManager.registerCard(CardCelestial.class);
+        TheorycraftManager.registerCard(CardBeacon.class);
+        TheorycraftManager.registerCard(CardEnchantment.class);
     }
 
     /** I6: grant +4 OBSERVATION once per successful scan of something with aspects. */
@@ -151,6 +230,10 @@ public final class ResearchManager {
             String req = soft ? parent.substring(1) : parent;
             if (req.startsWith("!")) {
                 req = req.substring(1);
+            }
+            // Unknown parent entries soft-fail (adapted TC6 trees may reference unfinished keys).
+            if (ResearchCategories.getResearch(req) == null) {
+                continue;
             }
             if (!knowledge.isResearchKnown(req) && !soft) {
                 return false;

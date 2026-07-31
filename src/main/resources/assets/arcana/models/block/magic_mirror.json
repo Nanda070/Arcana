@@ -1,1 +1,66 @@
-{ "parent": "minecraft:block/cube_all", "textures": { "all": "arcana:block/magic_mirror" } }
+{
+  "textures": {
+    "particle": "arcana:block/magic_mirror",
+    "frame": "arcana:block/magic_mirror",
+    "glass": "arcana:block/jar_side"
+  },
+  "elements": [
+    {
+      "name": "frame_bottom",
+      "from": [2, 0, 6],
+      "to": [14, 2, 10],
+      "faces": {
+        "down":  { "uv": [2, 6, 14, 10], "texture": "#frame" },
+        "up":    { "uv": [2, 6, 14, 10], "texture": "#frame" },
+        "north": { "uv": [2, 14, 14, 16], "texture": "#frame" },
+        "south": { "uv": [2, 14, 14, 16], "texture": "#frame" },
+        "west":  { "uv": [6, 14, 10, 16], "texture": "#frame" },
+        "east":  { "uv": [6, 14, 10, 16], "texture": "#frame" }
+      }
+    },
+    {
+      "name": "frame_top",
+      "from": [2, 14, 6],
+      "to": [14, 16, 10],
+      "faces": {
+        "down":  { "uv": [2, 6, 14, 10], "texture": "#frame" },
+        "up":    { "uv": [2, 6, 14, 10], "texture": "#frame" },
+        "north": { "uv": [2, 0, 14, 2], "texture": "#frame" },
+        "south": { "uv": [2, 0, 14, 2], "texture": "#frame" },
+        "west":  { "uv": [6, 0, 10, 2], "texture": "#frame" },
+        "east":  { "uv": [6, 0, 10, 2], "texture": "#frame" }
+      }
+    },
+    {
+      "name": "frame_left",
+      "from": [2, 2, 6],
+      "to": [4, 14, 10],
+      "faces": {
+        "north": { "uv": [2, 2, 4, 14], "texture": "#frame" },
+        "south": { "uv": [2, 2, 4, 14], "texture": "#frame" },
+        "west":  { "uv": [6, 2, 10, 14], "texture": "#frame" },
+        "east":  { "uv": [6, 2, 10, 14], "texture": "#frame" }
+      }
+    },
+    {
+      "name": "frame_right",
+      "from": [12, 2, 6],
+      "to": [14, 14, 10],
+      "faces": {
+        "north": { "uv": [12, 2, 14, 14], "texture": "#frame" },
+        "south": { "uv": [12, 2, 14, 14], "texture": "#frame" },
+        "west":  { "uv": [6, 2, 10, 14], "texture": "#frame" },
+        "east":  { "uv": [6, 2, 10, 14], "texture": "#frame" }
+      }
+    },
+    {
+      "name": "glass",
+      "from": [4, 2, 7],
+      "to": [12, 14, 9],
+      "faces": {
+        "north": { "uv": [4, 2, 12, 14], "texture": "#glass" },
+        "south": { "uv": [4, 2, 12, 14], "texture": "#glass" }
+      }
+    }
+  ]
+}

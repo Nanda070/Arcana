@@ -6,6 +6,7 @@ import arcana.api.casters.FocusEngine;
 import arcana.api.casters.FocusPackage;
 import arcana.api.casters.ICaster;
 import arcana.common.lib.events.GogglesHelper;
+import arcana.config.ArcanaConfig;
 import java.util.List;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.particles.ParticleTypes;
@@ -34,6 +35,7 @@ public class ItemCaster extends Item implements ICaster {
 
     @Override
     public boolean consumeVis(ItemStack casterStack, Player player, float amount, boolean simulate) {
+        amount *= (float) ArcanaConfig.COMMON.focusVisCostMultiplier.get().doubleValue();
         int discount = GogglesHelper.getVisDiscount(player);
         if (discount > 0) {
             amount *= (100 - discount) / 100.0f;

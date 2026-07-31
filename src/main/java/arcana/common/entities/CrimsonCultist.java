@@ -8,6 +8,8 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -23,6 +25,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.AABB;
 
 /**
  * Crimson Cult foot soldier / captain.
@@ -56,6 +59,23 @@ public class CrimsonCultist extends Monster {
 
     public boolean isCaptain() {
         return captain;
+    }
+
+    /** Named captains periodically grant Strength to nearby foot soldiers. */
+    @Override
+    public void aiStep() {
+        super.aiStep();
+        if (level().isClientSide || !captain || !hasCustomName()) {
+            return;
+        }
+        if (tickCount % 40 != 0) {
+            return;
+        }
+        AABB box = getBoundingBox().inflate(10.0);
+        for (CrimsonCultist ally : level().getEntitiesOfClass(CrimsonCultist.class, box,
+                c -> c != this && c.isAlive() && !c.isCaptain())) {
+            ally.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 80, 0, true, true));
+        }
     }
 
     @Override

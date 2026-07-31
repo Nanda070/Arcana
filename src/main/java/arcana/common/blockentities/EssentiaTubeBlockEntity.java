@@ -142,8 +142,11 @@ public class EssentiaTubeBlockEntity extends BlockEntity implements IEssentiaTra
                 if (other != null) {
                     int added = other.addEssentia(essentiaType, 1, bestDir.getOpposite());
                     if (added > 0) {
-                        essentiaAmount = 0;
-                        essentiaType = null;
+                        essentiaAmount -= added;
+                        if (essentiaAmount <= 0) {
+                            essentiaAmount = 0;
+                            essentiaType = null;
+                        }
                         setChangedAndSync();
                     }
                 }
@@ -195,6 +198,16 @@ public class EssentiaTubeBlockEntity extends BlockEntity implements IEssentiaTra
         return true;
     }
 
+    /** Override for buffer tubes. */
+    protected int getCapacity() {
+        return 1;
+    }
+
+    /** Override for restrict tubes (lower relayed suction). */
+    protected int modifySuction(int raw) {
+        return raw;
+    }
+
     @Override
     public boolean isConnectable(Direction face) {
         return true;
@@ -223,7 +236,7 @@ public class EssentiaTubeBlockEntity extends BlockEntity implements IEssentiaTra
 
     @Override
     public int getSuctionAmount(Direction face) {
-        return suction;
+        return modifySuction(suction);
     }
 
     @Override
@@ -248,13 +261,16 @@ public class EssentiaTubeBlockEntity extends BlockEntity implements IEssentiaTra
         if (essentiaAmount > 0 && essentiaType != aspect) {
             return 0;
         }
-        if (essentiaAmount >= 1) {
+        int capacity = getCapacity();
+        if (essentiaAmount >= capacity) {
             return 0;
         }
+        int space = capacity - essentiaAmount;
+        int added = Math.min(amount, space);
         essentiaType = aspect;
-        essentiaAmount = 1;
+        essentiaAmount += added;
         setChangedAndSync();
-        return 1;
+        return added;
     }
 
     @Override

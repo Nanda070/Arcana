@@ -1,53 +1,698 @@
 {
   "entries": [
     {
-      "key": "ARTIFICE_INTRO",
-      "name": "research.ARTIFICE_INTRO.title",
+      "key": "BASEARTIFICE",
+      "name": "research.BASEARTIFICE.title",
+      "icons": [
+        "minecraft:paper"
+      ],
       "category": "ARTIFICE",
-      "location": [0, 0],
-      "parents": ["INFUSION"],
-      "meta": ["ROUND"],
-      "stages": [{"text": "research.ARTIFICE_INTRO.stage.1"}]
+      "location": [
+        0,
+        0
+      ],
+      "parents": [
+        "UNLOCKARTIFICE"
+      ],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
+      "stages": [
+        {
+          "text": "research.BASEARTIFICE.stage.1",
+          "recipes": [
+            "minecraft:paper",
+            "minecraft:redstone",
+            "minecraft:comparator",
+            "minecraft:paper",
+            "minecraft:paper"
+          ]
+        }
+      ]
     },
     {
-      "key": "INFUSIONARTIFICE",
-      "name": "research.INFUSIONARTIFICE.title",
+      "key": "HUNGRYCHEST",
+      "name": "research.HUNGRYCHEST.title",
+      "icons": [
+        "arcana:hungry_chest"
+      ],
       "category": "ARTIFICE",
-      "location": [-2, 1],
-      "parents": ["ARTIFICE_INTRO"],
-      "stages": [{"text": "research.INFUSIONARTIFICE.stage.1"}]
-    },
-    {
-      "key": "ESSENTIAVALVE",
-      "name": "research.ESSENTIAVALVE.title",
-      "category": "ARTIFICE",
-      "location": [2, 1],
-      "parents": ["ARTIFICE_INTRO"],
-      "stages": [{"text": "research.ESSENTIAVALVE.stage.1"}]
-    },
-    {
-      "key": "RESEARCHTABLE",
-      "name": "research.RESEARCHTABLE.title",
-      "category": "ARTIFICE",
-      "location": [0, 2],
-      "parents": ["ARTIFICE_INTRO"],
-      "stages": [{"text": "research.RESEARCHTABLE.stage.1"}]
-    },
-    {
-      "key": "MIRROR",
-      "name": "research.MIRROR.title",
-      "category": "ARTIFICE",
-      "location": [-2, 3],
-      "parents": ["INFUSIONARTIFICE"],
-      "stages": [{"text": "research.MIRROR.stage.1"}]
+      "location": [
+        3,
+        1
+      ],
+      "parents": [
+        "BASEARTIFICE"
+      ],
+      "stages": [
+        {
+          "text": "research.HUNGRYCHEST.stage.1",
+          "required_knowledge": [
+            "OBSERVATION;GOLEMANCY;1"
+          ],
+          "required_item": [
+            "oredict:chest",
+            "minecraft:hopper"
+          ]
+        },
+        {
+          "text": "research.HUNGRYCHEST.stage.2",
+          "recipes": [
+            "minecraft:paper"
+          ]
+        }
+      ]
     },
     {
       "key": "LEVITATOR",
       "name": "research.LEVITATOR.title",
+      "icons": [
+        "arcana:levitator"
+      ],
       "category": "ARTIFICE",
-      "location": [2, 3],
-      "parents": ["INFUSIONARTIFICE"],
-      "stages": [{"text": "research.LEVITATOR.stage.1"}]
+      "location": [
+        5,
+        3
+      ],
+      "parents": [
+        "HUNGRYCHEST",
+        "METALLURGY@3"
+      ],
+      "stages": [
+        {
+          "text": "research.LEVITATOR.stage.1",
+          "required_knowledge": [
+            "OBSERVATION;ARTIFICE;1"
+          ],
+          "required_research": [
+            "!volatus"
+          ]
+        },
+        {
+          "text": "research.LEVITATOR.stage.2",
+          "recipes": [
+            "minecraft:paper"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "INFERNALFURNACE",
+      "name": "research.INFERNALFURNACE.title",
+      "icons": [
+        "minecraft:paper"
+      ],
+      "category": "ARTIFICE",
+      "location": [
+        3,
+        -1
+      ],
+      "parents": [
+        "BASEARTIFICE"
+      ],
+      "stages": [
+        {
+          "text": "research.INFERNALFURNACE.stage.1",
+          "required_knowledge": [
+            "OBSERVATION;ARTIFICE;1"
+          ],
+          "required_research": [
+            "!ignis",
+            "m_hellandback"
+          ],
+          "required_item": [
+            "minecraft:obsidian",
+            "minecraft:nether_brick",
+            "minecraft:blaze_rod"
+          ]
+        },
+        {
+          "text": "research.INFERNALFURNACE.stage.2",
+          "recipes": [
+            "minecraft:paper",
+            "minecraft:paper"
+          ]
+        }
+      ],
+      "addenda": [
+        {
+          "text": "research.INFERNALFURNACE.bellows",
+          "required_research": [
+            "BELLOWS"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BELLOWS",
+      "name": "research.BELLOWS.title",
+      "icons": [
+        "arcana:bellows"
+      ],
+      "category": "ARTIFICE",
+      "location": [
+        5,
+        -3
+      ],
+      "parents": [
+        "INFERNALFURNACE"
+      ],
+      "stages": [
+        {
+          "text": "research.BELLOWS.stage.1",
+          "required_knowledge": [
+            "OBSERVATION;GOLEMANCY;1"
+          ],
+          "required_item": [
+            "minecraft:paper"
+          ]
+        },
+        {
+          "text": "research.BELLOWS.stage.2",
+          "recipes": [
+            "minecraft:paper"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "REDSTONERELAY",
+      "name": "research.REDSTONERELAY.title",
+      "icons": [
+        "minecraft:repeater"
+      ],
+      "category": "ARTIFICE",
+      "location": [
+        0,
+        -2
+      ],
+      "parents": [
+        "BASEARTIFICE"
+      ],
+      "stages": [
+        {
+          "text": "research.REDSTONERELAY.stage.1",
+          "required_knowledge": [
+            "OBSERVATION;ARTIFICE;1"
+          ],
+          "required_research": [
+            "!potentia",
+            "!machina"
+          ],
+          "required_item": [
+            "minecraft:redstone_torch"
+          ]
+        },
+        {
+          "text": "research.REDSTONERELAY.stage.2",
+          "recipes": [
+            "minecraft:paper"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ARCANEEAR",
+      "name": "research.ARCANEEAR.title",
+      "icons": [
+        "minecraft:note_block"
+      ],
+      "category": "ARTIFICE",
+      "location": [
+        0,
+        -4
+      ],
+      "parents": [
+        "REDSTONERELAY"
+      ],
+      "stages": [
+        {
+          "text": "research.ARCANEEAR.stage.1",
+          "required_knowledgeauram": [
+            "OBSERVATION;ARTIFICE;1"
+          ],
+          "required_research": [
+            "!sensus"
+          ],
+          "required_item": [
+            "minecraft:noteblock"
+          ]
+        },
+        {
+          "text": "research.ARCANEEAR.stage.2",
+          "recipes": [
+            "minecraft:paper",
+            "minecraft:paper"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "DIOPTRA",
+      "name": "research.DIOPTRA.title",
+      "icons": [
+        "arcana:thaumometer"
+      ],
+      "category": "ARTIFICE",
+      "location": [
+        -2,
+        3
+      ],
+      "parents": [
+        "BASEARTIFICE"
+      ],
+      "meta": [
+        "REVERSE"
+      ],
+      "stages": [
+        {
+          "text": "research.DIOPTRA.stage.1",
+          "required_knowledge": [
+            "OBSERVATION;AUROMANCY;1"
+          ],
+          "required_research": [
+            "!sensus",
+            "!auram"
+          ]
+        },
+        {
+          "text": "research.DIOPTRA.stage.2",
+          "recipes": [
+            "arcana:thaumometer"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "MIRROR",
+      "name": "research.MIRROR.title",
+      "icons": [
+        "arcana:magic_mirror"
+      ],
+      "category": "ARTIFICE",
+      "location": [
+        -6,
+        0
+      ],
+      "parents": [
+        "ARCANELAMP",
+        "INFUSION"
+      ],
+      "stages": [
+        {
+          "text": "research.MIRROR.stage.1",
+          "required_knowledge": [
+            "THEORY;ARTIFICE;1",
+            "OBSERVATION;ARTIFICE;1"
+          ],
+          "required_item": [
+            "minecraft:ender_pearl",
+            "minecraft:paper"
+          ],
+          "required_research": [
+            "f_TELEPORT"
+          ]
+        },
+        {
+          "text": "research.MIRROR.stage.2",
+          "recipes": [
+            "minecraft:paper"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "MIRRORHAND",
+      "name": "research.MIRRORHAND.title",
+      "icons": [
+        "arcana:magic_mirror"
+      ],
+      "category": "ARTIFICE",
+      "location": [
+        -7,
+        1
+      ],
+      "parents": [
+        "MIRROR"
+      ],
+      "stages": [
+        {
+          "text": "research.MIRRORHAND.stage.1",
+          "required_knowledge": [
+            "THEORY;ARTIFICE;1"
+          ]
+        },
+        {
+          "text": "research.MIRRORHAND.stage.2",
+          "recipes": [
+            "minecraft:paper"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "MIRRORESSENTIA",
+      "name": "research.MIRRORESSENTIA.title",
+      "icons": [
+        "arcana:magic_mirror"
+      ],
+      "category": "ARTIFICE",
+      "location": [
+        -7,
+        -1
+      ],
+      "parents": [
+        "MIRROR"
+      ],
+      "stages": [
+        {
+          "text": "research.MIRRORESSENTIA.stage.1",
+          "required_knowledge": [
+            "THEORY;ARTIFICE;1"
+          ]
+        },
+        {
+          "text": "research.MIRRORESSENTIA.stage.2",
+          "recipes": [
+            "minecraft:paper"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ARCANELAMP",
+      "name": "research.ARCANELAMP.title",
+      "icons": [
+        "arcana:lamp_of_growth"
+      ],
+      "category": "ARTIFICE",
+      "location": [
+        -3,
+        0
+      ],
+      "parents": [
+        "BASEARTIFICE"
+      ],
+      "stages": [
+        {
+          "text": "research.ARCANELAMP.stage.1",
+          "required_knowledge": [
+            "OBSERVATION;ARTIFICE;1"
+          ],
+          "required_research": [
+            "!lux"
+          ]
+        },
+        {
+          "text": "research.ARCANELAMP.stage.2",
+          "recipes": [
+            "minecraft:paper"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "LAMPGROWTH",
+      "name": "research.LAMPGROWTH.title",
+      "icons": [
+        "arcana:lamp_of_growth"
+      ],
+      "category": "ARTIFICE",
+      "location": [
+        -4,
+        1
+      ],
+      "parents": [
+        "ARCANELAMP",
+        "INFUSION"
+      ],
+      "stages": [
+        {
+          "text": "research.LAMPGROWTH.stage.1",
+          "required_knowledge": [
+            "THEORY;ARTIFICE;1"
+          ],
+          "required_research": [
+            "!herba"
+          ],
+          "required_item": [
+            "minecraft:dye;1;15"
+          ]
+        },
+        {
+          "text": "research.LAMPGROWTH.stage.2",
+          "recipes": [
+            "minecraft:paper"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "LAMPFERTILITY",
+      "name": "research.LAMPFERTILITY.title",
+      "icons": [
+        "minecraft:paper"
+      ],
+      "category": "ARTIFICE",
+      "location": [
+        -4,
+        -1
+      ],
+      "parents": [
+        "ARCANELAMP",
+        "INFUSION"
+      ],
+      "stages": [
+        {
+          "text": "research.LAMPFERTILITY.stage.1",
+          "required_knowledge": [
+            "THEORY;ARTIFICE;1"
+          ],
+          "required_research": [
+            "!desiderium"
+          ],
+          "required_item": [
+            "minecraft:wheat",
+            "minecraft:carrot"
+          ]
+        },
+        {
+          "text": "research.LAMPFERTILITY.stage.2",
+          "recipes": [
+            "minecraft:paper"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ARCANEPATTERNCRAFTER",
+      "name": "research.ARCANEPATTERNCRAFTER.title",
+      "icons": [
+        "minecraft:crafting_table"
+      ],
+      "category": "ARTIFICE",
+      "location": [
+        -2,
+        5
+      ],
+      "parents": [
+        "DIOPTRA"
+      ],
+      "stages": [
+        {
+          "text": "research.ARCANEPATTERNCRAFTER.stage.1",
+          "required_knowledge": [
+            "THEORY;GOLEMANCY;1",
+            "THEORY;ARTIFICE;1",
+            "THEORY;AUROMANCY;1"
+          ],
+          "required_research": [
+            "!fabrico"
+          ]
+        },
+        {
+          "text": "research.ARCANEPATTERNCRAFTER.stage.2",
+          "recipes": [
+            "minecraft:paper"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BASICTURRET",
+      "name": "research.BASICTURRET.title",
+      "icons": [
+        "minecraft:paper"
+      ],
+      "category": "ARTIFICE",
+      "location": [
+        -2,
+        -4
+      ],
+      "parents": [
+        "MINDCLOCKWORK",
+        "ARCANEEAR"
+      ],
+      "stages": [
+        {
+          "text": "research.BASICTURRET.stage.1",
+          "required_knowledge": [
+            "THEORY;GOLEMANCY;1",
+            "OBSERVATION;ARTIFICE;1"
+          ],
+          "required_research": [
+            "f_DISPENSER"
+          ]
+        },
+        {
+          "text": "research.BASICTURRET.stage.2",
+          "recipes": [
+            "minecraft:paper",
+            "minecraft:paper"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ADVANCEDTURRET",
+      "name": "research.ADVANCEDTURRET.title",
+      "icons": [
+        "minecraft:paper"
+      ],
+      "category": "ARTIFICE",
+      "location": [
+        -4,
+        -4
+      ],
+      "parents": [
+        "MINDBIOTHAUMIC",
+        "BASICTURRET"
+      ],
+      "stages": [
+        {
+          "text": "research.ADVANCEDTURRET.stage.1",
+          "required_knowledge": [
+            "OBSERVATION;GOLEMANCY;1",
+            "OBSERVATION;ARTIFICE;1"
+          ]
+        },
+        {
+          "text": "research.ADVANCEDTURRET.stage.2",
+          "recipes": [
+            "minecraft:paper"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ARCANEBORE",
+      "name": "research.ARCANEBORE.title",
+      "icons": [
+        "minecraft:paper"
+      ],
+      "category": "ARTIFICE",
+      "location": [
+        -3,
+        -6
+      ],
+      "parents": [
+        "INFUSION",
+        "BASICTURRET",
+        "FOCUSBREAK"
+      ],
+      "stages": [
+        {
+          "text": "research.ARCANEBORE.stage.1",
+          "required_knowledge": [
+            "THEORY;GOLEMANCY;1",
+            "OBSERVATION;ARTIFICE;1",
+            "OBSERVATION;AUROMANCY;1"
+          ]
+        },
+        {
+          "text": "research.ARCANEBORE.stage.2",
+          "recipes": [
+            "minecraft:paper"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "GRAPPLEGUN",
+      "name": "research.GRAPPLEGUN.title",
+      "icons": [
+        "minecraft:paper"
+      ],
+      "category": "ARTIFICE",
+      "location": [
+        2,
+        3
+      ],
+      "parents": [
+        "BASEARTIFICE",
+        "RECHARGEPEDESTAL"
+      ],
+      "meta": [
+        "REVERSE"
+      ],
+      "stages": [
+        {
+          "text": "research.GRAPPLEGUN.stage.1",
+          "required_knowledge": [
+            "THEORY;ARTIFICE;1",
+            "THEORY;BASICS;1"
+          ],
+          "required_item": [
+            "minecraft:paper"
+          ]
+        },
+        {
+          "text": "research.GRAPPLEGUN.stage.2",
+          "recipes": [
+            "minecraft:paper",
+            "minecraft:paper",
+            "minecraft:paper"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "VISGENERATOR",
+      "name": "research.VISGENERATOR.title",
+      "icons": [
+        "minecraft:redstone_block"
+      ],
+      "category": "ARTIFICE",
+      "location": [
+        2,
+        -3
+      ],
+      "parents": [
+        "REDSTONERELAY"
+      ],
+      "stages": [
+        {
+          "text": "research.VISGENERATOR.stage.1",
+          "required_knowledge": [
+            "THEORY;BASICS;1",
+            "THEORY;ARTIFICE;1"
+          ],
+          "required_research": [
+            "!potentia"
+          ],
+          "required_item": [
+            "minecraft:redstone_block",
+            "minecraft:piston"
+          ]
+        },
+        {
+          "text": "research.VISGENERATOR.stage.2",
+          "recipes": [
+            "minecraft:paper"
+          ]
+        }
+      ]
     }
   ]
 }

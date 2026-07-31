@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ITI",
+    "ICI",
+    "ITI"
+  ],
+  "key": {
+    "I": { "item": "minecraft:iron_ingot" },
+    "T": { "item": "arcana:essentia_tube" },
+    "C": { "item": "minecraft:copper_ingot" }
+  },
+  "result": { "item": "arcana:centrifuge" }
+}

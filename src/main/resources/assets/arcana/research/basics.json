@@ -3,196 +3,748 @@
     {
       "key": "FIRSTSTEPS",
       "name": "research.FIRSTSTEPS.title",
+      "icons": [
+        "minecraft:paper"
+      ],
       "category": "BASICS",
-      "location": [0, 0],
-      "parents": ["!gotthaumonomicon"],
-      "siblings": ["KNOWLEDGETYPES"],
-      "meta": ["ROUND", "SPIKY"],
+      "location": [
+        0,
+        0
+      ],
+      "parents": [
+        "!gotthaumonomicon"
+      ],
+      "siblings": [
+        "KNOWLEDGETYPES",
+        "!gotdream"
+      ],
+      "meta": [
+        "ROUND",
+        "SPIKY"
+      ],
       "stages": [
-        {"text": "research.FIRSTSTEPS.stage.1"},
-        {"text": "research.FIRSTSTEPS.stage.2"},
-        {"text": "research.FIRSTSTEPS.stage.3"}
+        {
+          "text": "research.FIRSTSTEPS.stage.1",
+          "required_craft": [
+            "arcana:arcane_workbench"
+          ],
+          "recipes": [
+            "minecraft:paper"
+          ]
+        },
+        {
+          "text": "research.FIRSTSTEPS.stage.2",
+          "required_craft": [
+            "arcana:thaumometer"
+          ],
+          "required_knowledge": [
+            "OBSERVATION;BASICS;1"
+          ],
+          "recipes": [
+            "arcana:thaumometer",
+            "minecraft:paper"
+          ]
+        },
+        {
+          "text": "research.FIRSTSTEPS.stage.3",
+          "recipes": [
+            "arcana:thaumometer",
+            "minecraft:paper",
+            "minecraft:paper",
+            "minecraft:paper"
+          ]
+        }
       ]
     },
     {
       "key": "KNOWLEDGETYPES",
       "name": "research.KNOWLEDGETYPES.title",
+      "icons": [
+        "minecraft:paper"
+      ],
       "category": "BASICS",
-      "location": [2, -1],
-      "meta": ["ROUND", "HIDDEN"],
-      "stages": [{"text": "research.KNOWLEDGETYPES.stage.1"}]
+      "location": [
+        2,
+        -1
+      ],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
+      "stages": [
+        {
+          "text": "research.KNOWLEDGETYPES.stage.1"
+        }
+      ]
     },
     {
       "key": "THEORYRESEARCH",
       "name": "research.THEORYRESEARCH.title",
+      "icons": [
+        "minecraft:paper"
+      ],
       "category": "BASICS",
-      "location": [4, -1],
-      "parents": ["KNOWLEDGETYPES"],
-      "meta": ["ROUND", "HIDDEN"],
+      "location": [
+        4,
+        -1
+      ],
+      "parents": [
+        "KNOWLEDGETYPES"
+      ],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
       "stages": [
-        {"text": "research.THEORYRESEARCH.stage.1"},
-        {"text": "research.THEORYRESEARCH.stage.2"}
+        {
+          "text": "research.THEORYRESEARCH.stage.1",
+          "required_craft": [
+            "minecraft:ink_sac",
+            "arcana:research_table"
+          ],
+          "recipes": [
+            "minecraft:paper",
+            "minecraft:paper"
+          ]
+        },
+        {
+          "text": "research.THEORYRESEARCH.stage.2",
+          "recipes": [
+            "minecraft:paper",
+            "minecraft:paper"
+          ]
+        }
       ]
     },
     {
       "key": "FLUX",
       "name": "research.FLUX.title",
+      "icons": [
+        "minecraft:paper"
+      ],
       "category": "BASICS",
-      "location": [-2, -2],
-      "parents": ["FIRSTSTEPS"],
-      "meta": ["ROUND", "HIDDEN"],
-      "stages": [{"text": "research.FLUX.stage.1"}]
+      "location": [
+        -2,
+        -2
+      ],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
+      "stages": [
+        {
+          "text": "research.FLUX.stage.1",
+          "required_research": [
+            "f_toomuchflux"
+          ]
+        },
+        {
+          "text": "research.FLUX.stage.1"
+        }
+      ],
+      "addenda": [
+        {
+          "text": "research.FLUX.stage.2",
+          "required_research": [
+            "f_toomuchflux"
+          ]
+        }
+      ]
     },
     {
       "key": "WARP",
       "name": "research.WARP.title",
+      "icons": [
+        "minecraft:paper"
+      ],
       "category": "BASICS",
-      "location": [-4, -2],
-      "meta": ["ROUND", "HIDDEN"],
-      "stages": [{"text": "research.WARP.stage.1"}]
+      "location": [
+        -4,
+        -2
+      ],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
+      "stages": [
+        {
+          "text": "research.WARP.stage.1",
+          "recipes": [
+            "minecraft:paper"
+          ]
+        }
+      ]
     },
     {
-      "key": "AURAPRESERVE",
-      "name": "research.AURAPRESERVE.title",
+      "key": "ORE",
+      "name": "research.ORE.title",
+      "icons": [
+        "minecraft:iron_pickaxe"
+      ],
       "category": "BASICS",
-      "location": [-2, 2],
-      "parents": ["FIRSTSTEPS"],
-      "meta": ["ROUND"],
-      "stages": [{"text": "research.AURAPRESERVE.stage.1"}]
+      "location": [
+        -4,
+        0
+      ],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
+      "stages": [
+        {
+          "text": "research.ORE.stage.1"
+        }
+      ],
+      "addenda": [
+        {
+          "text": "research.ORE.amber",
+          "required_research": [
+            "!OREAMBER"
+          ]
+        },
+        {
+          "text": "research.ORE.cinnabar",
+          "required_research": [
+            "!ORECINNABAR"
+          ]
+        },
+        {
+          "text": "research.ORE.crystal",
+          "required_research": [
+            "!ORECRYSTAL"
+          ]
+        }
+      ]
     },
     {
-      "key": "UNLOCKAUROMANCY",
-      "name": "research.UNLOCKAUROMANCY.title",
+      "key": "PLANTS",
+      "name": "research.PLANTS.title",
+      "icons": [
+        "arcana:greatwood_sapling",
+        "arcana:silverwood_sapling"
+      ],
       "category": "BASICS",
-      "location": [0, 2],
-      "parents": ["FIRSTSTEPS"],
-      "siblings": ["BASEAUROMANCY"],
-      "meta": ["ROUND"],
-      "stages": [{"text": "research.UNLOCKAUROMANCY.stage.1"}]
+      "location": [
+        -3,
+        0
+      ],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
+      "stages": [
+        {
+          "text": "research.PLANTS.stage.1"
+        }
+      ],
+      "addenda": [
+        {
+          "text": "research.PLANTS.greatwood",
+          "required_research": [
+            "!PLANTWOOD"
+          ]
+        },
+        {
+          "text": "research.PLANTS.silverwood",
+          "required_research": [
+            "!PLANTWOOD"
+          ]
+        },
+        {
+          "text": "research.PLANTS.cinderpearl",
+          "required_research": [
+            "!PLANTCINDERPEARL"
+          ]
+        },
+        {
+          "text": "research.PLANTS.shimmerleaf",
+          "required_research": [
+            "!PLANTSHIMMERLEAF"
+          ]
+        },
+        {
+          "text": "research.PLANTS.vishroom",
+          "required_research": [
+            "!PLANTVISHROOM"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "CRYSTALFARMER",
+      "name": "research.CRYSTALFARMER.title",
+      "icons": [
+        "arcana:crystal_aer",
+        "arcana:crystal_ignis",
+        "arcana:crystal_aqua",
+        "arcana:crystal_terra",
+        "arcana:crystal_ordo",
+        "arcana:crystal_perditio"
+      ],
+      "category": "BASICS",
+      "location": [
+        -5,
+        1
+      ],
+      "parents": [
+        "ORE",
+        "INFUSION",
+        "!ORECRYSTAL"
+      ],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
+      "stages": [
+        {
+          "text": "research.CRYSTALFARMER.stage.1",
+          "required_knowledge": [
+            "OBSERVATION;AUROMANCY;1",
+            "OBSERVATION;BASICS;1"
+          ],
+          "required_item": [
+            "minecraft:paper",
+            "minecraft:paper",
+            "minecraft:paper",
+            "minecraft:paper",
+            "minecraft:paper",
+            "minecraft:paper"
+          ]
+        },
+        {
+          "text": "research.CRYSTALFARMER.stage.2",
+          "recipes": [
+            "minecraft:paper",
+            "minecraft:paper",
+            "minecraft:paper",
+            "minecraft:paper",
+            "minecraft:paper",
+            "minecraft:paper",
+            "minecraft:paper"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "PRIMPEARL",
+      "name": "research.PRIMPEARL.title",
+      "icons": [
+        "minecraft:ender_pearl"
+      ],
+      "category": "BASICS",
+      "location": [
+        -8,
+        4
+      ],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
+      "stages": [
+        {
+          "text": "research.PRIMPEARL.stage.1"
+        }
+      ]
     },
     {
       "key": "UNLOCKALCHEMY",
       "name": "research.UNLOCKALCHEMY.title",
+      "icons": [
+        "minecraft:paper"
+      ],
       "category": "BASICS",
-      "location": [2, 2],
-      "parents": ["FIRSTSTEPS"],
-      "siblings": ["ALCHEMY_INTRO"],
-      "meta": ["ROUND"],
-      "stages": [{"text": "research.UNLOCKALCHEMY.stage.1"}]
+      "location": [
+        0,
+        2
+      ],
+      "parents": [
+        "FIRSTSTEPS"
+      ],
+      "meta": [
+        "ROUND",
+        "SPIKY"
+      ],
+      "stages": [
+        {
+          "text": "research.UNLOCKALCHEMY.stage.1",
+          "required_knowledge": [
+            "OBSERVATION;ALCHEMY;1",
+            "OBSERVATION;BASICS;1"
+          ]
+        },
+        {
+          "text": "research.UNLOCKALCHEMY.stage.2",
+          "required_craft": [
+            "arcana:crucible"
+          ]
+        },
+        {
+          "text": "research.UNLOCKALCHEMY.stage.3",
+          "required_craft": [
+            "minecraft:paper"
+          ],
+          "recipes": [
+            "arcana:nitor",
+            "minecraft:paper"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "UNLOCKAUROMANCY",
+      "name": "research.UNLOCKAUROMANCY.title",
+      "icons": [
+        "minecraft:paper"
+      ],
+      "category": "BASICS",
+      "location": [
+        -2,
+        4
+      ],
+      "parents": [
+        "UNLOCKALCHEMY"
+      ],
+      "meta": [
+        "ROUND",
+        "SPIKY"
+      ],
+      "stages": [
+        {
+          "text": "research.UNLOCKAUROMANCY.stage.1",
+          "required_research": [
+            "m_deepdown",
+            "m_uphigh"
+          ]
+        },
+        {
+          "text": "research.UNLOCKAUROMANCY.stage.2",
+          "required_craft": [
+            "arcana:vis_resonator",
+            "arcana:caster_basic"
+          ],
+          "recipes": [
+            "arcana:vis_resonator",
+            "arcana:caster_basic"
+          ]
+        },
+        {
+          "text": "research.UNLOCKAUROMANCY.stage.3",
+          "recipes": [
+            "arcana:vis_resonator",
+            "arcana:caster_basic"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "UNLOCKARTIFICE",
+      "name": "research.UNLOCKARTIFICE.title",
+      "icons": [
+        "minecraft:paper"
+      ],
+      "category": "BASICS",
+      "location": [
+        2,
+        4
+      ],
+      "parents": [
+        "UNLOCKALCHEMY",
+        "METALLURGY@2"
+      ],
+      "meta": [
+        "ROUND",
+        "SPIKY"
+      ],
+      "stages": [
+        {
+          "text": "research.UNLOCKARTIFICE.stage.1",
+          "required_knowledge": [
+            "OBSERVATION;ARTIFICE;1"
+          ],
+          "required_research": [
+            "!sensus",
+            "!machina"
+          ]
+        },
+        {
+          "text": "research.UNLOCKARTIFICE.stage.2",
+          "recipes": [
+            "minecraft:paper"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "UNLOCKINFUSION",
+      "name": "research.UNLOCKINFUSION.title",
+      "icons": [
+        "minecraft:paper"
+      ],
+      "category": "BASICS",
+      "location": [
+        0,
+        4
+      ],
+      "parents": [
+        "UNLOCKALCHEMY"
+      ],
+      "meta": [
+        "ROUND",
+        "SPIKY"
+      ],
+      "stages": [
+        {
+          "text": "research.UNLOCKINFUSION.stage.1",
+          "required_knowledge": [
+            "OBSERVATION;INFUSION;1"
+          ],
+          "required_research": [
+            "!auram",
+            "!praecantatio"
+          ]
+        },
+        {
+          "text": "research.UNLOCKINFUSION.stage.2",
+          "recipes": [
+            "minecraft:paper",
+            "minecraft:paper",
+            "minecraft:paper",
+            "minecraft:paper"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "UNLOCKGOLEMANCY",
+      "name": "research.UNLOCKGOLEMANCY.title",
+      "icons": [
+        "minecraft:paper"
+      ],
+      "category": "BASICS",
+      "location": [
+        0,
+        6
+      ],
+      "parents": [
+        "UNLOCKARTIFICE",
+        "UNLOCKAUROMANCY",
+        "UNLOCKINFUSION"
+      ],
+      "siblings": [
+        "BASEGOLEMANCY"
+      ],
+      "meta": [
+        "ROUND",
+        "SPIKY",
+        "REVERSE"
+      ],
+      "stages": [
+        {
+          "text": "research.UNLOCKGOLEMANCY.stage.1",
+          "required_knowledge": [
+            "OBSERVATION;GOLEMANCY;1",
+            "OBSERVATION;BASICS;1"
+          ],
+          "required_research": [
+            "f_golem"
+          ]
+        },
+        {
+          "text": "research.UNLOCKGOLEMANCY.stage.2"
+        }
+      ]
+    },
+    {
+      "key": "CrimsonRites",
+      "name": "research.CrimsonRites.title",
+      "icons": [
+        "minecraft:paper"
+      ],
+      "category": "BASICS",
+      "location": [
+        -6,
+        4
+      ],
+      "parents": [
+        "!CrimsonCultist"
+      ],
+      "meta": [
+        "ROUND",
+        "HIDDEN",
+        "REVERSE"
+      ],
+      "stages": [
+        {
+          "text": "research.CrimsonRites.stage.1",
+          "required_item": [
+            "minecraft:paper"
+          ]
+        },
+        {
+          "text": "research.CrimsonRites.stage.2"
+        }
+      ]
     },
     {
       "key": "UNLOCKELDRITCH",
       "name": "research.UNLOCKELDRITCH.title",
+      "icons": [
+        "minecraft:paper"
+      ],
       "category": "BASICS",
-      "location": [-4, -1],
-      "parents": ["ELDRITCH"],
-      "meta": ["ROUND", "HIDDEN"],
-      "stages": [{"text": "research.UNLOCKELDRITCH.stage.1"}]
-    },
-
-    {
-      "key": "BASEAUROMANCY",
-      "name": "research.BASEAUROMANCY.title",
-      "category": "BASICS",
-      "location": [0, 4],
-      "meta": ["ROUND", "HIDDEN"],
-      "stages": [{"text": "research.BASEAUROMANCY.stage.1"}]
-    },
-    {
-      "key": "FOCUSPROJECTILE",
-      "name": "research.FOCUSPROJECTILE.title",
-      "category": "BASICS",
-      "location": [2, 4],
-      "parents": ["BASEAUROMANCY"],
-      "meta": ["ROUND"],
-      "stages": [{"text": "research.FOCUSPROJECTILE.stage.1"}]
-    },
-    {
-      "key": "FOCUSELEMENTAL",
-      "name": "research.FOCUSELEMENTAL.title",
-      "category": "BASICS",
-      "location": [-2, 4],
-      "parents": ["BASEAUROMANCY"],
-      "meta": ["ROUND"],
-      "stages": [{"text": "research.FOCUSELEMENTAL.stage.1"}]
-    },
-    {
-      "key": "FOCUSSHOCK",
-      "name": "research.FOCUSSHOCK.title",
-      "category": "BASICS",
-      "location": [2, 6],
-      "parents": ["BASEAUROMANCY"],
-      "meta": ["ROUND"],
-      "stages": [{"text": "research.FOCUSSHOCK.stage.1"}]
-    },
-    {
-      "key": "FOCUSHEAL",
-      "name": "research.FOCUSHEAL.title",
-      "category": "BASICS",
-      "location": [-2, 6],
-      "parents": ["BASEAUROMANCY"],
-      "meta": ["ROUND"],
-      "stages": [{"text": "research.FOCUSHEAL.stage.1"}]
-    },
-    {
-      "key": "AURANODE",
-      "name": "research.AURANODE.title",
-      "category": "BASICS",
-      "location": [-4, 2],
-      "parents": ["FIRSTSTEPS"],
-      "meta": ["ROUND"],
-      "stages": [{"text": "research.AURANODE.stage.1"}]
-    },
-    {
-      "key": "INFUSION",
-      "name": "research.INFUSION.title",
-      "category": "BASICS",
-      "location": [0, 6],
-      "parents": ["FIRSTSTEPS"],
-      "meta": ["ROUND"],
-      "stages": [{"text": "research.INFUSION.stage.1"}]
-    },
-    {
-      "key": "ELDRITCH",
-      "name": "research.ELDRITCH.title",
-      "category": "BASICS",
-      "location": [-4, 0],
-      "parents": ["WARP"],
-      "meta": ["ROUND"],
+      "location": [
+        -4,
+        6
+      ],
+      "parents": [
+        "CrimsonRites",
+        "UNLOCKAUROMANCY"
+      ],
+      "meta": [
+        "ROUND",
+        "SPIKY",
+        "HIDDEN"
+      ],
       "stages": [
-        {"text": "research.ELDRITCH.stage.1"},
-        {"text": "research.ELDRITCH.stage.2"}
+        {
+          "text": "research.UNLOCKELDRITCH.stage.1",
+          "required_knowledge": [
+            "OBSERVATION;BASICS;1",
+            "OBSERVATION;ELDRITCH;1"
+          ],
+          "required_research": [
+            "f_VOIDSEED"
+          ],
+          "warp": 5
+        },
+        {
+          "text": "research.UNLOCKELDRITCH.stage.2"
+        }
       ]
     },
     {
-      "key": "GOLEMBASIC",
-      "name": "research.GOLEMBASIC.title",
+      "key": "CELESTIALSCANNING",
+      "name": "research.CELESTIALSCANNING.title",
+      "icons": [
+        "minecraft:paper"
+      ],
       "category": "BASICS",
-      "location": [4, 2],
-      "parents": ["FIRSTSTEPS"],
-      "meta": ["ROUND"],
+      "location": [
+        4,
+        1
+      ],
+      "parents": [
+        "THEORYRESEARCH"
+      ],
+      "meta": [
+        "ROUND"
+      ],
       "stages": [
-        {"text": "research.GOLEMBASIC.stage.1"},
-        {"text": "research.GOLEMBASIC.stage.2"}
+        {
+          "text": "research.CELESTIALSCANNING.stage.1",
+          "required_knowledge": [
+            "OBSERVATION;BASICS;1",
+            "OBSERVATION;ARTIFICE;1",
+            "OBSERVATION;AUROMANCY;1"
+          ]
+        }
       ]
     },
     {
-      "key": "GREATWOOD",
-      "name": "research.GREATWOOD.title",
+      "key": "FLUXCLEANUP",
+      "name": "research.FLUXCLEANUP.title",
+      "icons": [
+        "minecraft:paper"
+      ],
       "category": "BASICS",
-      "location": [2, -3],
-      "parents": ["FIRSTSTEPS"],
-      "meta": ["ROUND"],
-      "stages": [{"text": "research.GREATWOOD.stage.1"}]
+      "location": [
+        -2,
+        -4
+      ],
+      "parents": [
+        "FLUX",
+        "f_toomuchflux",
+        "VISBATTERY"
+      ],
+      "stages": [
+        {
+          "text": "research.FLUXCLEANUP.stage.1",
+          "required_knowledge": [
+            "OBSERVATION;AUROMANCY;2",
+            "OBSERVATION;ARTIFICE;1",
+            "OBSERVATION;BASICS;1",
+            "THEORY;AUROMANCY;2"
+          ],
+          "required_item": [
+            "minecraft:paper"
+          ]
+        },
+        {
+          "text": "research.FLUXCLEANUP.stage.2",
+          "recipes": [
+            "minecraft:paper",
+            "minecraft:paper"
+          ]
+        }
+      ]
     },
     {
-      "key": "SILVERWOOD",
-      "name": "research.SILVERWOOD.title",
+      "key": "FLUXRIFT",
+      "name": "research.FLUXRIFT.title",
+      "icons": [
+        "minecraft:paper"
+      ],
       "category": "BASICS",
-      "location": [3, -3],
-      "parents": ["GREATWOOD"],
-      "meta": ["ROUND"],
-      "stages": [{"text": "research.SILVERWOOD.stage.1"}]
+      "location": [
+        0,
+        -3
+      ],
+      "parents": [
+        "FLUX",
+        "!FluxRift"
+      ],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
+      "stages": [
+        {
+          "text": "research.FLUXRIFT.stage.1"
+        }
+      ]
+    },
+    {
+      "key": "RIFTCLOSER",
+      "name": "research.RIFTCLOSER.title",
+      "icons": [
+        "minecraft:tnt"
+      ],
+      "category": "BASICS",
+      "location": [
+        0,
+        -5
+      ],
+      "parents": [
+        "FLUXRIFT",
+        "INFUSION",
+        "VISBATTERY"
+      ],
+      "stages": [
+        {
+          "text": "research.RIFTCLOSER.stage.1",
+          "required_knowledge": [
+            "OBSERVATION;AUROMANCY;1",
+            "THEORY;ALCHEMY;2",
+            "THEORY;AUROMANCY;1"
+          ]
+        },
+        {
+          "text": "research.RIFTCLOSER.stage.2",
+          "recipes": [
+            "minecraft:paper"
+          ]
+        }
+      ]
     }
   ]
 }

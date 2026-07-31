@@ -1,0 +1,623 @@
+{
+  "entries": [
+    {
+      "key": "BASEINFUSION",
+      "name": "research.BASEINFUSION.title",
+      "icons": [
+        "minecraft:paper"
+      ],
+      "category": "INFUSION",
+      "location": [
+        0,
+        0
+      ],
+      "parents": [
+        "UNLOCKINFUSION"
+      ],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
+      "stages": [
+        {
+          "text": "research.BASEINFUSION.stage.1",
+          "recipes": [
+            "minecraft:paper",
+            "minecraft:paper"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "INFUSION",
+      "name": "research.INFUSION.title",
+      "icons": [
+        "arcana:infusion_matrix"
+      ],
+      "category": "INFUSION",
+      "location": [
+        0,
+        2
+      ],
+      "parents": [
+        "BASEINFUSION"
+      ],
+      "meta": [
+        "SPIKY"
+      ],
+      "stages": [
+        {
+          "text": "research.INFUSION.stage.1",
+          "required_knowledge": [
+            "OBSERVATION;INFUSION;1",
+            "THEORY;INFUSION;1"
+          ],
+          "required_item": [
+            "minecraft:stone",
+            "minecraft:feather",
+            "minecraft:paper"
+          ]
+        },
+        {
+          "text": "research.INFUSION.stage.2",
+          "required_craft": [
+            "arcana:infusion_matrix"
+          ],
+          "recipes": [
+            "minecraft:paper"
+          ]
+        },
+        {
+          "text": "research.INFUSION.stage.3",
+          "recipes": [
+            "minecraft:paper",
+            "minecraft:paper",
+            "minecraft:paper"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "INFUSIONSTABLE",
+      "name": "research.INFUSIONSTABLE.title",
+      "icons": [
+        "minecraft:obsidian"
+      ],
+      "category": "INFUSION",
+      "location": [
+        1,
+        4
+      ],
+      "parents": [
+        "INFUSION",
+        "METALLURGY@3",
+        "!INSTABILITY"
+      ],
+      "meta": [
+        "HIDDEN",
+        "REVERSE"
+      ],
+      "stages": [
+        {
+          "text": "research.INFUSIONSTABLE.stage.1",
+          "required_knowledge": [
+            "OBSERVATION;INFUSION;1",
+            "THEORY;INFUSION;1"
+          ],
+          "required_item": [
+            "minecraft:redstone",
+            "minecraft:paper"
+          ]
+        },
+        {
+          "text": "research.INFUSIONSTABLE.stage.2",
+          "recipes": [
+            "minecraft:paper",
+            "minecraft:paper"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "INFUSIONBOOST",
+      "name": "research.INFUSIONBOOST.title",
+      "icons": [
+        "minecraft:paper",
+        "minecraft:paper"
+      ],
+      "category": "INFUSION",
+      "location": [
+        -1,
+        4
+      ],
+      "parents": [
+        "INFUSION"
+      ],
+      "meta": [
+        "REVERSE"
+      ],
+      "stages": [
+        {
+          "text": "research.INFUSIONBOOST.stage.1",
+          "required_knowledge": [
+            "THEORY;INFUSION;2"
+          ]
+        },
+        {
+          "text": "research.INFUSIONBOOST.stage.2",
+          "recipes": [
+            "minecraft:paper",
+            "minecraft:paper"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "INFUSIONANCIENT",
+      "name": "research.INFUSIONANCIENT.title",
+      "icons": [
+        "minecraft:deepslate"
+      ],
+      "category": "INFUSION",
+      "location": [
+        0,
+        6
+      ],
+      "parents": [
+        "INFUSIONBOOST",
+        "!ORBLOCK1"
+      ],
+      "meta": [
+        "HIDDEN",
+        "REVERSE"
+      ],
+      "stages": [
+        {
+          "text": "research.INFUSIONANCIENT.stage.1",
+          "required_knowledge": [
+            "OBSERVATION;BASICS;1"
+          ],
+          "required_item": [
+            "minecraft:deepslate"
+          ]
+        },
+        {
+          "text": "research.INFUSIONANCIENT.stage.2",
+          "recipes": [
+            "minecraft:paper",
+            "minecraft:paper"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "INFUSIONELDRITCH",
+      "name": "research.INFUSIONELDRITCH.title",
+      "icons": [
+        "arcana:eldritch_stone"
+      ],
+      "category": "INFUSION",
+      "location": [
+        -2,
+        6
+      ],
+      "parents": [
+        "INFUSIONBOOST",
+        "!ORBLOCK2"
+      ],
+      "meta": [
+        "HIDDEN",
+        "REVERSE"
+      ],
+      "stages": [
+        {
+          "text": "research.INFUSIONELDRITCH.stage.1",
+          "required_knowledge": [
+            "OBSERVATION;ELDRITCH;1"
+          ],
+          "required_item": [
+            "arcana:eldritch_stone"
+          ]
+        },
+        {
+          "text": "research.INFUSIONELDRITCH.stage.2",
+          "recipes": [
+            "minecraft:paper",
+            "minecraft:paper"
+          ],
+          "warp": 2
+        }
+      ]
+    },
+    {
+      "key": "PAVINGSTONES",
+      "name": "research.PAVINGSTONES.title",
+      "icons": [
+        "minecraft:obsidian",
+        "minecraft:stone_bricks"
+      ],
+      "category": "INFUSION",
+      "location": [
+        0,
+        -2
+      ],
+      "parents": [
+        "BASEINFUSION"
+      ],
+      "stages": [
+        {
+          "text": "research.PAVINGSTONES.stage.1",
+          "recipes": [
+            "minecraft:paper"
+          ],
+          "required_knowledge": [
+            "OBSERVATION;INFUSION;1"
+          ],
+          "required_craft": [
+            "minecraft:paper"
+          ]
+        },
+        {
+          "text": "research.PAVINGSTONES.stage.2",
+          "recipes": [
+            "minecraft:paper",
+            "minecraft:paper",
+            "minecraft:paper",
+            "minecraft:paper"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BOOTSTRAVELLER",
+      "name": "research.BOOTSTRAVELLER.title",
+      "icons": [
+        "arcana:traveller_boots"
+      ],
+      "category": "INFUSION",
+      "location": [
+        -2,
+        2
+      ],
+      "parents": [
+        "INFUSION",
+        "RECHARGEPEDESTAL"
+      ],
+      "stages": [
+        {
+          "text": "research.BOOTSTRAVELLER.stage.1",
+          "required_knowledge": [
+            "THEORY;INFUSION;1"
+          ],
+          "required_research": [
+            "!motus",
+            "m_walker",
+            "m_runner",
+            "m_swimmer",
+            "m_jumper"
+          ]
+        },
+        {
+          "text": "research.BOOTSTRAVELLER.stage.2",
+          "recipes": [
+            "minecraft:paper"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ELEMENTALTOOLS",
+      "name": "research.ELEMENTALTOOLS.title",
+      "icons": [
+        "arcana:thaumium_axe",
+        "arcana:thaumium_sword",
+        "arcana:thaumium_pickaxe",
+        "arcana:thaumium_shovel",
+        "arcana:thaumium_hoe"
+      ],
+      "category": "INFUSION",
+      "location": [
+        -4,
+        3
+      ],
+      "parents": [
+        "BOOTSTRAVELLER",
+        "METALLURGY@3"
+      ],
+      "stages": [
+        {
+          "text": "research.ELEMENTALTOOLS.stage.1",
+          "required_knowledge": [
+            "THEORY;INFUSION;1",
+            "THEORY;BASICS;1"
+          ],
+          "required_craft": [
+            "arcana:thaumium_axe",
+            "arcana:thaumium_sword",
+            "arcana:thaumium_pickaxe",
+            "arcana:thaumium_shovel",
+            "arcana:thaumium_hoe"
+          ]
+        },
+        {
+          "text": "research.ELEMENTALTOOLS.stage.2",
+          "recipes": [
+            "minecraft:paper",
+            "minecraft:paper",
+            "minecraft:paper",
+            "minecraft:paper",
+            "minecraft:paper"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "INFUSIONENCHANTMENT",
+      "name": "research.INFUSIONENCHANTMENT.title",
+      "icons": [
+        "minecraft:paper"
+      ],
+      "category": "INFUSION",
+      "location": [
+        -6,
+        4
+      ],
+      "parents": [
+        "ELEMENTALTOOLS"
+      ],
+      "stages": [
+        {
+          "text": "research.INFUSIONENCHANTMENT.stage.1",
+          "required_knowledge": [
+            "THEORY;INFUSION;2"
+          ],
+          "required_item": [
+            "minecraft:arcana:enchanted_placeholder;1;0;{ench:[{id:16s,lvl:1s}]}"
+          ]
+        },
+        {
+          "text": "research.INFUSIONENCHANTMENT.stage.2",
+          "recipes": [
+            "minecraft:paper",
+            "minecraft:paper",
+            "minecraft:paper",
+            "minecraft:paper",
+            "minecraft:paper",
+            "minecraft:paper",
+            "minecraft:paper",
+            "minecraft:paper"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "RUNICSHIELDING",
+      "name": "research.RUNICSHIELDING.title",
+      "icons": [
+        "minecraft:paper"
+      ],
+      "category": "INFUSION",
+      "location": [
+        -6,
+        6
+      ],
+      "parents": [
+        "INFUSIONENCHANTMENT"
+      ],
+      "stages": [
+        {
+          "text": "research.RUNICSHIELDING.stage.1",
+          "required_knowledge": [
+            "THEORY;INFUSION;1"
+          ],
+          "required_item": [
+            "minecraft:arcana:enchanted_placeholder;1;0;{ench:[{id:0s,lvl:1s}]}",
+            "minecraft:honeycomb"
+          ]
+        },
+        {
+          "text": "research.RUNICSHIELDING.stage.2",
+          "recipes": [
+            "minecraft:paper",
+            "minecraft:paper",
+            "minecraft:paper"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ARMORFORTRESS",
+      "name": "research.ARMORFORTRESS.title",
+      "icons": [
+        "minecraft:paper"
+      ],
+      "category": "INFUSION",
+      "location": [
+        -4,
+        1
+      ],
+      "parents": [
+        "METALLURGY@3",
+        "BOOTSTRAVELLER"
+      ],
+      "stages": [
+        {
+          "text": "research.ARMORFORTRESS.stage.1",
+          "required_knowledge": [
+            "THEORY;INFUSION;1"
+          ],
+          "required_research": [
+            "!praemunio"
+          ]
+        },
+        {
+          "text": "research.ARMORFORTRESS.stage.2",
+          "recipes": [
+            "minecraft:paper",
+            "minecraft:paper",
+            "minecraft:paper"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "FORTRESSMASK",
+      "name": "research.FORTRESSMASK.title",
+      "icons": [
+        "minecraft:paper",
+        "minecraft:paper",
+        "minecraft:paper"
+      ],
+      "category": "INFUSION",
+      "location": [
+        -5,
+        0
+      ],
+      "parents": [
+        "ARMORFORTRESS"
+      ],
+      "stages": [
+        {
+          "text": "research.FORTRESSMASK.stage.1",
+          "required_knowledge": [
+            "THEORY;INFUSION;1"
+          ]
+        },
+        {
+          "text": "research.FORTRESSMASK.stage.2",
+          "recipes": [
+            "minecraft:paper",
+            "minecraft:paper",
+            "minecraft:paper",
+            "minecraft:paper"
+          ],
+          "warp": 2
+        }
+      ]
+    },
+    {
+      "key": "CLOUDRING",
+      "name": "research.CLOUDRING.title",
+      "icons": [
+        "minecraft:paper"
+      ],
+      "category": "INFUSION",
+      "location": [
+        2,
+        2
+      ],
+      "parents": [
+        "INFUSION"
+      ],
+      "stages": [
+        {
+          "text": "research.CLOUDRING.stage.1",
+          "required_knowledge": [
+            "OBSERVATION;INFUSION;1"
+          ]
+        },
+        {
+          "text": "research.CLOUDRING.stage.2",
+          "recipes": [
+            "minecraft:paper"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "CURIOSITYBAND",
+      "name": "research.CURIOSITYBAND.title",
+      "icons": [
+        "minecraft:paper"
+      ],
+      "category": "INFUSION",
+      "location": [
+        4,
+        1
+      ],
+      "parents": [
+        "CLOUDRING"
+      ],
+      "stages": [
+        {
+          "text": "research.CURIOSITYBAND.stage.1",
+          "required_knowledge": [
+            "OBSERVATION;BASICS;1",
+            "THEORY;INFUSION;1"
+          ]
+        },
+        {
+          "text": "research.CURIOSITYBAND.stage.2",
+          "recipes": [
+            "minecraft:paper"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "VERDANTCHARMS",
+      "name": "research.VERDANTCHARMS.title",
+      "icons": [
+        "minecraft:paper"
+      ],
+      "category": "INFUSION",
+      "location": [
+        4,
+        3
+      ],
+      "parents": [
+        "CLOUDRING"
+      ],
+      "stages": [
+        {
+          "text": "research.VERDANTCHARMS.stage.1",
+          "required_knowledge": [
+            "THEORY;INFUSION;2"
+          ]
+        },
+        {
+          "text": "research.VERDANTCHARMS.stage.2",
+          "recipes": [
+            "minecraft:paper",
+            "minecraft:paper",
+            "minecraft:paper"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "CHARMUNDYING",
+      "name": "research.CHARMUNDYING.title",
+      "icons": [
+        "arcana:charm_undying"
+      ],
+      "category": "INFUSION",
+      "location": [
+        3,
+        -1
+      ],
+      "parents": [
+        "CLOUDRING",
+        "!TOTEMUNDYING"
+      ],
+      "meta": [
+        "HIDDEN",
+        "REVERSE"
+      ],
+      "stages": [
+        {
+          "text": "research.CHARMUNDYING.stage.1",
+          "required_knowledge": [
+            "THEORY;INFUSION;1"
+          ]
+        },
+        {
+          "text": "research.CHARMUNDYING.stage.1",
+          "recipes": [
+            "minecraft:paper"
+          ]
+        }
+      ]
+    }
+  ]
+}

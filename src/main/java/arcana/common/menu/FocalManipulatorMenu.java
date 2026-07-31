@@ -22,6 +22,15 @@ public class FocalManipulatorMenu extends AbstractContainerMenu {
     public static final int BTN_SHOCK = 5;
     public static final int BTN_EARTH = 6;
     public static final int BTN_HEAL = 7;
+    public static final int BTN_BOLT = 8;
+    public static final int BTN_CLOUD = 9;
+    public static final int BTN_AIR = 10;
+    public static final int BTN_BREAK = 11;
+    public static final int BTN_CURSE = 12;
+    public static final int BTN_EXCHANGE = 13;
+    public static final int BTN_FLUX = 14;
+    public static final int BTN_RIFT = 15;
+    public static final int BTN_SCATTER = 16;
 
     private final FocalManipulatorBlockEntity be;
     private final DataSlot complexityUsed = DataSlot.standalone();
@@ -68,7 +77,7 @@ public class FocalManipulatorMenu extends AbstractContainerMenu {
     }
 
     private void syncComplexity() {
-        FocusPackage pending = FocusPackage.of(FocusPackage.ROOT, be.getSelectedMedium(), be.getSelectedEffect());
+        FocusPackage pending = be.pendingPackage();
         complexityUsed.set(pending.getComplexity());
         ItemStack focus = be.getItem(FocalManipulatorBlockEntity.SLOT_FOCUS);
         if (!focus.isEmpty() && focus.getItem() instanceof ItemFocus itemFocus) {
@@ -96,7 +105,6 @@ public class FocalManipulatorMenu extends AbstractContainerMenu {
         return complexityMax.get();
     }
 
-    /** Package currently programmed on the inserted focus, if any. */
     public FocusPackage getFocusPackage() {
         ItemStack focus = be.getItem(FocalManipulatorBlockEntity.SLOT_FOCUS);
         if (focus.isEmpty() || !(focus.getItem() instanceof ItemFocus)) {
@@ -116,24 +124,60 @@ public class FocalManipulatorMenu extends AbstractContainerMenu {
                 be.setMedium(FocusPackage.MEDIUM_PROJECTILE);
                 yield true;
             }
+            case BTN_BOLT -> {
+                be.setMedium(FocusPackage.MEDIUM_BOLT);
+                yield true;
+            }
+            case BTN_CLOUD -> {
+                be.setMedium(FocusPackage.MEDIUM_CLOUD);
+                yield true;
+            }
             case BTN_FIRE -> {
-                be.setEffect(FocusPackage.EFFECT_FIRE);
+                be.toggleEffect(FocusPackage.EFFECT_FIRE);
                 yield true;
             }
             case BTN_FROST -> {
-                be.setEffect(FocusPackage.EFFECT_FROST);
+                be.toggleEffect(FocusPackage.EFFECT_FROST);
                 yield true;
             }
             case BTN_SHOCK -> {
-                be.setEffect(FocusPackage.EFFECT_SHOCK);
+                be.toggleEffect(FocusPackage.EFFECT_SHOCK);
                 yield true;
             }
             case BTN_EARTH -> {
-                be.setEffect(FocusPackage.EFFECT_EARTH);
+                be.toggleEffect(FocusPackage.EFFECT_EARTH);
                 yield true;
             }
             case BTN_HEAL -> {
-                be.setEffect(FocusPackage.EFFECT_HEAL);
+                be.toggleEffect(FocusPackage.EFFECT_HEAL);
+                yield true;
+            }
+            case BTN_AIR -> {
+                be.toggleEffect(FocusPackage.EFFECT_AIR);
+                yield true;
+            }
+            case BTN_BREAK -> {
+                be.toggleEffect(FocusPackage.EFFECT_BREAK);
+                yield true;
+            }
+            case BTN_CURSE -> {
+                be.toggleEffect(FocusPackage.EFFECT_CURSE);
+                yield true;
+            }
+            case BTN_EXCHANGE -> {
+                be.toggleEffect(FocusPackage.EFFECT_EXCHANGE);
+                yield true;
+            }
+            case BTN_FLUX -> {
+                be.toggleEffect(FocusPackage.EFFECT_FLUX);
+                yield true;
+            }
+            case BTN_RIFT -> {
+                be.toggleEffect(FocusPackage.EFFECT_RIFT);
+                yield true;
+            }
+            case BTN_SCATTER -> {
+                be.toggleScatter();
                 yield true;
             }
             case BTN_COMPOSE -> be.applyCompose(player);

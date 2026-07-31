@@ -48,18 +48,20 @@ public class FocusProjectile extends ThrowableProjectile {
             if (FocusPackage.EFFECT_FROST.equals(effect)) {
                 level().addParticle(net.minecraft.core.particles.ParticleTypes.SNOWFLAKE,
                         getX(), getY(), getZ(), 0, 0, 0);
-            } else if (FocusPackage.EFFECT_SHOCK.equals(effect)) {
+            } else if (FocusPackage.EFFECT_SHOCK.equals(effect) || FocusPackage.EFFECT_AIR.equals(effect)) {
                 level().addParticle(net.minecraft.core.particles.ParticleTypes.ELECTRIC_SPARK,
                         getX(), getY(), getZ(), 0, 0, 0);
-                level().addParticle(net.minecraft.core.particles.ParticleTypes.EFFECT,
-                        getX(), getY(), getZ(), 0, 0, 0);
-            } else if (FocusPackage.EFFECT_EARTH.equals(effect)) {
+            } else if (FocusPackage.EFFECT_EARTH.equals(effect) || FocusPackage.EFFECT_BREAK.equals(effect)) {
                 level().addParticle(net.minecraft.core.particles.ParticleTypes.CLOUD,
-                        getX(), getY(), getZ(), 0, 0, 0);
-                level().addParticle(net.minecraft.core.particles.ParticleTypes.EFFECT,
                         getX(), getY(), getZ(), 0, 0, 0);
             } else if (FocusPackage.EFFECT_HEAL.equals(effect)) {
                 level().addParticle(net.minecraft.core.particles.ParticleTypes.HEART,
+                        getX(), getY(), getZ(), 0, 0, 0);
+            } else if (FocusPackage.EFFECT_FLUX.equals(effect) || FocusPackage.EFFECT_CURSE.equals(effect)) {
+                level().addParticle(net.minecraft.core.particles.ParticleTypes.WITCH,
+                        getX(), getY(), getZ(), 0, 0, 0);
+            } else if (FocusPackage.EFFECT_RIFT.equals(effect) || FocusPackage.EFFECT_EXCHANGE.equals(effect)) {
+                level().addParticle(net.minecraft.core.particles.ParticleTypes.PORTAL,
                         getX(), getY(), getZ(), 0, 0, 0);
             } else {
                 level().addParticle(net.minecraft.core.particles.ParticleTypes.FLAME,

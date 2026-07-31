@@ -2,6 +2,7 @@ package arcana.common.tests;
 
 import arcana.api.aspects.Aspect;
 import arcana.api.research.ResearchCategories;
+import arcana.api.research.theorycraft.TheorycraftManager;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
@@ -27,6 +28,8 @@ public final class SmokeAssertions {
         List<Result> results = new ArrayList<>();
         checkAspects(results);
         checkResearchCategories(results);
+        checkInfusionCategory(results);
+        checkTheorycraftCards(results);
         checkBlock("research_table", results);
         checkBlock("infusion_matrix", results);
         checkBlock("essentia_filter_tube", results);
@@ -58,6 +61,16 @@ public final class SmokeAssertions {
     private static void checkResearchCategories(List<Result> results) {
         int n = ResearchCategories.researchCategories.size();
         results.add(new Result("ResearchCategories size>=6", n >= 6, "size=" + n));
+    }
+
+    private static void checkInfusionCategory(List<Result> results) {
+        boolean ok = ResearchCategories.getResearchCategory("INFUSION") != null;
+        results.add(new Result("INFUSION category exists", ok, ok ? "present" : "missing"));
+    }
+
+    private static void checkTheorycraftCards(List<Result> results) {
+        int n = TheorycraftManager.cards.size();
+        results.add(new Result("TheorycraftManager cards>=20", n >= 20, "size=" + n));
     }
 
     private static void checkBlock(String path, List<Result> results) {

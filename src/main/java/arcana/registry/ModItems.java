@@ -168,6 +168,18 @@ public final class ModItems {
     public static final RegistryObject<Item> ESSENTIA_FILTER_TUBE = ITEMS.register("essentia_filter_tube",
             () -> new BlockItem(ModBlocks.ESSENTIA_FILTER_TUBE.get(), new Item.Properties()));
 
+    public static final RegistryObject<Item> ESSENTIA_RESTRICT_TUBE = ITEMS.register("essentia_restrict_tube",
+            () -> new BlockItem(ModBlocks.ESSENTIA_RESTRICT_TUBE.get(), new Item.Properties()));
+
+    public static final RegistryObject<Item> ESSENTIA_ONEWAY_TUBE = ITEMS.register("essentia_oneway_tube",
+            () -> new BlockItem(ModBlocks.ESSENTIA_ONEWAY_TUBE.get(), new Item.Properties()));
+
+    public static final RegistryObject<Item> ESSENTIA_BUFFER_TUBE = ITEMS.register("essentia_buffer_tube",
+            () -> new BlockItem(ModBlocks.ESSENTIA_BUFFER_TUBE.get(), new Item.Properties()));
+
+    public static final RegistryObject<Item> CENTRIFUGE = ITEMS.register("centrifuge",
+            () -> new BlockItem(ModBlocks.CENTRIFUGE.get(), new Item.Properties()));
+
     public static final RegistryObject<Item> ESSENTIA_VALVE = ITEMS.register("essentia_valve",
             () -> new BlockItem(ModBlocks.ESSENTIA_VALVE.get(), new Item.Properties()));
 
@@ -183,6 +195,8 @@ public final class ModItems {
             () -> new BlockItem(ModBlocks.PEDESTAL.get(), new Item.Properties()));
     public static final RegistryObject<Item> INFUSION_MATRIX = ITEMS.register("infusion_matrix",
             () -> new BlockItem(ModBlocks.INFUSION_MATRIX.get(), new Item.Properties()));
+    public static final RegistryObject<Item> ARCANE_PILLAR = ITEMS.register("arcane_pillar",
+            () -> new BlockItem(ModBlocks.ARCANE_PILLAR.get(), new Item.Properties()));
     public static final RegistryObject<Item> FOCAL_MANIPULATOR = ITEMS.register("focal_manipulator",
             () -> new BlockItem(ModBlocks.FOCAL_MANIPULATOR.get(), new Item.Properties()));
 
@@ -293,6 +307,24 @@ public final class ModItems {
             () -> new GolemSealItem(GolemJob.USE));
     public static final RegistryObject<Item> SEAL_BUTCHER = ITEMS.register("seal_butcher",
             () -> new GolemSealItem(GolemJob.BUTCHER));
+    public static final RegistryObject<Item> SEAL_GATHER_ADVANCED = ITEMS.register("seal_gather_advanced",
+            () -> new GolemSealItem(GolemJob.GATHER_ADVANCED));
+    public static final RegistryObject<Item> SEAL_FILL_ADVANCED = ITEMS.register("seal_fill_advanced",
+            () -> new GolemSealItem(GolemJob.FILL_ADVANCED));
+    public static final RegistryObject<Item> SEAL_EMPTY_ADVANCED = ITEMS.register("seal_empty_advanced",
+            () -> new GolemSealItem(GolemJob.EMPTY_ADVANCED));
+    public static final RegistryObject<Item> SEAL_GUARD_ADVANCED = ITEMS.register("seal_guard_advanced",
+            () -> new GolemSealItem(GolemJob.GUARD_ADVANCED));
+    public static final RegistryObject<Item> SEAL_LUMBER = ITEMS.register("seal_lumber",
+            () -> new GolemSealItem(GolemJob.LUMBER));
+    public static final RegistryObject<Item> SEAL_PROVIDE = ITEMS.register("seal_provide",
+            () -> new GolemSealItem(GolemJob.PROVIDE));
+    public static final RegistryObject<Item> SEAL_STOCK = ITEMS.register("seal_stock",
+            () -> new GolemSealItem(GolemJob.STOCK));
+    public static final RegistryObject<Item> SEAL_BREAKER = ITEMS.register("seal_breaker",
+            () -> new GolemSealItem(GolemJob.BREAKER));
+    public static final RegistryObject<Item> SEAL_BREAKER_ADVANCED = ITEMS.register("seal_breaker_advanced",
+            () -> new GolemSealItem(GolemJob.BREAKER_ADVANCED));
     public static final RegistryObject<Item> GOLEM_CORE_GATHER = ITEMS.register("golem_core_gather",
             () -> new GolemCoreItem(GolemCoreItem.CoreType.GATHER));
     public static final RegistryObject<Item> GOLEM_CORE_GUARD = ITEMS.register("golem_core_guard",

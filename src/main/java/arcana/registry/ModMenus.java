@@ -6,6 +6,7 @@ import arcana.common.menu.EssentiaSmelterMenu;
 import arcana.common.menu.FocalManipulatorMenu;
 import arcana.common.menu.GolemJobMenu;
 import arcana.common.menu.ResearchTableMenu;
+import arcana.common.menu.WardedJarMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraftforge.common.extensions.IForgeMenuType;
 import net.minecraftforge.registries.DeferredRegister;
@@ -30,6 +31,9 @@ public final class ModMenus {
 
     public static final RegistryObject<MenuType<GolemJobMenu>> GOLEM_JOB =
             MENUS.register("golem_job", () -> IForgeMenuType.create(GolemJobMenu::new));
+
+    public static final RegistryObject<MenuType<WardedJarMenu>> WARDED_JAR =
+            MENUS.register("warded_jar", () -> IForgeMenuType.create(WardedJarMenu::new));
 
     private ModMenus() {
     }

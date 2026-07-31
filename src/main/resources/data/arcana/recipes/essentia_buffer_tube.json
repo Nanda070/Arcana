@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    { "item": "arcana:essentia_tube" },
+    { "item": "minecraft:chest" }
+  ],
+  "result": { "item": "arcana:essentia_buffer_tube" }
+}

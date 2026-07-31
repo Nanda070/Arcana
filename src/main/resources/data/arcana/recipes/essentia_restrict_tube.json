@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    { "item": "arcana:essentia_tube" },
+    { "item": "minecraft:iron_bars" }
+  ],
+  "result": { "item": "arcana:essentia_restrict_tube" }
+}
