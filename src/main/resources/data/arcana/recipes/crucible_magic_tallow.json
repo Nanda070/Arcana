@@ -1,0 +1,10 @@
+{
+  "type": "arcana:crucible",
+  "research": "FIRSTSTEPS",
+  "catalyst": { "item": "minecraft:rotten_flesh" },
+  "aspects": {
+    "ignis": 5,
+    "victus": 2
+  },
+  "result": { "item": "arcana:magic_tallow" }
+}

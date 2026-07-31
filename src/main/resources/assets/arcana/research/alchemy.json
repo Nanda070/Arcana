@@ -1,0 +1,40 @@
+{
+  "entries": [
+    {
+      "key": "ALCHEMY_INTRO",
+      "name": "research.ALCHEMY_INTRO.title",
+      "category": "ALCHEMY",
+      "location": [0, 0],
+      "parents": ["UNLOCKALCHEMY"],
+      "meta": ["ROUND"],
+      "stages": [{"text": "research.ALCHEMY_INTRO.stage.1"}]
+    },
+    {
+      "key": "CRUCIBLE",
+      "name": "research.CRUCIBLE.title",
+      "category": "ALCHEMY",
+      "location": [0, 2],
+      "parents": ["ALCHEMY_INTRO"],
+      "meta": ["ROUND"],
+      "stages": [{"text": "research.CRUCIBLE.stage.1"}]
+    },
+    {
+      "key": "ESSENTIATUBE",
+      "name": "research.ESSENTIATUBE.title",
+      "category": "ALCHEMY",
+      "location": [-2, 3],
+      "parents": ["CRUCIBLE"],
+      "meta": ["ROUND"],
+      "stages": [{"text": "research.ESSENTIATUBE.stage.1"}]
+    },
+    {
+      "key": "NITORALUM",
+      "name": "research.NITORALUM.title",
+      "category": "ALCHEMY",
+      "location": [2, 3],
+      "parents": ["CRUCIBLE"],
+      "meta": ["ROUND"],
+      "stages": [{"text": "research.NITORALUM.stage.1"}]
+    }
+  ]
+}

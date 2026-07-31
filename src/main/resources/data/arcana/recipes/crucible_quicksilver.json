@@ -1,0 +1,10 @@
+{
+  "type": "arcana:crucible",
+  "research": "FIRSTSTEPS",
+  "catalyst": { "item": "minecraft:iron_nugget" },
+  "aspects": {
+    "metallum": 5,
+    "permutatio": 5
+  },
+  "result": { "item": "arcana:quicksilver" }
+}

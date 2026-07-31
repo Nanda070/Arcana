@@ -1,0 +1,6 @@
+﻿{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_forest",
+  "features": "arcana:ethereal_bloom",
+  "step": "vegetal_decoration"
+}

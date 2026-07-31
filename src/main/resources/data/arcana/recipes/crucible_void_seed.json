@@ -1,0 +1,7 @@
+﻿{
+  "type": "arcana:crucible",
+  "research": "",
+  "catalyst": { "item": "minecraft:ender_pearl" },
+  "aspects": { "vacuos": 10, "vitium": 5 },
+  "result": { "item": "arcana:void_seed" }
+}

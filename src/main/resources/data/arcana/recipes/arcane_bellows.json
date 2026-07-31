@@ -1,0 +1,13 @@
+{
+  "type": "arcana:arcane_shaped",
+  "research": "FIRSTSTEPS",
+  "vis": 15,
+  "crystals": { "aer": 1, "ordo": 1 },
+  "pattern": ["L L", "LTL", " G "],
+  "key": {
+    "L": { "item": "minecraft:leather" },
+    "T": { "item": "arcana:thaumium_ingot" },
+    "G": { "item": "arcana:greatwood_planks" }
+  },
+  "result": { "item": "arcana:bellows" }
+}

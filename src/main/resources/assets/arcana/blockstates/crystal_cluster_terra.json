@@ -1,0 +1,8 @@
+﻿{
+  "variants": {
+    "age=0": { "model": "arcana:block/crystal_cluster" },
+    "age=1": { "model": "arcana:block/crystal_cluster" },
+    "age=2": { "model": "arcana:block/crystal_cluster" },
+    "age=3": { "model": "arcana:block/crystal_cluster" }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "key": "AUROMANCY_INTRO",
+      "name": "research.AUROMANCY_INTRO.title",
+      "category": "AUROMANCY",
+      "location": [0, 0],
+      "parents": ["BASEAUROMANCY"],
+      "meta": ["ROUND"],
+      "stages": [{"text": "research.AUROMANCY_INTRO.stage.1"}]
+    },
+    {
+      "key": "FOCUSELEMENTAL_A",
+      "name": "research.FOCUSELEMENTAL.title",
+      "category": "AUROMANCY",
+      "location": [-2, 2],
+      "parents": ["AUROMANCY_INTRO"],
+      "meta": ["ROUND"],
+      "stages": [{"text": "research.FOCUSELEMENTAL.stage.1"}]
+    },
+    {
+      "key": "FOCUSPROJECTILE_A",
+      "name": "research.FOCUSPROJECTILE.title",
+      "category": "AUROMANCY",
+      "location": [2, 2],
+      "parents": ["AUROMANCY_INTRO"],
+      "meta": ["ROUND"],
+      "stages": [{"text": "research.FOCUSPROJECTILE.stage.1"}]
+    },
+    {
+      "key": "FOCUSADVANCED",
+      "name": "research.FOCUSADVANCED.title",
+      "category": "AUROMANCY",
+      "location": [0, 4],
+      "parents": ["FOCUSPROJECTILE_A", "FOCUSELEMENTAL_A"],
+      "meta": ["ROUND"],
+      "stages": [{"text": "research.FOCUSADVANCED.stage.1"}]
+    },
+    {
+      "key": "CASTERBASIC",
+      "name": "research.CASTERBASIC.title",
+      "category": "AUROMANCY",
+      "location": [0, -2],
+      "parents": ["AUROMANCY_INTRO"],
+      "meta": ["ROUND"],
+      "stages": [{"text": "research.CASTERBASIC.stage.1"}]
+    }
+  ]
+}

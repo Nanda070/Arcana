@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "arcana:block/jar_top",
+    "bottom": "arcana:block/jar_bottom",
+    "side": "arcana:block/jar_side"
+  }
+}

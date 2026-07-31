@@ -1,0 +1,198 @@
+{
+  "entries": [
+    {
+      "key": "FIRSTSTEPS",
+      "name": "research.FIRSTSTEPS.title",
+      "category": "BASICS",
+      "location": [0, 0],
+      "parents": ["!gotthaumonomicon"],
+      "siblings": ["KNOWLEDGETYPES"],
+      "meta": ["ROUND", "SPIKY"],
+      "stages": [
+        {"text": "research.FIRSTSTEPS.stage.1"},
+        {"text": "research.FIRSTSTEPS.stage.2"},
+        {"text": "research.FIRSTSTEPS.stage.3"}
+      ]
+    },
+    {
+      "key": "KNOWLEDGETYPES",
+      "name": "research.KNOWLEDGETYPES.title",
+      "category": "BASICS",
+      "location": [2, -1],
+      "meta": ["ROUND", "HIDDEN"],
+      "stages": [{"text": "research.KNOWLEDGETYPES.stage.1"}]
+    },
+    {
+      "key": "THEORYRESEARCH",
+      "name": "research.THEORYRESEARCH.title",
+      "category": "BASICS",
+      "location": [4, -1],
+      "parents": ["KNOWLEDGETYPES"],
+      "meta": ["ROUND", "HIDDEN"],
+      "stages": [
+        {"text": "research.THEORYRESEARCH.stage.1"},
+        {"text": "research.THEORYRESEARCH.stage.2"}
+      ]
+    },
+    {
+      "key": "FLUX",
+      "name": "research.FLUX.title",
+      "category": "BASICS",
+      "location": [-2, -2],
+      "parents": ["FIRSTSTEPS"],
+      "meta": ["ROUND", "HIDDEN"],
+      "stages": [{"text": "research.FLUX.stage.1"}]
+    },
+    {
+      "key": "WARP",
+      "name": "research.WARP.title",
+      "category": "BASICS",
+      "location": [-4, -2],
+      "meta": ["ROUND", "HIDDEN"],
+      "stages": [{"text": "research.WARP.stage.1"}]
+    },
+    {
+      "key": "AURAPRESERVE",
+      "name": "research.AURAPRESERVE.title",
+      "category": "BASICS",
+      "location": [-2, 2],
+      "parents": ["FIRSTSTEPS"],
+      "meta": ["ROUND"],
+      "stages": [{"text": "research.AURAPRESERVE.stage.1"}]
+    },
+    {
+      "key": "UNLOCKAUROMANCY",
+      "name": "research.UNLOCKAUROMANCY.title",
+      "category": "BASICS",
+      "location": [0, 2],
+      "parents": ["FIRSTSTEPS"],
+      "siblings": ["BASEAUROMANCY"],
+      "meta": ["ROUND"],
+      "stages": [{"text": "research.UNLOCKAUROMANCY.stage.1"}]
+    },
+    {
+      "key": "UNLOCKALCHEMY",
+      "name": "research.UNLOCKALCHEMY.title",
+      "category": "BASICS",
+      "location": [2, 2],
+      "parents": ["FIRSTSTEPS"],
+      "siblings": ["ALCHEMY_INTRO"],
+      "meta": ["ROUND"],
+      "stages": [{"text": "research.UNLOCKALCHEMY.stage.1"}]
+    },
+    {
+      "key": "UNLOCKELDRITCH",
+      "name": "research.UNLOCKELDRITCH.title",
+      "category": "BASICS",
+      "location": [-4, -1],
+      "parents": ["ELDRITCH"],
+      "meta": ["ROUND", "HIDDEN"],
+      "stages": [{"text": "research.UNLOCKELDRITCH.stage.1"}]
+    },
+
+    {
+      "key": "BASEAUROMANCY",
+      "name": "research.BASEAUROMANCY.title",
+      "category": "BASICS",
+      "location": [0, 4],
+      "meta": ["ROUND", "HIDDEN"],
+      "stages": [{"text": "research.BASEAUROMANCY.stage.1"}]
+    },
+    {
+      "key": "FOCUSPROJECTILE",
+      "name": "research.FOCUSPROJECTILE.title",
+      "category": "BASICS",
+      "location": [2, 4],
+      "parents": ["BASEAUROMANCY"],
+      "meta": ["ROUND"],
+      "stages": [{"text": "research.FOCUSPROJECTILE.stage.1"}]
+    },
+    {
+      "key": "FOCUSELEMENTAL",
+      "name": "research.FOCUSELEMENTAL.title",
+      "category": "BASICS",
+      "location": [-2, 4],
+      "parents": ["BASEAUROMANCY"],
+      "meta": ["ROUND"],
+      "stages": [{"text": "research.FOCUSELEMENTAL.stage.1"}]
+    },
+    {
+      "key": "FOCUSSHOCK",
+      "name": "research.FOCUSSHOCK.title",
+      "category": "BASICS",
+      "location": [2, 6],
+      "parents": ["BASEAUROMANCY"],
+      "meta": ["ROUND"],
+      "stages": [{"text": "research.FOCUSSHOCK.stage.1"}]
+    },
+    {
+      "key": "FOCUSHEAL",
+      "name": "research.FOCUSHEAL.title",
+      "category": "BASICS",
+      "location": [-2, 6],
+      "parents": ["BASEAUROMANCY"],
+      "meta": ["ROUND"],
+      "stages": [{"text": "research.FOCUSHEAL.stage.1"}]
+    },
+    {
+      "key": "AURANODE",
+      "name": "research.AURANODE.title",
+      "category": "BASICS",
+      "location": [-4, 2],
+      "parents": ["FIRSTSTEPS"],
+      "meta": ["ROUND"],
+      "stages": [{"text": "research.AURANODE.stage.1"}]
+    },
+    {
+      "key": "INFUSION",
+      "name": "research.INFUSION.title",
+      "category": "BASICS",
+      "location": [0, 6],
+      "parents": ["FIRSTSTEPS"],
+      "meta": ["ROUND"],
+      "stages": [{"text": "research.INFUSION.stage.1"}]
+    },
+    {
+      "key": "ELDRITCH",
+      "name": "research.ELDRITCH.title",
+      "category": "BASICS",
+      "location": [-4, 0],
+      "parents": ["WARP"],
+      "meta": ["ROUND"],
+      "stages": [
+        {"text": "research.ELDRITCH.stage.1"},
+        {"text": "research.ELDRITCH.stage.2"}
+      ]
+    },
+    {
+      "key": "GOLEMBASIC",
+      "name": "research.GOLEMBASIC.title",
+      "category": "BASICS",
+      "location": [4, 2],
+      "parents": ["FIRSTSTEPS"],
+      "meta": ["ROUND"],
+      "stages": [
+        {"text": "research.GOLEMBASIC.stage.1"},
+        {"text": "research.GOLEMBASIC.stage.2"}
+      ]
+    },
+    {
+      "key": "GREATWOOD",
+      "name": "research.GREATWOOD.title",
+      "category": "BASICS",
+      "location": [2, -3],
+      "parents": ["FIRSTSTEPS"],
+      "meta": ["ROUND"],
+      "stages": [{"text": "research.GREATWOOD.stage.1"}]
+    },
+    {
+      "key": "SILVERWOOD",
+      "name": "research.SILVERWOOD.title",
+      "category": "BASICS",
+      "location": [3, -3],
+      "parents": ["GREATWOOD"],
+      "meta": ["ROUND"],
+      "stages": [{"text": "research.SILVERWOOD.stage.1"}]
+    }
+  ]
+}

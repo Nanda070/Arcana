@@ -1,0 +1,40 @@
+{
+  "entries": [
+    {
+      "key": "ELDRITCH_INTRO",
+      "name": "research.ELDRITCH_INTRO.title",
+      "category": "ELDRITCH",
+      "location": [0, 0],
+      "parents": ["ELDRITCH"],
+      "meta": ["ROUND"],
+      "stages": [{"text": "research.ELDRITCH_INTRO.stage.1"}]
+    },
+    {
+      "key": "VOIDGEAR",
+      "name": "research.VOIDGEAR.title",
+      "category": "ELDRITCH",
+      "location": [-2, 2],
+      "parents": ["ELDRITCH_INTRO"],
+      "meta": ["ROUND"],
+      "stages": [{"text": "research.VOIDGEAR.stage.1"}]
+    },
+    {
+      "key": "WARPGEAR",
+      "name": "research.WARPGEAR.title",
+      "category": "ELDRITCH",
+      "location": [2, 2],
+      "parents": ["ELDRITCH_INTRO"],
+      "meta": ["ROUND"],
+      "stages": [{"text": "research.WARPGEAR.stage.1"}]
+    },
+    {
+      "key": "OUTERLANDS_TEASE",
+      "name": "research.OUTERLANDS_TEASE.title",
+      "category": "ELDRITCH",
+      "location": [0, 4],
+      "parents": ["VOIDGEAR", "WARPGEAR"],
+      "meta": ["ROUND"],
+      "stages": [{"text": "research.OUTERLANDS_TEASE.stage.1"}]
+    }
+  ]
+}

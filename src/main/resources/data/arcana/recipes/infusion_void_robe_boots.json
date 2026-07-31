@@ -1,0 +1,13 @@
+{
+  "type": "arcana:infusion",
+  "research": "ELDRITCH",
+  "vis": 40,
+  "instability": 8,
+  "central": { "item": "arcana:void_boots" },
+  "components": [
+    { "item": "minecraft:diamond" },
+    { "item": "minecraft:leather" }
+  ],
+  "aspects": { "vacuos": 25, "alienis": 20 },
+  "result": { "item": "arcana:void_robe_boots" }
+}

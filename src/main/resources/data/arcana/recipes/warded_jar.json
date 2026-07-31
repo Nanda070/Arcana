@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "GWG",
+    "G G",
+    "GGG"
+  ],
+  "key": {
+    "G": { "item": "minecraft:glass_pane" },
+    "W": { "tag": "minecraft:wooden_slabs" }
+  },
+  "result": { "item": "arcana:warded_jar" }
+}

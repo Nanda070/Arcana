@@ -1,0 +1,12 @@
+{
+  "type": "arcana:arcane_shaped",
+  "research": "FIRSTSTEPS",
+  "vis": 50,
+  "crystals": { "ignis": 2, "terra": 1 },
+  "pattern": ["ICI", "I I", "III"],
+  "key": {
+    "I": { "item": "minecraft:iron_ingot" },
+    "C": { "item": "minecraft:furnace" }
+  },
+  "result": { "item": "arcana:essentia_smelter" }
+}

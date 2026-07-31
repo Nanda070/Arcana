@@ -1,0 +1,6 @@
+﻿{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": "arcana:eldritch_ring",
+  "step": "surface_structures"
+}

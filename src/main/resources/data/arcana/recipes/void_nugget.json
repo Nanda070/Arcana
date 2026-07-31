@@ -1,0 +1,6 @@
+﻿{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [{ "item": "arcana:void_ingot" }],
+  "result": { "item": "arcana:void_nugget", "count": 9 }
+}

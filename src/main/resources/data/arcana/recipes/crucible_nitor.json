@@ -1,0 +1,10 @@
+{
+  "type": "arcana:crucible",
+  "research": "FIRSTSTEPS",
+  "catalyst": { "item": "minecraft:glowstone_dust" },
+  "aspects": {
+    "ignis": 5,
+    "lux": 5
+  },
+  "result": { "item": "arcana:nitor" }
+}

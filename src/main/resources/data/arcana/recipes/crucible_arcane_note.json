@@ -1,0 +1,10 @@
+{
+  "type": "arcana:crucible",
+  "research": "FIRSTSTEPS",
+  "catalyst": { "item": "minecraft:paper" },
+  "aspects": {
+    "cognitio": 5,
+    "praecantatio": 3
+  },
+  "result": { "item": "arcana:arcane_note" }
+}
