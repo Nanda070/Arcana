@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "II"
+  ],
+  "key": {
+    "I": { "item": "arcana:thaumium_ingot" }
+  },
+  "result": { "item": "arcana:thaumium_plate" }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": [
+    "arcana:crystal_cluster_aer",
+    "arcana:crystal_cluster_terra",
+    "arcana:crystal_cluster_ignis",
+    "arcana:crystal_cluster_aqua",
+    "arcana:crystal_cluster_ordo",
+    "arcana:crystal_cluster_perditio"
+  ],
+  "step": "underground_decoration"
+}

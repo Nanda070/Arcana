@@ -1,0 +1,24 @@
+{
+  "variants": {
+    "facing=north,job=0": { "model": "arcana:block/golem_seal_blank", "y": 0 },
+    "facing=south,job=0": { "model": "arcana:block/golem_seal_blank", "y": 180 },
+    "facing=west,job=0": { "model": "arcana:block/golem_seal_blank", "y": 270 },
+    "facing=east,job=0": { "model": "arcana:block/golem_seal_blank", "y": 90 },
+    "facing=north,job=1": { "model": "arcana:block/golem_seal_gather", "y": 0 },
+    "facing=south,job=1": { "model": "arcana:block/golem_seal_gather", "y": 180 },
+    "facing=west,job=1": { "model": "arcana:block/golem_seal_gather", "y": 270 },
+    "facing=east,job=1": { "model": "arcana:block/golem_seal_gather", "y": 90 },
+    "facing=north,job=2": { "model": "arcana:block/golem_seal_guard", "y": 0 },
+    "facing=south,job=2": { "model": "arcana:block/golem_seal_guard", "y": 180 },
+    "facing=west,job=2": { "model": "arcana:block/golem_seal_guard", "y": 270 },
+    "facing=east,job=2": { "model": "arcana:block/golem_seal_guard", "y": 90 },
+    "facing=north,job=3": { "model": "arcana:block/golem_seal_fill", "y": 0 },
+    "facing=south,job=3": { "model": "arcana:block/golem_seal_fill", "y": 180 },
+    "facing=west,job=3": { "model": "arcana:block/golem_seal_fill", "y": 270 },
+    "facing=east,job=3": { "model": "arcana:block/golem_seal_fill", "y": 90 },
+    "facing=north,job=4": { "model": "arcana:block/golem_seal_empty", "y": 0 },
+    "facing=south,job=4": { "model": "arcana:block/golem_seal_empty", "y": 180 },
+    "facing=west,job=4": { "model": "arcana:block/golem_seal_empty", "y": 270 },
+    "facing=east,job=4": { "model": "arcana:block/golem_seal_empty", "y": 90 }
+  }
+}

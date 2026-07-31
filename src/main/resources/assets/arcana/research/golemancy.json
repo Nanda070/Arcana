@@ -1,0 +1,29 @@
+{
+  "entries": [
+    {
+      "key": "GOLEMANCY_INTRO",
+      "name": "research.GOLEMANCY_INTRO.title",
+      "category": "GOLEMANCY",
+      "location": [0, 0],
+      "parents": ["GOLEMBASIC"],
+      "meta": ["ROUND"],
+      "stages": [{"text": "research.GOLEMANCY_INTRO.stage.1"}]
+    },
+    {
+      "key": "GOLEMJOBS",
+      "name": "research.GOLEMJOBS.title",
+      "category": "GOLEMANCY",
+      "location": [-2, 1],
+      "parents": ["GOLEMANCY_INTRO"],
+      "stages": [{"text": "research.GOLEMJOBS.stage.1"}]
+    },
+    {
+      "key": "GOLEMMATERIAL",
+      "name": "research.GOLEMMATERIAL.title",
+      "category": "GOLEMANCY",
+      "location": [2, 1],
+      "parents": ["GOLEMANCY_INTRO"],
+      "stages": [{"text": "research.GOLEMMATERIAL.stage.1"}]
+    }
+  ]
+}

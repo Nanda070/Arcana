@@ -1,0 +1,12 @@
+{
+  "type": "arcana:arcane_shaped",
+  "research": "FIRSTSTEPS",
+  "vis": 10,
+  "crystals": { "terra": 1, "ordo": 1 },
+  "pattern": [" P ", "PSP", " P "],
+  "key": {
+    "P": { "item": "arcana:greatwood_planks" },
+    "S": { "item": "arcana:salis_mundus" }
+  },
+  "result": { "item": "arcana:arcane_workbench" }
+}

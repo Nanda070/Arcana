@@ -1,0 +1,7 @@
+﻿{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": ["II"],
+  "key": { "I": { "item": "arcana:void_ingot" } },
+  "result": { "item": "arcana:void_plate" }
+}

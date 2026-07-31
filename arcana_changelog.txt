@@ -1,0 +1,63 @@
+Arcana Changelog
+================
+
+0.6.0 — Phase I systems
+-----------------------
+- I5: Research table — Study (Observation→Theory) / Note (consume arcane_note)
+- I6: Scan unlock pack (greatwood, infusion, crucible, golems, eldritch, foci, clusters)
+  +4 Observation per aspect scan
+- I2: Essentia filter tubes; BFS suction depth 8; bellows respects valves/filters
+- I3: Infusion layout checks, pedestal FX, END_ROD complete ring, sneak progress
+- I4: Focal Manipulator complexity used/max UI + package graph
+- I1: Aura node types (NORMAL/HUNGRY/PURE/TAINTED), visBuffer, drain prefers nodes
+
+0.5.0 — Phase H polish + depth
+------------------------------
+- H0: Smoke runClient — Arcana + JEI load; spawn-egg models fixed
+- H1: Dedicated parchment GUIs (workbench/smelter/focal/golem); workbench lightLevel;
+  Curios runtime gated (`arcana.enable_curios_runtime=false`); infusion mid-craft FX
+- H2: Essentia valve (redstone), golem FILL/EMPTY AI, ARTIFICE/GOLEMANCY research trees,
+  more infusion/crucible recipes, theorycraft note
+- H3: Ship docs 0.5.0
+
+0.4.0 — Phase G threats + ship (G0–G28 summary)
+----------------------------------------------
+Track 0 bugfix / depth depth (G0–G20) as completed in PORT_PLAN.
+Threats & integration (G21–G28):
+- G21: Warp ladder expand — larger mind-spider swarms, stronger temporary blindness+,
+  guardians more often at high warp; whisper keys warp.text.16 / .17
+- G22: Flux goo block (slows, light 1); may seep near polluteAura
+- G23: Void robe boots + infusion; 2+ robe set bonus (+1 warp, +5% vis discount)
+- G24: Eldritch Warden boss stub (HP 80 / dmg 10 / larger); rare at permanent warp > 50
+- G25: JEI Infusion category (catalyst: infusion matrix)
+- G26: Curios amulet_vis recharges +0.25 vis / 40t when equipped (compileOnly-safe)
+- G27: ArcanaSounds cues — infusion complete, cast, node hum, warp whisper
+- G28: Version 0.4.0 ship docs
+
+0.3.0 — Phase F (F1–F6)
+-----------------------
+- Silverwood trees (log/leaves/sapling/planks + worldgen) and placeable aura nodes
+- Infusion instability (JSON field + risk from empty pedestals/flux); focus_2 risk 5
+- Focal Manipulator compose graph: select Touch/Projectile + Fire/Frost, then Compose
+- Void robes (helmet/chest/legs via infusion) and Curios vis amulet (+8% discount)
+- Mind spiders from warp fog / pre-eldritch events (1 HP, short lifespan, no loot)
+
+0.2.0 — Expansion ship (E1–E8)
+------------------------------
+- Infusion matrix + pedestals (focus_1 → focus_2)
+- Focal Manipulator with research-gated presets
+- Soft Curios: apprentice ring (vis discount)
+- World-placed golem seals (gather/guard); stay golems seek tasks
+- Greatwood trees (log/leaves/sapling/planks + forest worldgen)
+- Eldritch stone ore → void seeds; mining adds temporary warp
+- Eldritch Guardian (warp event + void seed drop)
+- Wisps: spawn from high flux / warp fog; drain vis, drop primal crystals
+- Research: INFUSION, ELDRITCH, GOLEMBASIC, GREATWOOD
+
+0.1.1 — Foundation + deepening (M0–M14, D1–D8)
+----------------------------------------------
+- Aspects, aura/vis, research book, thaumometer
+- Arcane workbench, crucible, jars/tubes, smelter/alembic
+- Thaumium + void gear, goggles, casting graph
+- Golems (follow/gather/guard modes), brainy zombie
+- Warp events, soft JEI

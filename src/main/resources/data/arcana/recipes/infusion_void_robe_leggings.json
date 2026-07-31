@@ -1,0 +1,13 @@
+{
+  "type": "arcana:infusion",
+  "research": "ELDRITCH",
+  "vis": 45,
+  "instability": 8,
+  "central": { "item": "arcana:void_leggings" },
+  "components": [
+    { "item": "minecraft:diamond" },
+    { "item": "minecraft:leather" }
+  ],
+  "aspects": { "vacuos": 28, "alienis": 22 },
+  "result": { "item": "arcana:void_robe_leggings" }
+}

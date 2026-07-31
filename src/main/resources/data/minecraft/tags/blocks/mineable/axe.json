@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "arcana:silverwood_planks",
+    "arcana:silverwood_log",
+    "arcana:greatwood_log",
+    "arcana:greatwood_planks"
+  ]
+}

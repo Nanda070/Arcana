@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    { "item": "arcana:seal_blank" },
+    { "item": "minecraft:hopper" }
+  ],
+  "result": { "item": "arcana:seal_fill" }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    { "item": "minecraft:crafting_table" },
+    { "item": "arcana:thaumometer" }
+  ],
+  "result": { "item": "arcana:research_table" }
+}

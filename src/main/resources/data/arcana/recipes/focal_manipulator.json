@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [" G ","WCW","WWW"],
+  "key": {
+    "G": { "item": "minecraft:glass" },
+    "W": { "item": "minecraft:oak_planks" },
+    "C": { "item": "arcana:focus_1" }
+  },
+  "result": { "item": "arcana:focal_manipulator" }
+}

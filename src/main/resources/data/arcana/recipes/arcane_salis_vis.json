@@ -1,0 +1,12 @@
+{
+  "type": "arcana:arcane_shaped",
+  "research": "FIRSTSTEPS",
+  "vis": 5,
+  "crystals": { "ordo": 1 },
+  "pattern": [" F ", "FSF", " F "],
+  "key": {
+    "F": { "item": "minecraft:flint" },
+    "S": { "item": "minecraft:redstone" }
+  },
+  "result": { "item": "arcana:salis_mundus", "count": 2 }
+}

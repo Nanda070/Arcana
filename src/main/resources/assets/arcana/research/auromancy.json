@@ -1,0 +1,31 @@
+{
+  "entries": [
+    {
+      "key": "AUROMANCY_INTRO",
+      "name": "research.AUROMANCY_INTRO.title",
+      "category": "AUROMANCY",
+      "location": [0, 0],
+      "parents": ["BASEAUROMANCY"],
+      "meta": ["ROUND"],
+      "stages": [{"text": "research.AUROMANCY_INTRO.stage.1"}]
+    },
+    {
+      "key": "FOCUSELEMENTAL_A",
+      "name": "research.FOCUSELEMENTAL.title",
+      "category": "AUROMANCY",
+      "location": [-2, 2],
+      "parents": ["AUROMANCY_INTRO"],
+      "meta": ["ROUND"],
+      "stages": [{"text": "research.FOCUSELEMENTAL.stage.1"}]
+    },
+    {
+      "key": "FOCUSPROJECTILE_A",
+      "name": "research.FOCUSPROJECTILE.title",
+      "category": "AUROMANCY",
+      "location": [2, 2],
+      "parents": ["AUROMANCY_INTRO"],
+      "meta": ["ROUND"],
+      "stages": [{"text": "research.FOCUSPROJECTILE.stage.1"}]
+    }
+  ]
+}

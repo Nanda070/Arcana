@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "I I",
+    "I I",
+    "III"
+  ],
+  "key": {
+    "I": { "item": "minecraft:iron_ingot" }
+  },
+  "result": { "item": "arcana:crucible" }
+}
