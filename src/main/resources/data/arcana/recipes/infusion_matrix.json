@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["GGG","GAG","GGG"],
+  "key": {
+    "G": { "item": "minecraft:gold_ingot" },
+    "A": { "item": "arcana:salis_mundus" }
+  },
+  "result": { "item": "arcana:infusion_matrix" }
+}

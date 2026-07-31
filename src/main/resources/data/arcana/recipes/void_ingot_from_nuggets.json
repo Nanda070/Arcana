@@ -1,0 +1,7 @@
+﻿{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": ["NNN", "NNN", "NNN"],
+  "key": { "N": { "item": "arcana:void_nugget" } },
+  "result": { "item": "arcana:void_ingot" }
+}

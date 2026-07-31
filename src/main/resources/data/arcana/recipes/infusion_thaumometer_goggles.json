@@ -1,0 +1,14 @@
+{
+  "type": "arcana:infusion",
+  "research": "INFUSION",
+  "vis": 20,
+  "instability": 3,
+  "central": { "item": "arcana:thaumometer" },
+  "components": [
+    { "item": "minecraft:gold_ingot" },
+    { "item": "minecraft:diamond" },
+    { "item": "minecraft:glass_pane" }
+  ],
+  "aspects": { "sensus": 15, "praecantatio": 10, "auram": 5 },
+  "result": { "item": "arcana:goggles" }
+}

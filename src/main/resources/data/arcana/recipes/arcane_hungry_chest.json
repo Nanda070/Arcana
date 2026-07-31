@@ -1,0 +1,12 @@
+{
+  "type": "arcana:arcane_shaped",
+  "research": "GOLEMBASIC",
+  "vis": 15,
+  "crystals": { "terra": 1, "perditio": 1 },
+  "pattern": ["PPP", "PCP", "PPP"],
+  "key": {
+    "P": { "item": "arcana:greatwood_planks" },
+    "C": { "item": "minecraft:chest" }
+  },
+  "result": { "item": "arcana:hungry_chest" }
+}

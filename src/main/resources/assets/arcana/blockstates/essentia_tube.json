@@ -1,0 +1,11 @@
+{
+  "multipart": [
+    { "apply": { "model": "arcana:block/essentia_tube_center" } },
+    { "when": { "up": true }, "apply": { "model": "arcana:block/essentia_tube_side" } },
+    { "when": { "down": true }, "apply": { "model": "arcana:block/essentia_tube_side", "x": 180 } },
+    { "when": { "north": true }, "apply": { "model": "arcana:block/essentia_tube_side", "x": 90 } },
+    { "when": { "east": true }, "apply": { "model": "arcana:block/essentia_tube_side", "x": 90, "y": 90 } },
+    { "when": { "south": true }, "apply": { "model": "arcana:block/essentia_tube_side", "x": 90, "y": 180 } },
+    { "when": { "west": true }, "apply": { "model": "arcana:block/essentia_tube_side", "x": 90, "y": 270 } }
+  ]
+}

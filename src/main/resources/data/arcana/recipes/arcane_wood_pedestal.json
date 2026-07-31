@@ -1,0 +1,12 @@
+{
+  "type": "arcana:arcane_shaped",
+  "research": "FIRSTSTEPS",
+  "vis": 8,
+  "crystals": { "aer": 1, "ignis": 1 },
+  "pattern": ["G G", " S ", "G G"],
+  "key": {
+    "G": { "item": "arcana:greatwood_planks" },
+    "S": { "item": "arcana:silverwood_planks" }
+  },
+  "result": { "item": "arcana:pedestal" }
+}

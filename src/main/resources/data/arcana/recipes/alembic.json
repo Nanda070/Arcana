@@ -1,0 +1,13 @@
+{
+  "type": "arcana:arcane_shaped",
+  "research": "FIRSTSTEPS",
+  "vis": 25,
+  "crystals": { "aqua": 1 },
+  "pattern": [" C ", "GIG", " G "],
+  "key": {
+    "C": { "item": "minecraft:copper_ingot" },
+    "G": { "item": "minecraft:gold_ingot" },
+    "I": { "item": "minecraft:iron_ingot" }
+  },
+  "result": { "item": "arcana:alembic" }
+}

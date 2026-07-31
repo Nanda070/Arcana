@@ -1,0 +1,14 @@
+{
+  "type": "arcana:infusion",
+  "research": "INFUSION",
+  "vis": 35,
+  "instability": 5,
+  "central": { "item": "arcana:goggles" },
+  "components": [
+    { "item": "arcana:thaumometer" },
+    { "item": "minecraft:diamond" },
+    { "item": "arcana:quicksilver" }
+  ],
+  "aspects": { "sensus": 25, "praecantatio": 20, "auram": 15 },
+  "result": { "item": "arcana:goggles_advanced" }
+}

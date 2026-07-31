@@ -1,0 +1,12 @@
+{
+  "type": "arcana:arcane_shaped",
+  "research": "FIRSTSTEPS",
+  "vis": 15,
+  "crystals": { "aer": 1, "ordo": 1 },
+  "pattern": [" S ", "SPS", " S "],
+  "key": {
+    "S": { "item": "arcana:silverwood_planks" },
+    "P": { "item": "minecraft:glass_pane" }
+  },
+  "result": { "item": "arcana:warded_jar" }
+}

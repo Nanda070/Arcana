@@ -1,0 +1,53 @@
+{
+  "entries": [
+    {
+      "key": "ARTIFICE_INTRO",
+      "name": "research.ARTIFICE_INTRO.title",
+      "category": "ARTIFICE",
+      "location": [0, 0],
+      "parents": ["INFUSION"],
+      "meta": ["ROUND"],
+      "stages": [{"text": "research.ARTIFICE_INTRO.stage.1"}]
+    },
+    {
+      "key": "INFUSIONARTIFICE",
+      "name": "research.INFUSIONARTIFICE.title",
+      "category": "ARTIFICE",
+      "location": [-2, 1],
+      "parents": ["ARTIFICE_INTRO"],
+      "stages": [{"text": "research.INFUSIONARTIFICE.stage.1"}]
+    },
+    {
+      "key": "ESSENTIAVALVE",
+      "name": "research.ESSENTIAVALVE.title",
+      "category": "ARTIFICE",
+      "location": [2, 1],
+      "parents": ["ARTIFICE_INTRO"],
+      "stages": [{"text": "research.ESSENTIAVALVE.stage.1"}]
+    },
+    {
+      "key": "RESEARCHTABLE",
+      "name": "research.RESEARCHTABLE.title",
+      "category": "ARTIFICE",
+      "location": [0, 2],
+      "parents": ["ARTIFICE_INTRO"],
+      "stages": [{"text": "research.RESEARCHTABLE.stage.1"}]
+    },
+    {
+      "key": "MIRROR",
+      "name": "research.MIRROR.title",
+      "category": "ARTIFICE",
+      "location": [-2, 3],
+      "parents": ["INFUSIONARTIFICE"],
+      "stages": [{"text": "research.MIRROR.stage.1"}]
+    },
+    {
+      "key": "LEVITATOR",
+      "name": "research.LEVITATOR.title",
+      "category": "ARTIFICE",
+      "location": [2, 3],
+      "parents": ["INFUSIONARTIFICE"],
+      "stages": [{"text": "research.LEVITATOR.stage.1"}]
+    }
+  ]
+}

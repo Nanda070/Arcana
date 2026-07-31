@@ -1,0 +1,12 @@
+{
+  "type": "arcana:arcane_shaped",
+  "research": "FIRSTSTEPS",
+  "vis": 5,
+  "crystals": { "ordo": 1 },
+  "pattern": ["S", "P"],
+  "key": {
+    "S": { "item": "minecraft:slime_ball" },
+    "P": { "item": "arcana:silverwood_planks" }
+  },
+  "result": { "item": "arcana:label", "count": 8 }
+}

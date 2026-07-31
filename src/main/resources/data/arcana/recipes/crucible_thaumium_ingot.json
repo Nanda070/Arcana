@@ -1,0 +1,10 @@
+{
+  "type": "arcana:crucible",
+  "research": "",
+  "catalyst": { "item": "minecraft:iron_ingot" },
+  "aspects": {
+    "terra": 5,
+    "aer": 5
+  },
+  "result": { "item": "arcana:thaumium_ingot" }
+}

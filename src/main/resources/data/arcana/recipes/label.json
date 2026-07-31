@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": ["S", "P"],
+  "key": {
+    "S": { "item": "minecraft:slime_ball" },
+    "P": { "item": "minecraft:paper" }
+  },
+  "result": { "item": "arcana:label", "count": 4 }
+}

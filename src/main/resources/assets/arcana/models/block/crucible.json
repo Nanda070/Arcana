@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "arcana:block/crucible_top",
+    "bottom": "arcana:block/crucible_bottom",
+    "side": "arcana:block/crucible_side"
+  }
+}

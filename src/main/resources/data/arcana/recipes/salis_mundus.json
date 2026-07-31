@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    { "item": "minecraft:flint" },
+    { "item": "minecraft:redstone" },
+    { "item": "minecraft:bowl" },
+    { "item": "arcana:crystal_aer" },
+    { "item": "arcana:crystal_terra" },
+    { "item": "arcana:crystal_ignis" },
+    { "item": "arcana:crystal_aqua" },
+    { "item": "arcana:crystal_ordo" },
+    { "item": "arcana:crystal_perditio" }
+  ],
+  "result": { "item": "arcana:salis_mundus" }
+}

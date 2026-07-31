@@ -1,0 +1,14 @@
+{
+  "type": "arcana:crucible",
+  "research": "FIRSTSTEPS",
+  "catalyst": { "item": "minecraft:gunpowder" },
+  "aspects": {
+    "aer": 2,
+    "terra": 2,
+    "ignis": 2,
+    "aqua": 2,
+    "ordo": 2,
+    "perditio": 2
+  },
+  "result": { "item": "arcana:salis_mundus" }
+}

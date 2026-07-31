@@ -1,0 +1,10 @@
+{
+  "type": "arcana:crucible",
+  "research": "FIRSTSTEPS",
+  "catalyst": { "item": "minecraft:coal" },
+  "aspects": {
+    "ignis": 5,
+    "potentia": 5
+  },
+  "result": { "item": "arcana:alumentum" }
+}

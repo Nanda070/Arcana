@@ -1,0 +1,6 @@
+{
+  "type": "arcana:crystal_cluster",
+  "config": {
+    "state": { "Name": "arcana:crystal_cluster_ordo" }
+  }
+}
